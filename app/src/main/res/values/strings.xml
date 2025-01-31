@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Mobile Project</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">ค้นหาของหาย</string>
+    <string name="title_dashboard">แจ้งหาย</string>
+    <string name="title_notifications">แจ้งพบของหาย</string>
+    <string name="title_profile">โปรไฟล์</string>
+
 </resources>
