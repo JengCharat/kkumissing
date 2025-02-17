@@ -1,0 +1,11 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:height="40dp"
+        android:gravity="center">  <!-- กำหนดความสูงให้ shape -->
+
+        <shape>
+            <solid android:color="#E0E0E0" />
+            <corners android:radius="25dp"/>
+            <!--<stroke android:width="1dp" android:color="#BDBDBD"/>-->
+        </shape>
+    </item>
+</layer-list>

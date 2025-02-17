@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/update_report_as_lost_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/prompt_medium"
+        android:gravity="center"
+        android:text="จงกรอกสิ่งของที่พบ ลักษณะสิ่งของ"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="300dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="56dp"
+        android:fontFamily="@font/prompt_medium"
+        android:gravity="center"
+        android:text="และประเภท"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/inputReportasLost"
+        android:layout_width="325dp"
+        android:layout_height="48dp"
+        android:background="@drawable/edittext_bg"
+        android:ems="10"
+        android:fontFamily="@font/prompt_medium"
+        android:hint="กรอกตรงนี้"
+        android:inputType="text"
+        android:padding="14dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Next2" />
+
+    <TextView
+        android:id="@+id/Next2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="232dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="ของที่พบ"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/next2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="ประเภท"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputReportasLost" />
+
+    <TextView
+        android:id="@+id/next3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="ลักษณะเพิ่มเติม"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ReportType" />
+
+    <EditText
+        android:id="@+id/inputFoundMore"
+        android:layout_width="325dp"
+        android:layout_height="108dp"
+
+        android:layout_marginTop="4dp"
+        android:background="@drawable/edittextbig_bg"
+        android:ems="10"
+        android:fontFamily="@font/prompt_medium"
+        android:gravity="clip_horizontal"
+        android:hint="กรอกตรงนี้"
+        android:inputType="text"
+        android:padding="14dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next3" />
+
+    <Button
+        android:id="@+id/butbackTo1"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="140dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="ถอยกลับ"
+        android:textColorLink="#C2410C"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/butNextTo3"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="140dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="ถัดไป"
+        android:textColorLink="#C2410C"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/ReportType"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

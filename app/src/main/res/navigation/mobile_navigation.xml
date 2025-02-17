@@ -10,18 +10,189 @@
         android:name="com.example.mobileproject.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-
+    <!-- หน้าแรก (Dashboard)
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.mobileproject.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+-->
+    <!-- หน้าแรก (Dashboard) -->
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.mobileproject.ui.dashboard.DashboardFragment"
+        android:label="Dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_reportMissing2Fragment"
+            app:destination="@id/reportMissing2Fragment"/>
+    </fragment>
+    <!-- หน้าที่ 2 (ReportMissing2) -->
+    <fragment
+        android:id="@+id/reportMissing2Fragment"
+        android:name="com.example.mobileproject.ui.dashboard.ReportMissing2Fragment"
+        android:label="Report Missing 2"/>
+        <action
+            android:id="@+id/action_reportMissing2Fragment_to_dashboardFragment"
+            app:destination="@id/navigation_dashboard"
+            app:popUpTo="@id/navigation_dashboard"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_reportMissing2Fragment_to_reportMissing3Fragment"
+            app:destination="@id/reportMissing3Fragment"
+            />
+    <!-- หน้าที่ 3 -->
+    <fragment
+        android:id="@+id/reportMissing3Fragment"
+        android:name="com.example.mobileproject.ui.dashboard.ReportMissing3Fragment"
+        android:label="Report Missing 3" />
+    <action
+        android:id="@+id/action_reportMissing3Fragment_to_reportMissing2Fragment"
+        app:destination="@id/reportMissing2Fragment"
+        app:popUpTo="@id/reportMissing2Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportMissing3Fragment_to_reportMissing4Fragment"
+        app:destination="@id/reportMissing4Fragment"
+        />
+    <!-- หน้าที่ 4 -->
+    <fragment
+        android:id="@+id/reportMissing4Fragment"
+        android:name="com.example.mobileproject.ui.dashboard.ReportMissing4Fragment"
+        android:label="Report Missing 4" />
+    <action
+        android:id="@+id/action_reportMissing4Fragment_to_reportMissing3Fragment"
+        app:destination="@id/reportMissing3Fragment"
+        app:popUpTo="@id/reportMissing3Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportMissing4Fragment_to_reportMissing5Fragment"
+        app:destination="@id/reportMissing5Fragment"
+        />
+    <!-- หน้าที่ 5 -->
+    <fragment
+        android:id="@+id/reportMissing5Fragment"
+        android:name="com.example.mobileproject.ui.dashboard.ReportMissing5Fragment"
+        android:label="Report Missing 5" />
+    <action
+        android:id="@+id/action_reportMissing5Fragment_to_reportMissing4Fragment"
+        app:destination="@id/reportMissing4Fragment"
+        app:popUpTo="@id/reportMissing4Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportMissing5Fragment_to_reportMissing6Fragment"
+        app:destination="@id/reportMissing6Fragment" />
+    <!-- หน้าที่ 6 -->
+    <fragment
+        android:id="@+id/reportMissing6Fragment"
+        android:name="com.example.mobileproject.ui.dashboard.ReportMissing6Fragment"
+        android:label="Report Missing 6" />
+    <action
+        android:id="@+id/action_reportMissing6Fragment_to_reportMissing5Fragment"
+        app:destination="@id/reportMissing5Fragment"
+        app:popUpTo="@id/reportMissing5Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportMissing6Fragment_to_reportMissing7Fragment"
+        app:destination="@id/reportMissing7Fragment" />
+    <!-- หน้าที่ 7 -->
+    <fragment
+        android:id="@+id/reportMissing7Fragment"
+        android:name="com.example.mobileproject.ui.dashboard.ReportMissing7Fragment"
+        android:label="Report Missing 7" />
+    <action
+        android:id="@+id/action_reportMissing7Fragment_to_search"
+        app:destination="@layout/fragment_home" />
 
+
+    <!-- แจ้งพบของหาย -->
+    <!-- หน้าแรก (Notifications) -->
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.mobileproject.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <action
+        android:id="@+id/NotificationsFragment_to_reportAsLost2Fragment"
+        app:destination="@id/reportAsLost2Fragment"
+        />
+    <!-- หน้าที่ 2 -->
+    <fragment
+        android:id="@+id/reportAsLost2Fragment"
+        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment2"
+        android:label="Report As Lost 2"/>
+    <action
+        android:id="@+id/action_reportAsLost2Fragment_to_NotificationsFragment"
+        app:destination="@id/navigation_notifications"
+        app:popUpTo="@id/navigation_notifications"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportAsLost2Fragment_to_reportAsLost3Fragment"
+        app:destination="@id/reportAsLost3Fragment"
+        />
+    <!-- หน้าที่ 3 -->
+    <fragment
+        android:id="@+id/reportAsLost3Fragment"
+        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment3"
+        android:label="Report As Lost 3"/>
+    <action
+        android:id="@+id/action_reportAsLost3Fragment_to_reportAsLost2Fragment"
+        app:destination="@id/reportAsLost2Fragment"
+        app:popUpTo="@id/reportAsLost2Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportAsLost3Fragment_to_reportAsLost4Fragment"
+        app:destination="@id/reportAsLost4Fragment"
+        />
+    <!-- หน้าที่ 4 -->
+    <fragment
+        android:id="@+id/reportAsLost4Fragment"
+        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment4"
+        android:label="Report As Lost 4"/>
+    <action
+        android:id="@+id/action_reportAsLos4Fragment_to_reportAsLost3Fragment"
+        app:destination="@id/reportAsLost3Fragment"
+        app:popUpTo="@id/reportAsLost3Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportAsLost4Fragment_to_reportAsLost5Fragment"
+        app:destination="@id/reportAsLost5Fragment"
+        />
+    <!-- หน้าที่ 5 -->
+    <fragment
+        android:id="@+id/reportAsLost5Fragment"
+        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment5"
+        android:label="Report As Lost 5"/>
+    <action
+        android:id="@+id/action_reportAsLos5Fragment_to_reportAsLost4Fragment"
+        app:destination="@id/reportAsLost4Fragment"
+        app:popUpTo="@id/reportAsLost4Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportAsLost5Fragment_to_reportAsLost6Fragment"
+        app:destination="@id/reportAsLost6Fragment"
+        />
+    <!-- หน้าที่ 6 -->
+    <fragment
+        android:id="@+id/reportAsLost6Fragment"
+        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment6"
+        android:label="Report As Lost 6"/>
+    <action
+        android:id="@+id/action_reportAsLos6Fragment_to_reportAsLost5Fragment"
+        app:destination="@id/reportAsLost5Fragment"
+        app:popUpTo="@id/reportAsLost5Fragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/action_reportAsLost6Fragment_to_reportAsLost7Fragment"
+        app:destination="@id/reportAsLost7Fragment"
+        />
+    <!-- หน้าที่ 7 -->
+    <fragment
+        android:id="@+id/reportAsLost7Fragment"
+        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment7"
+        android:label="Report As Lost 7"/>
+    <action
+        android:id="@+id/action_reportAsLost7Fragment_to_search"
+        app:destination="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_profile"

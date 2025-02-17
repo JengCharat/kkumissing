@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
@@ -28,9 +30,13 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+//        val textView: TextView = binding.textNotifications
+//        notificationsViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+
+        binding.ButNextTo2.setOnClickListener {
+            findNavController().navigate(R.id.NotificationsFragment_to_reportAsLost2Fragment)
         }
         return root
     }
