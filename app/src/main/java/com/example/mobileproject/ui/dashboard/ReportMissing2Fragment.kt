@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentDashboardBinding
@@ -62,6 +61,15 @@ class ReportMissing2Fragment : Fragment() {
             findNavController().navigate(R.id.action_reportMissing2Fragment_to_reportMissing3Fragment)
         }
 
+        // โค้ดของ Spinner
+        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items)
+        // ใช้ Layout ที่กำหนดเอง
+        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.misingType.adapter = adapter
+        val spinner = binding.misingType // ใช้ binding แทน findViewById
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
         return root
     }
 

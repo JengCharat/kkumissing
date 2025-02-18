@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportAsLost2Binding
@@ -51,6 +54,17 @@ class ReportAsLostFragment2 : Fragment() {
         binding.butNextTo3.setOnClickListener {
             findNavController().navigate(R.id.action_reportAsLost2Fragment_to_reportAsLost3Fragment)
         }
+
+        // โค้ดของ Spinner
+        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items)
+        // ใช้ Layout ที่กำหนดเอง
+        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.ReportType.adapter = adapter
+        val spinner = binding.ReportType // ใช้ binding แทน findViewById
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
         return root
     }
 
