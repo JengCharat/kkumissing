@@ -20,6 +20,10 @@ import com.example.mobileproject.ui.dashboard.ReportMissing2Fragment
 import com.example.mobileproject.ui.dashboard.ReportMissing3Fragment
 import com.example.mobileproject.ui.dashboard.ReportMissing4Fragment
 import com.example.mobileproject.ui.dashboard.ReportMissing5Fragment
+import java.io.IOException
+import java.net.Socket
+import java.net.URLEncoder
+
 //////////////////////////////////////
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,6 +87,7 @@ class ReportMissing6Fragment : Fragment() {
             println(inputLostPlaces)
             println("contact")
             println(contact)
+            post()
         }
 
         return root
@@ -111,5 +116,40 @@ class ReportMissing6Fragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun post() {
+        //println("encode imageeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+        //println(ImageData.base64Image)
+        Thread {
+            try {
+                val postData = "sql_command=" + URLEncoder.encode(
+                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact) VALUES('$fname', '$lname','$item_name','$more_detail','$inputLostPlaces','$contact')",
+                    "UTF-8"
+                ).trim()
+                val host = "192.168.11.252"
+                val path = "/myapi/kku-missing.php"
+                // สร้าง HTTP Request แบบ Manual
+                val request = StringBuilder()
+                request.append("POST $path HTTP/1.1\r\n")
+                request.append("Host: $host\r\n")
+                request.append("Content-Type: application/x-www-form-urlencoded\r\n")
+                request.append("Content-Length: ${postData.toByteArray().size}\r\n")
+                request.append("Connection: close\r\n\r\n")
+                request.append(postData)
+                // แสดง HTTP Request ที่จะถูกส่งไป
+                println("Request:\n$request")
+                // สร้าง Socket ไปยังเซิร์ฟเวอร์
+                val socket = Socket(host, 80)
+                socket.soTimeout = 60000000
+                // ส่งข้อมูลไปยังเซิร์ฟเวอร์
+                val outputStream = socket.getOutputStream()
+                outputStream.write(request.toString().toByteArray())
+                outputStream.flush()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+        }.start()
+
     }
 }
