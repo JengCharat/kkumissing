@@ -10,6 +10,17 @@ import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing4Binding
 import com.example.mobileproject.databinding.FragmentReportMissing6Binding
 
+
+
+
+
+///////////////////////////////////////
+import com.example.mobileproject.ui.dashboard.DashboardFragment
+import com.example.mobileproject.ui.dashboard.ReportMissing2Fragment
+import com.example.mobileproject.ui.dashboard.ReportMissing3Fragment
+import com.example.mobileproject.ui.dashboard.ReportMissing4Fragment
+import com.example.mobileproject.ui.dashboard.ReportMissing5Fragment
+//////////////////////////////////////
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -59,6 +70,19 @@ class ReportMissing6Fragment : Fragment() {
         // ปุ่มไป
         binding.butNextTo7.setOnClickListener {
             findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing7Fragment)
+            //socket work here
+            println("fname")
+            println(fname)
+            println("lname")
+            println(lname)
+            println("item name")
+            println(item_name)
+            println("more detail")
+            println(more_detail)
+            println("lost place")
+            println(inputLostPlaces)
+            println("contact")
+            println(contact)
         }
 
         return root

@@ -20,6 +20,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ReportMissing5Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+var contact:String = ""
 class ReportMissing5Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -33,6 +34,7 @@ class ReportMissing5Fragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -50,6 +52,7 @@ class ReportMissing5Fragment : Fragment() {
 
         // ปุ่มไป
         binding.butNextTo6.setOnClickListener {
+            contact = binding.inputFacebook.text.toString()
             findNavController().navigate(R.id.action_reportMissing5Fragment_to_reportMissing6Fragment)
         }
 

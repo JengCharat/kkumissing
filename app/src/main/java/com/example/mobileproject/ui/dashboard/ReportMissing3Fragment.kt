@@ -19,6 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ReportMissing3Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+var inputLostPlaces:String = ""
 class ReportMissing3Fragment : Fragment() {
 
     // TODO: Rename and change types of parameters
@@ -49,6 +50,7 @@ class ReportMissing3Fragment : Fragment() {
 
         // ปุ่มไป
         binding.butNextTo4.setOnClickListener {
+            inputLostPlaces = binding.inputLostPlaces.text.toString()
             findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing4Fragment)
         }
 
