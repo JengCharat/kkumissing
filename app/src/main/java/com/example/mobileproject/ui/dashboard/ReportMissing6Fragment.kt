@@ -126,7 +126,7 @@ class ReportMissing6Fragment : Fragment() {
                     "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact) VALUES('$fname', '$lname','$item_name','$more_detail','$inputLostPlaces','$contact')",
                     "UTF-8"
                 ).trim()
-                val host = "192.168.11.252"
+                val host = "10.53.62.74"
                 val path = "/myapi/kku-missing.php"
                 // สร้าง HTTP Request แบบ Manual
                 val request = StringBuilder()
