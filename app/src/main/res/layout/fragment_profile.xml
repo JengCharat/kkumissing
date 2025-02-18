@@ -6,13 +6,25 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_profile"
-        android:layout_width="200dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="44dp"
-        android:text="หน้า profile"
-        android:textSize="24sp"
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="โปรไฟล์"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="343dp"
+        android:layout_height="202dp"
+        app:srcCompat="@drawable/edittextbig_bg"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="79dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
