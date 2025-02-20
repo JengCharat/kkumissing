@@ -35,10 +35,49 @@
         android:id="@+id/upload_image"
         android:layout_width="228dp"
         android:layout_height="49dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="552dp"
         android:fontFamily="@font/prompt_medium"
-        android:text="select image"
+        android:text="select img1"
+        android:textColorLink="#C2410C"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/upload_image2"
+        android:layout_width="165dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="272dp"
+        android:layout_marginBottom="52dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="select img2"
+        android:textColorLink="#C2410C"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/upload_image3"
+        android:layout_width="165dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="68dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="select img3"
+        android:textColorLink="#C2410C"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/upload_image4"
+        android:layout_width="165dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="240dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="select img3"
         android:textColorLink="#C2410C"
         app:cornerRadius="@dimen/activity_horizontal_margin"
         app:layout_constraintBottom_toBottomOf="parent"

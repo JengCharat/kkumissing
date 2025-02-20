@@ -37,6 +37,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 var img1:String = ""
+var img2:String = ""
+var img3:String = ""
+var img4:String = ""
 class ReportMissing4Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -58,6 +61,57 @@ class ReportMissing4Fragment : Fragment() {
                 img1 = encodeImageToBase64(it).toString()
                 println("img1111111111111111111111")
                 println(img1)
+            }
+        }
+    }
+    val getImage2 = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val uri: Uri? = result.data?.data
+            uri?.let {
+                val img2_show:ImageView? = binding.imageView8
+                img2_show!!.setImageURI(it) // แสดงภาพที่เลือก
+                //val base64Image = encodeImageToBase64(it)
+                //ImageData.base64Image = encodeImageToBase64(it)
+                //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
+                img2 = encodeImageToBase64(it).toString()
+                println("img1111111111111111111111")
+                println(img2)
+            }
+        }
+    }
+    val getImage3 = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val uri: Uri? = result.data?.data
+            uri?.let {
+                val img3_show:ImageView? = binding.imageView11
+                img3_show!!.setImageURI(it) // แสดงภาพที่เลือก
+                //val base64Image = encodeImageToBase64(it)
+                //ImageData.base64Image = encodeImageToBase64(it)
+                //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
+                img3 = encodeImageToBase64(it).toString()
+                println("img1111111111111111111111")
+                println(img3)
+            }
+        }
+    }
+    val getImage4 = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val uri: Uri? = result.data?.data
+            uri?.let {
+                val img4_show:ImageView? = binding.imageView12
+                img4_show!!.setImageURI(it) // แสดงภาพที่เลือก
+                //val base64Image = encodeImageToBase64(it)
+                //ImageData.base64Image = encodeImageToBase64(it)
+                //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
+                img4 = encodeImageToBase64(it).toString()
+                println("img1111111111111111111111")
+                println(img4)
             }
         }
     }
@@ -90,6 +144,18 @@ class ReportMissing4Fragment : Fragment() {
         binding.uploadImage.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             getImage.launch(intent)
+        }
+        binding.uploadImage2.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            getImage2.launch(intent)
+        }
+        binding.uploadImage3.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            getImage3.launch(intent)
+        }
+        binding.uploadImage4.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            getImage4.launch(intent)
         }
 
         return root
