@@ -89,10 +89,12 @@ class ReportMissing6Fragment : Fragment() {
             println(inputLostPlaces)
             println("contact")
             println(contact)
-            println("latiiude")
+            println("latitude")
             println(latitude2)
             println("longitude")
             println(longitude2)
+            println("img")
+            println(img1)
             post()
         }
 
@@ -129,10 +131,10 @@ class ReportMissing6Fragment : Fragment() {
         Thread {
             try {
                 val postData = "sql_command=" + URLEncoder.encode(
-                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact) VALUES('$fname', '$lname','$item_name','$more_detail','$inputLostPlaces','$contact')",
+                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,latitude,longitude,img1,img2,img3) VALUES('$fname', '$lname','$item_name','$more_detail','$inputLostPlaces','$contact','$latitude2','$longitude2','$img1','img2','img3')",
                     "UTF-8"
                 ).trim()
-                val host = "10.53.62.74"
+                val host = "192.168.11.252"
                 val path = "/myapi/kku-missing.php"
                 // สร้าง HTTP Request แบบ Manual
                 val request = StringBuilder()

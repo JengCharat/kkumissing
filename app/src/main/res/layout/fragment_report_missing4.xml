@@ -32,6 +32,19 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
+        android:id="@+id/upload_image"
+        android:layout_width="228dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="72dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="select image"
+        android:textColorLink="#C2410C"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
         android:id="@+id/butbackTo3"
         android:layout_width="135dp"
         android:layout_height="48dp"

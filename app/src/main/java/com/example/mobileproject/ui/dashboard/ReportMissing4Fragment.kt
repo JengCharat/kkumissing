@@ -1,11 +1,21 @@
 package com.example.mobileproject.ui.dashboard
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.location.Location
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.findNavController
@@ -13,6 +23,8 @@ import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing4Binding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +36,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ReportMissing4Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+var img1:String = ""
 class ReportMissing4Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -31,12 +44,29 @@ class ReportMissing4Fragment : Fragment() {
 
     private var _binding: FragmentReportMissing4Binding? = null
     private val binding get() = _binding!!
-
+    val getImage = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val uri: Uri? = result.data?.data
+            uri?.let {
+                val img1_show:ImageView? = binding.imageView7
+                img1_show!!.setImageURI(it) // แสดงภาพที่เลือก
+                //val base64Image = encodeImageToBase64(it)
+                //ImageData.base64Image = encodeImageToBase64(it)
+                //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
+                img1 = encodeImageToBase64(it).toString()
+                println("img1111111111111111111111")
+                println(img1)
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
 
         }
     }
@@ -57,8 +87,25 @@ class ReportMissing4Fragment : Fragment() {
         binding.butNextTo5.setOnClickListener {
             findNavController().navigate(R.id.action_reportMissing4Fragment_to_reportMissing5Fragment)
         }
+        binding.uploadImage.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            getImage.launch(intent)
+        }
 
         return root
+    }
+    private fun encodeImageToBase64(imageUri: Uri): String? {
+        return try {
+            val inputStream: InputStream? = requireContext().contentResolver.openInputStream(imageUri)
+            val bitmap = BitmapFactory.decodeStream(inputStream)
+            val outputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+            val byteArray: ByteArray = outputStream.toByteArray()
+            Base64.encodeToString(byteArray, Base64.DEFAULT)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
