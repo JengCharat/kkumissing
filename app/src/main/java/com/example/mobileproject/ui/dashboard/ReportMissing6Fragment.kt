@@ -81,12 +81,18 @@ class ReportMissing6Fragment : Fragment() {
             println(lname)
             println("item name")
             println(item_name)
+            println("type")
+            println(type)
             println("more detail")
             println(more_detail)
             println("lost place")
             println(inputLostPlaces)
             println("contact")
             println(contact)
+            println("latiiude")
+            println(latitude2)
+            println("longitude")
+            println(longitude2)
             post()
         }
 

@@ -53,6 +53,7 @@ class ReportAsLostFragment3 : Fragment() {
         binding.butNextTo4.setOnClickListener {
             findNavController().navigate(R.id.action_reportAsLost3Fragment_to_reportAsLost4Fragment)
         }
+
         return root
     }
 

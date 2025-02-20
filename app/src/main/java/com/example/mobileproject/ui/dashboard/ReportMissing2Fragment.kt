@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
@@ -67,9 +68,27 @@ class ReportMissing2Fragment : Fragment() {
         val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.misingType.adapter = adapter
+
+        binding.misingType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedItem = parent.getItemAtPosition(position) as String
+                // นำค่าที่เลือกไปใช้งาน
+                type = selectedItem
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // กรณีที่ไม่มีการเลือก
+            }
+        }
+            /*
         val spinner = binding.misingType // ใช้ binding แทน findViewById
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
+        type = adapter.toString()*/
         return root
     }
 
