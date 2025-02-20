@@ -38,7 +38,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="552dp"
         android:fontFamily="@font/prompt_medium"
-        android:text="select img1"
+        android:text="firstimage"
         android:textColorLink="#C2410C"
         app:cornerRadius="@dimen/activity_horizontal_margin"
         app:layout_constraintBottom_toBottomOf="parent"
