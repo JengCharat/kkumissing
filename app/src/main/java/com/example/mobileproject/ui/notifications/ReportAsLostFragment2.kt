@@ -23,6 +23,10 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ReportAsLostFragment2.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+var item_name:String = ""
+var type:String = ""
+var more_detail:String = ""
 class ReportAsLostFragment2 : Fragment() {
     private var _binding: FragmentReportAsLost2Binding? = null
     private val binding get() = _binding!!
@@ -52,6 +56,8 @@ class ReportAsLostFragment2 : Fragment() {
 
         // ปุ่มไป ReportMissing3Fragment
         binding.butNextTo3.setOnClickListener {
+            item_name = binding.inputReportasLost.text.toString()
+            more_detail = binding.inputFoundMore.text.toString()
             findNavController().navigate(R.id.action_reportAsLost2Fragment_to_reportAsLost3Fragment)
         }
 
@@ -61,9 +67,22 @@ class ReportAsLostFragment2 : Fragment() {
         val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.ReportType.adapter = adapter
-        val spinner = binding.ReportType // ใช้ binding แทน findViewById
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+
+        binding.ReportType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedItem = parent.getItemAtPosition(position) as String
+                // นำค่าที่เลือกไปใช้งาน
+                type = selectedItem
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // กรณีที่ไม่มีการเลือก
+            }
+        }
 
         return root
     }

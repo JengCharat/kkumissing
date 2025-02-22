@@ -11,6 +11,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentNotificationsBinding
 
+
+var fname:String = ""
+var lname:String = ""
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
@@ -36,6 +39,10 @@ class NotificationsFragment : Fragment() {
 //        }
 
         binding.ButNextTo2.setOnClickListener {
+            fname = binding.inputFname.text.toString()
+            lname = binding.inputLname.text.toString()
+            println("fname")
+            println(fname)
             findNavController().navigate(R.id.NotificationsFragment_to_reportAsLost2Fragment)
         }
         return root

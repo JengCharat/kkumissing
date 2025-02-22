@@ -50,9 +50,6 @@ class DashboardFragment : Fragment() {
             inputLname = binding.inputLname
             fname = (inputFname?.text).toString()
             lname = (inputLname?.text).toString()
-            println("name")
-            println(fname)
-            println(lname)
         }
         return root
     }
