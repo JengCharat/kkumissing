@@ -20,7 +20,7 @@
     <!-- หน้าแรก (Dashboard) -->
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.mobileproject.ui.dashboard.DashboardFragment"
+        android:name="com.example.mobileproject.ui.dashboard.ReportMissing1Fragment"
         android:label="Dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_reportMissing2Fragment"
@@ -108,9 +108,9 @@
     <!-- หน้าแรก (Notifications) -->
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.mobileproject.ui.notifications.NotificationsFragment"
+        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment1"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_report_as_lost1" />
     <action
         android:id="@+id/NotificationsFragment_to_reportAsLost2Fragment"
         app:destination="@id/reportAsLost2Fragment"

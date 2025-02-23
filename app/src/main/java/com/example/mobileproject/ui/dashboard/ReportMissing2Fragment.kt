@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
-import com.example.mobileproject.databinding.FragmentDashboardBinding
 import com.example.mobileproject.databinding.FragmentReportMissing2Binding
 
 // TODO: Rename parameter arguments, choose names that match
