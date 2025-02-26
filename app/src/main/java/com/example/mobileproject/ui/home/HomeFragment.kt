@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentHomeBinding
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -18,6 +20,8 @@ import java.net.Socket
 import java.net.URLEncoder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+
+import com.example.mobileproject.ui.home.MyAdapter
 
 data class User(
     /*
@@ -62,12 +66,15 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
+
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
+
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -75,12 +82,21 @@ class HomeFragment : Fragment() {
         binding.getButton.setOnClickListener {
             println("test click")
             get_data("select * from items where id = 11")
+            println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+            println("list test")
+            val recyclerView = view?.findViewById<RecyclerView>(R.id.item_list)
+            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+
+            val itemList = listOf("a", "b", "c", "d")
+            recyclerView?.adapter = MyAdapter(itemList)
+
         }
 
 //        val textView: TextView = binding.textHome
 //        homeViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
 //        }
+
         return root
     }
 
@@ -169,7 +185,7 @@ class HomeFragment : Fragment() {
                     }
 
                     val imageView: ImageView = binding.imageItem1
-                    val fname:TextView = binding.firstName
+                    /*val fname:TextView = binding.firstName
                     val lname:TextView = binding.lastName
                     val item_name:TextView = binding.itemName
                     val more_datail:TextView = binding.moreDetail
@@ -187,11 +203,13 @@ class HomeFragment : Fragment() {
                     lost_place.text = users[0].lost_place
                     contact.text = users[0].contact
                     latitude.text = users[0].latitude
-                    longitude.text = users[0].longitude
+                    longitude.text = users[0].longitude*/
                     val userImageBitmap = decodeBase64ToBitmap()
                     println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                     println(userImageBitmap)
                     imageView.setImageBitmap(userImageBitmap)
+
+
 
 
 
