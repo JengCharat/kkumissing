@@ -21,22 +21,8 @@ import java.net.URLEncoder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-import com.example.mobileproject.ui.home.MyAdapter
-
 data class User(
-    /*
-    "id" => $row["id"],
-"fname" => $row["fname"],
-"lname" => $row["lname"],
-"item_name" => $row["item_name"],
-"more_detail" => $row["more_detail"],
-"lost_place" => $row["lost_place"],
-"contact" => $row["contact"],
-"latitude" => $row["latitude"],
-"longgitude" => $row["longgitude"],
-"img1" =>  $img1,
-"img2" =>  $img2,
-"img3" =>  $img3,*/
+
 
     val id: String,            // ตัวแปร id จะเป็น Int สำหรับค่า AUTO_INCREMENT
     val fname: String,       // ตัวแปร name เป็น String สำหรับข้อความ
@@ -81,14 +67,15 @@ class HomeFragment : Fragment() {
 
         binding.getButton.setOnClickListener {
             println("test click")
-            get_data("select * from items where id = 11")
+            get_data("select * from items")
+                /*
             println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             println("list test")
             val recyclerView = view?.findViewById<RecyclerView>(R.id.item_list)
             recyclerView?.layoutManager = LinearLayoutManager(requireContext())
 
-            val itemList = listOf("a", "b", "c", "d")
-            recyclerView?.adapter = MyAdapter(itemList)
+            val itemList = listOf("Item 1", "Item 2", "Item 3", "Item 4")
+            recyclerView?.adapter = MyAdapter(itemList)*/
 
         }
 
@@ -163,6 +150,12 @@ class HomeFragment : Fragment() {
 
                     val listType = object : TypeToken<List<User>>() {}.type
                     val users: List<User> = Gson().fromJson(responseBody, listType)
+
+                    ///////////////////////////
+                    val itemList = listOf(users)
+                    ///////////////////////////
+
+
                     //nameTest.text = responseBody
                     // println(responseBody)
                     //var name_test:TextView? = null
@@ -211,6 +204,13 @@ class HomeFragment : Fragment() {
 
 
 
+                    println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                    println("list test")
+                    val recyclerView = view?.findViewById<RecyclerView>(R.id.item_list)
+                    recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+
+
+                    recyclerView?.adapter = MyAdapter(itemList)
 
 
 
