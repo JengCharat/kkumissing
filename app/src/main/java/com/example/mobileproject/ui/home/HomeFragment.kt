@@ -20,9 +20,30 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 data class User(
+    /*
+    "id" => $row["id"],
+"fname" => $row["fname"],
+"lname" => $row["lname"],
+"item_name" => $row["item_name"],
+"more_detail" => $row["more_detail"],
+"lost_place" => $row["lost_place"],
+"contact" => $row["contact"],
+"latitude" => $row["latitude"],
+"longgitude" => $row["longgitude"],
+"img1" =>  $img1,
+"img2" =>  $img2,
+"img3" =>  $img3,*/
+
     val id: String,            // ตัวแปร id จะเป็น Int สำหรับค่า AUTO_INCREMENT
-    val name: String,       // ตัวแปร name เป็น String สำหรับข้อความ
-    val image: String    // ตัวแปร image เป็น ByteArray สำหรับเก็บข้อมูลไบต์ของภาพ
+    val fname: String,       // ตัวแปร name เป็น String สำหรับข้อความ
+    val lname: String,
+    val item_name: String,
+    val more_datail: String,
+    val lost_place:String,
+    val contact:String,
+    val latitude:String,
+    val longitude:String,
+    val img1:String,
 )
 class HomeFragment : Fragment() {
 
@@ -53,7 +74,7 @@ class HomeFragment : Fragment() {
 
         binding.getButton.setOnClickListener {
             println("test click")
-            get_data("select * from name where name = 'dog2';")
+            get_data("select * from items where id = 11")
         }
 
 //        val textView: TextView = binding.textHome
@@ -74,7 +95,7 @@ class HomeFragment : Fragment() {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
                 val host = "192.168.11.252"
-                val path = "/myapi/test.php"
+                val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
                 //val sqlCommand = "select * from name where name = 'fan'"
@@ -133,7 +154,7 @@ class HomeFragment : Fragment() {
 
                     //name_test!!.text = users[0].name
                     println("get IMGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG123")
-                    val x = Base64.decode(users[0].image, Base64.DEFAULT)
+                    val x = Base64.decode(users[0].img1, Base64.DEFAULT)
                     //println(users[0].image)
                     // fun decodeBase64ToBitmap(base64String: String): Bitmap? {
                     fun decodeBase64ToBitmap(): Bitmap? {
@@ -148,6 +169,25 @@ class HomeFragment : Fragment() {
                     }
 
                     val imageView: ImageView = binding.imageItem1
+                    val fname:TextView = binding.firstName
+                    val lname:TextView = binding.lastName
+                    val item_name:TextView = binding.itemName
+                    val more_datail:TextView = binding.moreDetail
+                    val lost_place:TextView = binding.lostPlace
+                    val contact:TextView = binding.contact
+                    val latitude:TextView = binding.latitude
+                    val longitude:TextView = binding.longitude
+
+
+
+                    fname.text = users[0].fname
+                    lname.text = users[0].lname
+                    item_name.text = users[0].item_name
+                    more_datail.text = users[0].more_datail
+                    lost_place.text = users[0].lost_place
+                    contact.text = users[0].contact
+                    latitude.text = users[0].latitude
+                    longitude.text = users[0].longitude
                     val userImageBitmap = decodeBase64ToBitmap()
                     println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                     println(userImageBitmap)
