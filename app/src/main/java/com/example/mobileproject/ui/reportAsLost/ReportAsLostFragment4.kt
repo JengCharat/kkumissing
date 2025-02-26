@@ -1,4 +1,4 @@
-package com.example.mobileproject.ui.dashboard
+package com.example.mobileproject.ui.reportAsLost
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
-import com.example.mobileproject.databinding.FragmentReportMissing4Binding
+import com.example.mobileproject.databinding.FragmentReportAsLost4Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,15 +22,11 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ReportMissing4Fragment.newInstance] factory method to
+ * Use the [ReportAsLostFragment4.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ReportMissing4Fragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    private var _binding: FragmentReportMissing4Binding? = null
+class ReportAsLostFragment4 : Fragment() {
+    private var _binding: FragmentReportAsLost4Binding? = null
     private val binding get() = _binding!!
 
     val getImageMain = registerForActivityResult(
@@ -74,6 +70,11 @@ class ReportMissing4Fragment : Fragment() {
         }
     }
 
+
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -86,17 +87,17 @@ class ReportMissing4Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentReportMissing4Binding.inflate(inflater, container, false)
+        _binding = FragmentReportAsLost4Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // ปุ่มย้อนกลับไป
+        // ปุ่มย้อนกลับไป DashboardFragment
         binding.butbackTo3.setOnClickListener {
-            findNavController().navigate(R.id.action_reportMissing4Fragment_to_reportMissing3Fragment)
+            findNavController().navigate(R.id.action_reportAsLos4Fragment_to_reportAsLost3Fragment)
         }
 
-        // ปุ่มไป
+        // ปุ่มไป ReportMissing3Fragment
         binding.butNextTo5.setOnClickListener {
-            findNavController().navigate(R.id.action_reportMissing4Fragment_to_reportMissing5Fragment)
+            findNavController().navigate(R.id.action_reportAsLost4Fragment_to_reportAsLost5Fragment)
         }
 
         // คลิกที่ ImageButton เพื่อเลือกภาพ
@@ -117,8 +118,9 @@ class ReportMissing4Fragment : Fragment() {
             getImage3.launch(intent)
         }
 
-        return root
+    return root
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -131,12 +133,12 @@ class ReportMissing4Fragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportMissing4Fragment.
+         * @return A new instance of fragment ReportAsLostFragment4.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ReportMissing4Fragment().apply {
+            ReportAsLostFragment4().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

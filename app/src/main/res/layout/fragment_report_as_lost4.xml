@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".ui.dashboard.ReportMissing1Fragment">
+    tools:context=".ui.ReportMissing.ReportMissing1Fragment">
 
     <Button
         android:id="@+id/butNextTo5"

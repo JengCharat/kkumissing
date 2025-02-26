@@ -1,4 +1,4 @@
-package com.example.mobileproject.ui.dashboard
+package com.example.mobileproject.ui.reportAsLost
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
-import com.example.mobileproject.databinding.FragmentReportMissing3Binding
+import com.example.mobileproject.databinding.FragmentReportAsLost3Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,17 +16,15 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ReportMissing3Fragment.newInstance] factory method to
+ * Use the [ReportAsLostFragment3.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ReportMissing3Fragment : Fragment() {
-
+class ReportAsLostFragment3 : Fragment() {
+    private var _binding: FragmentReportAsLost3Binding? = null
+    private val binding get() = _binding!!
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
-    private var _binding: FragmentReportMissing3Binding? = null
-    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,21 +35,21 @@ class ReportMissing3Fragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentReportMissing3Binding.inflate(inflater, container, false)
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentReportAsLost3Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // ปุ่มย้อนกลับไป
+        // ปุ่มย้อนกลับไป DashboardFragment
         binding.butbackTo2.setOnClickListener {
-            findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing2Fragment)
+            findNavController().navigate(R.id.action_reportAsLost3Fragment_to_reportAsLost2Fragment)
         }
 
-        // ปุ่มไป
+        // ปุ่มไป ReportMissing3Fragment
         binding.butNextTo4.setOnClickListener {
-            findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing4Fragment)
+            findNavController().navigate(R.id.action_reportAsLost3Fragment_to_reportAsLost4Fragment)
         }
-
         return root
     }
 
@@ -67,15 +65,16 @@ class ReportMissing3Fragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportMissing3Fragment.
+         * @return A new instance of fragment ReportAsLostFragment3.
          */
         // TODO: Rename and change types and number of parameters
-        @JvmStatic fun newInstance(param1: String, param2: String) =
-                ReportMissing3Fragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            ReportAsLostFragment3().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
                 }
+            }
     }
 }

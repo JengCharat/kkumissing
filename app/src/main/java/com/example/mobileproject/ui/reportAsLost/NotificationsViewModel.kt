@@ -1,4 +1,4 @@
-package com.example.mobileproject.ui.notifications
+package com.example.mobileproject.ui.reportAsLost
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

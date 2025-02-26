@@ -1,4 +1,4 @@
-package com.example.mobileproject.ui.notifications
+package com.example.mobileproject.ui.ReportMissing
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
-import com.example.mobileproject.databinding.FragmentReportAsLost2Binding
-import com.example.mobileproject.databinding.FragmentReportAsLost3Binding
-import com.example.mobileproject.databinding.FragmentReportMissing2Binding
-import com.example.mobileproject.databinding.FragmentReportMissing3Binding
+import com.example.mobileproject.databinding.FragmentReportMissing6Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,15 +16,16 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ReportAsLostFragment3.newInstance] factory method to
+ * Use the [ReportMissing6Fragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ReportAsLostFragment3 : Fragment() {
-    private var _binding: FragmentReportAsLost3Binding? = null
-    private val binding get() = _binding!!
+class ReportMissing6Fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private var _binding: FragmentReportMissing6Binding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,18 +39,27 @@ class ReportAsLostFragment3 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentReportAsLost3Binding.inflate(inflater, container, false)
+        _binding = FragmentReportMissing6Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // ปุ่มย้อนกลับไป DashboardFragment
-        binding.butbackTo2.setOnClickListener {
-            findNavController().navigate(R.id.action_reportAsLost3Fragment_to_reportAsLost2Fragment)
+        // ปิดปุ่มแต่แรก
+        binding.butNextTo7.isEnabled = false
+
+        // ตรวจสอบว่า RadioButton ถูกเลือกหรือไม่
+        binding.confirmMissing.setOnCheckedChangeListener { _, isChecked ->
+            binding.butNextTo7.isEnabled = isChecked
         }
 
-        // ปุ่มไป ReportMissing3Fragment
-        binding.butNextTo4.setOnClickListener {
-            findNavController().navigate(R.id.action_reportAsLost3Fragment_to_reportAsLost4Fragment)
+        // ปุ่มย้อนกลับไป
+        binding.butbackTo5.setOnClickListener {
+            findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing5Fragment)
         }
+
+        // ปุ่มไป
+        binding.butNextTo7.setOnClickListener {
+            findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing7Fragment)
+        }
+
         return root
     }
 
@@ -68,12 +75,12 @@ class ReportAsLostFragment3 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportAsLostFragment3.
+         * @return A new instance of fragment ReportMissing6Fragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ReportAsLostFragment3().apply {
+            ReportMissing6Fragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
