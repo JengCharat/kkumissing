@@ -67,7 +67,7 @@ class HomeFragment : Fragment() {
 
         binding.getButton.setOnClickListener {
             println("test click")
-            get_data("select * from items")
+            get_data("select * from items where id = 11")
                 /*
             println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             println("list test")
@@ -177,7 +177,7 @@ class HomeFragment : Fragment() {
                         }
                     }
 
-                    val imageView: ImageView = binding.imageItem1
+                    //val imageView: ImageView = binding.imageItem1
                     /*val fname:TextView = binding.firstName
                     val lname:TextView = binding.lastName
                     val item_name:TextView = binding.itemName
@@ -200,7 +200,7 @@ class HomeFragment : Fragment() {
                     val userImageBitmap = decodeBase64ToBitmap()
                     println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                     println(userImageBitmap)
-                    imageView.setImageBitmap(userImageBitmap)
+                    //imageView.setImageBitmap(userImageBitmap)
 
 
 
