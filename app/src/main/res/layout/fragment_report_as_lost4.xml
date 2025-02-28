@@ -96,7 +96,7 @@
         android:clickable="true"
         android:focusable="true"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:contentDescription="Upload Image"/>
 
     <LinearLayout
@@ -122,7 +122,7 @@
             android:clickable="true"
             android:focusable="true"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:contentDescription="Upload Image"/>
 
         <ImageButton
@@ -139,7 +139,7 @@
             android:clickable="true"
             android:focusable="true"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:contentDescription="Upload Image"/>
 
         <ImageButton
@@ -156,7 +156,7 @@
             android:clickable="true"
             android:focusable="true"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:contentDescription="Upload Image"/> <!-- เพิ่มคำอธิบาย -->
     </LinearLayout>
 

@@ -117,7 +117,6 @@ class ReportAsLostFragment4 : Fragment() {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             getImage3.launch(intent)
         }
-
     return root
     }
 

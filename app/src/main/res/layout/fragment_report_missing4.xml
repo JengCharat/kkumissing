@@ -106,7 +106,7 @@
         android:clickable="true"
         android:focusable="true"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:contentDescription="Upload Image"/>
 
     <LinearLayout
@@ -130,7 +130,7 @@
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +147,7 @@
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +164,7 @@
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
