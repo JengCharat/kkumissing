@@ -101,7 +101,7 @@
         android:label="Report Missing 7" />
     <action
         android:id="@+id/action_reportMissing7Fragment_to_search"
-        app:destination="@layout/fragment_home" />
+        app:destination="@id/navigation_home" />
 
 
     <!-- แจ้งพบของหาย -->
@@ -192,7 +192,7 @@
         android:label="Report As Lost 7"/>
     <action
         android:id="@+id/action_reportAsLost7Fragment_to_search"
-        app:destination="@layout/fragment_home" />
+        app:destination="@id/navigation_home" />
 
     <fragment
         android:id="@+id/navigation_profile"

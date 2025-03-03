@@ -7,7 +7,7 @@
     android:orientation="horizontal"
     tools:context=".ui.ReportMissing.ReportMissing1Fragment">
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/noImage"
         android:layout_width="wrap_content"
         android:layout_height="48dp"

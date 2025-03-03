@@ -1,46 +1,60 @@
 package com.example.mobileproject.ui.reportAsLost
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportAsLost2Binding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ReportAsLostFragment2.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ReportAsLostFragment2 : Fragment() {
     private var _binding: FragmentReportAsLost2Binding? = null
     private val binding get() = _binding!!
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentReportAsLost2Binding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        // ปิดปุ่มแต่แรก
+        binding.butNextTo3.isEnabled = false
+        // ฟังก์ชันตรวจสอบเงื่อนไขเปิด/ปิดปุ่ม
+        fun checkInputs() {
+            val inputReportasLostNotEmpty = !binding.inputReportasLost.text.isNullOrEmpty()
+            val inputFoundMoreNotEmpty = !binding.inputFoundMore.text.isNullOrEmpty()
+            val isSpinnerValid = binding.ReportType.selectedItem.toString() != "ระบุตัวเลือก"
+            binding.butNextTo3.isEnabled = inputReportasLostNotEmpty && inputFoundMoreNotEmpty && isSpinnerValid
+        }
+        // ใช้ TextWatcher กับ EditText
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { checkInputs() }
+            override fun afterTextChanged(s: Editable?) {}
+        }
+        binding.inputReportasLost.addTextChangedListener(textWatcher)
+        binding.inputFoundMore.addTextChangedListener(textWatcher)
+
+        // โค้ดของ Spinner
+        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items) // ใส่ "ระบุตัวเลือก" เป็นตัวแรก
+        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.ReportType.adapter = adapter
+
+        // ให้ปุ่มอัปเดตเมื่อมีการเลือกค่าใน Spinner
+        binding.ReportType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                checkInputs()
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
 
         // ปุ่มย้อนกลับไป DashboardFragment
         binding.butbackTo1.setOnClickListener {
@@ -52,41 +66,11 @@ class ReportAsLostFragment2 : Fragment() {
             findNavController().navigate(R.id.action_reportAsLost2Fragment_to_reportAsLost3Fragment)
         }
 
-        // โค้ดของ Spinner
-        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items)
-        // ใช้ Layout ที่กำหนดเอง
-        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.ReportType.adapter = adapter
-        val spinner = binding.ReportType // ใช้ binding แทน findViewById
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
-
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportAsLostFragment2.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ReportAsLostFragment2().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

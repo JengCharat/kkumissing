@@ -1,6 +1,8 @@
 package com.example.mobileproject.ui.reportAsLost
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,71 +11,52 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportAsLost5Binding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ReportAsLostFragment5.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ReportAsLostFragment5 : Fragment() {
     private var _binding: FragmentReportAsLost5Binding? = null
     private val binding get() = _binding!!
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentReportAsLost5Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // ปุ่มย้อนกลับไป DashboardFragment
+        // ปิดปุ่มแต่แรก
+        binding.butNextTo6.isEnabled = false
+
+        // ฟังก์ชันตรวจสอบว่ามีข้อความทั้งสองช่องหรือไม่
+        fun checkInputs() {
+            val inputFacebookNotEmpty = !binding.inputFacebook.text.isNullOrEmpty()
+            val inputTelNotEmpty = !binding.inputTel.text.isNullOrEmpty()
+            binding.butNextTo6.isEnabled = inputFacebookNotEmpty && inputTelNotEmpty
+        }
+        // เพิ่ม TextWatcher เพื่อให้ตรวจสอบเมื่อมีการเปลี่ยนแปลงข้อความ
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                checkInputs()
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        }
+        binding.inputFacebook.addTextChangedListener(textWatcher)
+        binding.inputTel.addTextChangedListener(textWatcher)
+
+        // ปุ่มย้อนกลับไป ReportAsLost4Fragment
         binding.butbackTo4.setOnClickListener {
-            findNavController().navigate(R.id.action_reportAsLos5Fragment_to_reportAsLost4Fragment)
+            findNavController().navigate(R.id.action_reportAsLost5Fragment_to_reportAsLost6Fragment)
         }
 
-        // ปุ่มไป ReportMissing3Fragment
+        // ปุ่มไป ReportAsLost6Fragment
         binding.butNextTo6.setOnClickListener {
             findNavController().navigate(R.id.action_reportAsLost5Fragment_to_reportAsLost6Fragment)
         }
+
         return root
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportAsLostFragment5.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ReportAsLostFragment5().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

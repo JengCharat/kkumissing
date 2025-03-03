@@ -1,6 +1,8 @@
 package com.example.mobileproject.ui.ReportMissing
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,10 +32,22 @@ class ReportMissing1Fragment : Fragment() {
         _binding = FragmentReportMissing1Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-    //    val textView: TextView = binding.textDashboard
-    //    dashboardViewModel.text.observe(viewLifecycleOwner) {
-    //        textView.text = it
-    //    }
+        // ปิดปุ่มแต่แรก
+        binding.ButNextTo2.isEnabled = false
+        // ฟังก์ชันตรวจสอบว่ามีข้อความทั้งสองช่องหรือไม่
+        fun checkInputs() {
+            val inputFnameNotEmpty = !binding.inputFname.text.isNullOrEmpty()
+            val inputLnameNotEmpty = !binding.inputLname.text.isNullOrEmpty()
+            binding.ButNextTo2.isEnabled = inputFnameNotEmpty && inputLnameNotEmpty
+        }
+        // ใช้ TextWatcher กับทั้งสอง EditText
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {checkInputs()}
+            override fun afterTextChanged(s: Editable?) {}
+        }
+        binding.inputFname.addTextChangedListener(textWatcher)
+        binding.inputLname.addTextChangedListener(textWatcher)
 
         binding.ButNextTo2.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment_to_reportMissing2Fragment)
