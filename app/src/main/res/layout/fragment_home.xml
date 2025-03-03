@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.home.HomeFragment">
 
     <Spinner
@@ -55,7 +56,8 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="380dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +83,7 @@
             android:background="@drawable/edittext_mini_bg"
             android:backgroundTint="#DC5F00"
             android:fontFamily="@font/prompt_medium"
-            android:text="ของที่แจ้งหาย" />  <!-- เพิ่ม marginStart -->/>
+            android:text="ของที่แจ้งหาย" />  <!-- เพิ่ม marginStart -->
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -89,7 +91,7 @@
         android:layout_width="409dp"
         android:layout_height="597dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
