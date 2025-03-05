@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentHomeBinding
 
@@ -23,6 +21,12 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        // โค้ดของ Spinner
+        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items) // ใส่ "ระบุตัวเลือก" เป็นตัวแรก
+        val type_search = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        type_search.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.TypeSearch.adapter = type_search
 
         // ✅ ตั้งค่า RecyclerView
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
