@@ -122,13 +122,25 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="72dp"
+            android:id="@+id/ItemMapBtn"
+            android:layout_width="100dp"
             android:layout_height="48dp"
             android:layout_gravity="center_vertical"
             android:background="@drawable/button_green_mini"
             android:text="Map"
+            android:clickable="true"
+            android:focusable="true"
             app:backgroundTint="@null" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/MAP"
+        android:layout_width="359dp"
+        android:layout_height="581dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
