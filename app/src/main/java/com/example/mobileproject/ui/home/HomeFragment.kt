@@ -42,23 +42,6 @@ class HomeFragment : Fragment() {
         val adapter = SearchItemAdapter(itemList)
         binding.recyclerView.adapter = adapter
 
-        binding.MAP.visibility = View.GONE // ซ่อนแผนที่ตอนเริ่มต้น
-        binding.recyclerView.visibility = View.VISIBLE // แสดง RecyclerView ตอนเริ่มต้น
-        var isMapVisible = false
-
-        binding.ItemMapBtn.setOnClickListener {
-            isMapVisible = !isMapVisible // สลับค่า true/false
-            binding.MAP.visibility = if (isMapVisible) View.VISIBLE else View.GONE
-            binding.recyclerView.visibility = if (isMapVisible) View.GONE else View.VISIBLE
-
-            // Debug เช็คค่าใน Log
-            Log.d("DEBUG", "MAP Visible: $isMapVisible, RecyclerView Visible: ${!isMapVisible}")
-
-            // เปลี่ยนข้อความปุ่ม
-            val buttonText = if (isMapVisible) "ITEM" else "MAP"
-            binding.ItemMapBtn.text = buttonText
-        }
-
         return root
     }
 
