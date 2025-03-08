@@ -87,7 +87,7 @@ class ReportMissing4Fragment : Fragment() {
         if (result.resultCode == Activity.RESULT_OK) {
             val uri: Uri? = result.data?.data
             uri?.let {
-                val img3_show:ImageView? = binding.imageUpload1
+                val img3_show:ImageView? = binding.imageUpload2
                 img3_show!!.setImageURI(it) // แสดงภาพที่เลือก
                 //val base64Image = encodeImageToBase64(it)
                 //ImageData.base64Image = encodeImageToBase64(it)
@@ -104,7 +104,7 @@ class ReportMissing4Fragment : Fragment() {
         if (result.resultCode == Activity.RESULT_OK) {
             val uri: Uri? = result.data?.data
             uri?.let {
-                val img4_show:ImageView? = binding.imageUpload2
+                val img4_show:ImageView? = binding.imageUpload3
                 img4_show!!.setImageURI(it) // แสดงภาพที่เลือก
                 //val base64Image = encodeImageToBase64(it)
                 //ImageData.base64Image = encodeImageToBase64(it)
