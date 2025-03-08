@@ -10,6 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing1Binding
 
+
+var fname:String = ""
+var lname:String = ""
 class ReportMissing1Fragment : Fragment() {
 
     private var _binding: FragmentReportMissing1Binding? = null
@@ -36,7 +39,12 @@ class ReportMissing1Fragment : Fragment() {
     //    }
 
         binding.ButNextTo2.setOnClickListener {
+            fname = binding.inputFname.text.toString()
+            lname = binding.inputLname.text.toString()
+            println(fname)
+            println(lname)
             findNavController().navigate(R.id.action_dashboardFragment_to_reportMissing2Fragment)
+        
         }
         return root
     }
