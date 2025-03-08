@@ -37,8 +37,26 @@ class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<M
 
             // ดีโค้ด Base64 เป็น Bitmap
             println("xxxccxxxxxxxxxx")
-            println(user.img1)
-            val userImageBitmap = decodeBase64ToBitmap(user.img1)
+            fun decodeBase64Android(base64String: String): String {
+                val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                return String(decodedBytes, Charsets.UTF_8)
+            }
+            println(decodeBase64Android(user.img1))
+            val x = decodeBase64Android(user.img1)
+            fun decodeBase64ToBitmap(): Bitmap? {
+                return try {
+                    // val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                    val decodedBytes = Base64.decode(x, Base64.DEFAULT)
+                    BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    null
+                }
+            }
+            //val userImageBitmap = decodeBase64ToBitmap()
+
+
+            val userImageBitmap = decodeBase64ToBitmap()
 
             userImageBitmap?.let {
                 // สร้าง ImageView ใหม่สำหรับแต่ละรูปภาพ
@@ -85,7 +103,7 @@ class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<M
 
             val userList = itemList[position] // List<User> ของตำแหน่งนี้
             val main_img = itemList[position]
-            var x = userList.size - 1 // ตั้งค่าเริ่มที่ index สูงสุด
+//            var x = userList.size - 1 // ตั้งค่าเริ่มที่ index สูงสุด
             var textResult = "" // ตัวแปรสะสมข้อความ
             var img_all = ""
             fun decodeBase64Android(base64String: String): String {
