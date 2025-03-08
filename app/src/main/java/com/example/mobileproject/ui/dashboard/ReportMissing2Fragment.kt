@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing2Binding
-
+var item_name:String = ""
+var item_type:String = ""
+var more_detail:String = ""
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -50,17 +53,34 @@ class ReportMissing2Fragment : Fragment() {
         // ปุ่มไป ReportMissing3Fragment
         binding.butNextTo3.setOnClickListener {
             findNavController().navigate(R.id.action_reportMissing2Fragment_to_reportMissing3Fragment)
+            item_name = binding.inputReportMissing.text.toString()
+
+            more_detail = binding.inputMissingMore.text.toString()
         }
 
+        // โค้ดของ Spinner
         // โค้ดของ Spinner
         val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items)
         // ใช้ Layout ที่กำหนดเอง
         val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.misingType.adapter = adapter
-        val spinner = binding.misingType // ใช้ binding แทน findViewById
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
+
+        binding.misingType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedItem = parent.getItemAtPosition(position) as String
+                // นำค่าที่เลือกไปใช้งาน
+                item_type = selectedItem
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // กรณีที่ไม่มีการเลือก
+            }
+        }
         return root
     }
 
