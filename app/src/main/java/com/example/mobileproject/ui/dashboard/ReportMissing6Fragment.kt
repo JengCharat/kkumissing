@@ -7,8 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
-import com.example.mobileproject.databinding.FragmentReportMissing4Binding
+
 import com.example.mobileproject.databinding.FragmentReportMissing6Binding
+///////////////////////////////////////
+import com.example.mobileproject.ui.dashboard.DashboardViewModel
+import com.example.mobileproject.ui.dashboard.ReportMissing2Fragment
+import com.example.mobileproject.ui.dashboard.ReportMissing3Fragment
+import com.example.mobileproject.ui.dashboard.ReportMissing4Fragment
+import com.example.mobileproject.ui.dashboard.ReportMissing5Fragment
+import java.io.IOException
+import java.net.Socket
+import java.net.URLEncoder
+
+//////////////////////////////////////
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +70,30 @@ class ReportMissing6Fragment : Fragment() {
         // ปุ่มไป
         binding.butNextTo7.setOnClickListener {
             findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing7Fragment)
+            //socket work here
+            println("fname")
+            println(fname)
+            println("lname")
+            println(lname)
+            println("item name")
+            println(item_name)
+            println("type")
+            println(item_type)
+            println("more detail")
+            println(more_detail)
+            println("lost place")
+            println(lost_place)
+            println("contact")
+            println(contact)
+            println("latitude")
+            println(latitude2)
+            println("longitude")
+            println(longitude2)
+            println("img")
+            println(img1)
+            post()
+            findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing7Fragment)
+
         }
 
         return root
@@ -87,5 +122,40 @@ class ReportMissing6Fragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun post() {
+        //println("encode imageeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+        //println(ImageData.base64Image)
+        Thread {
+            try {
+                val postData = "sql_command=" + URLEncoder.encode(
+                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,latitude,longitude,img1,img2,img3) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$latitude2','$longitude2','$img1','$img2','$img3')",
+                    "UTF-8"
+                ).trim()
+                val host = "10.48.104.29"
+                val path = "/myapi/test5.php"
+                // สร้าง HTTP Request แบบ Manual
+                val request = StringBuilder()
+                request.append("POST $path HTTP/1.1\r\n")
+                request.append("Host: $host\r\n")
+                request.append("Content-Type: application/x-www-form-urlencoded\r\n")
+                request.append("Content-Length: ${postData.toByteArray().size}\r\n")
+                request.append("Connection: close\r\n\r\n")
+                request.append(postData)
+                // แสดง HTTP Request ที่จะถูกส่งไป
+                println("Request:\n$request")
+                // สร้าง Socket ไปยังเซิร์ฟเวอร์
+                val socket = Socket(host, 80)
+                socket.soTimeout = 60000000
+                // ส่งข้อมูลไปยังเซิร์ฟเวอร์
+                val outputStream = socket.getOutputStream()
+                outputStream.write(request.toString().toByteArray())
+                outputStream.flush()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+        }.start()
+
     }
 }

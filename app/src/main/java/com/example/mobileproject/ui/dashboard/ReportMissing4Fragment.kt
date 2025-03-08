@@ -15,11 +15,16 @@ import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing4Binding
 
+
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
+var img1:String = ""
+var img2:String = ""
+var img3:String = ""
+var img4:String = ""
 /**
  * A simple [Fragment] subclass.
  * Use the [ReportMissing4Fragment.newInstance] factory method to
