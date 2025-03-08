@@ -373,7 +373,7 @@ class ReportMissing6Fragment : Fragment() {
         Thread {
             try {
                 val postData = "sql_command=" + URLEncoder.encode(
-                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,latitude,longitude,img1,img2,img3,img4) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$latitude2','$longitude2','$img1','$img2','$img3','$img4')",
+                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,latitude,longitude,img1,img2,img3,img4,type) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$latitude2','$longitude2','$img1','$img2','$img3','$img4','$item_type')",
                     "UTF-8"
                 ).trim()
                 val host = "10.48.104.29"
