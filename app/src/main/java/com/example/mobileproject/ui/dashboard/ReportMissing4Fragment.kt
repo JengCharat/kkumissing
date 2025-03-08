@@ -21,21 +21,28 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing4Binding
+<<<<<<< HEAD
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
 
 
+||||||| parent of 63cdbb0 (feat/get_geolocatipn)
+
+
+=======
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
+>>>>>>> 63cdbb0 (feat/get_geolocatipn)
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-var img1:String = ""
-var img2:String = ""
-var img3:String = ""
-var img4:String = ""
+
 /**
  * A simple [Fragment] subclass.
  * Use the [ReportMissing4Fragment.newInstance] factory method to
