@@ -17,7 +17,7 @@ import java.nio.charset.Charset
 class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.textViewItem)
+        //val textView: TextView = view.findViewById(R.id.textViewItem)
         val imageContainer: LinearLayout = view.findViewById(R.id.imageContainer) // LinearLayout สำหรับรูปภาพ
     }
 
