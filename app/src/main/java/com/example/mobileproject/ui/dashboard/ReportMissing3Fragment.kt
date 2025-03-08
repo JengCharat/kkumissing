@@ -16,6 +16,7 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 
 
+var lost_place:String = ""
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -80,6 +81,7 @@ class ReportMissing3Fragment : Fragment() {
 
         // ปุ่มไป
         binding.butNextTo4.setOnClickListener {
+            lost_place = binding.inputLostPlaces.text.toString()
             findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing4Fragment)
         }
         return root
