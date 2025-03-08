@@ -104,6 +104,23 @@ println("bbbbbbbbbbbbbbbbbbbbbbbb")
 
         // ปุ่มไป
         binding.butNextTo4.setOnClickListener {
+            fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
+            if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+                return@setOnClickListener
+            }
+            fusedLocationClient.lastLocation
+                .addOnSuccessListener { location : Location? ->
+                    // Got last known location. In some rare situations this can be null.
+                    println("latitude")
+                    println(location?.latitude).toString()
+                    println("longitude")
+                    println(location?.longitude).toString()
+                    latitude2 = location?.latitude.toString()
+                    longitude2 = location?.longitude.toString()
+                }
             lost_place = binding.inputLostPlaces.text.toString()
             findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing4Fragment)
         }

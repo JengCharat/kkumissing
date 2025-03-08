@@ -1,9 +1,7 @@
-package com.example.mobileproject.ui.notifications
-
+package com.example.mobileproject.ui.dashboard
+/*
 import android.app.Activity
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -15,6 +13,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportAsLost4Binding
@@ -105,15 +105,13 @@ class ReportAsLostFragment4 : Fragment() {
 
         // ปุ่มย้อนกลับไป ReportAsLost3Fragment
         binding.butbackTo3.setOnClickListener {
-            findNavController().navigate(R.id.action_reportAsLos4Fragment_to_reportAsLost3Fragment)
+            findNavController().navigate(R.id.action_reportMissing4Fragment_to_reportMissing3Fragment)
         }
 
         // ปุ่มไป ReportAsLost5Fragment
         binding.butNextTo5.setOnClickListener {
-            findNavController().navigate(R.id.action_reportAsLost4Fragment_to_reportAsLost5Fragment)
+            findNavController().navigate(R.id.action_reportMissing4Fragment_to_reportMissing5Fragment)
         }
-
-        // คลิกที่ ImageButton เพื่อเลือกภาพ
         binding.imageUploadMain.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             getImage.launch(intent)
@@ -126,7 +124,7 @@ class ReportAsLostFragment4 : Fragment() {
 
         binding.imageUpload2.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            getImage3.launch(intent)
+            getImage4.launch(intent)
         }
 
         binding.imageUpload3.setOnClickListener {
@@ -149,7 +147,6 @@ class ReportAsLostFragment4 : Fragment() {
             null
         }
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
