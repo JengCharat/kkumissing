@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentHomeBinding
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -20,19 +22,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 data class User(
-    /*
-    "id" => $row["id"],
-"fname" => $row["fname"],
-"lname" => $row["lname"],
-"item_name" => $row["item_name"],
-"more_detail" => $row["more_detail"],
-"lost_place" => $row["lost_place"],
-"contact" => $row["contact"],
-"latitude" => $row["latitude"],
-"longgitude" => $row["longgitude"],
-"img1" =>  $img1,
-"img2" =>  $img2,
-"img3" =>  $img3,*/
+
 
     val id: String,            // ตัวแปร id จะเป็น Int สำหรับค่า AUTO_INCREMENT
     val fname: String,       // ตัวแปร name เป็น String สำหรับข้อความ
@@ -49,38 +39,42 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    //test
-    //
-    //
-    //
-    //
-    //
-    //
-    //
     private val binding get() = _binding!!
 
     override fun onCreateView(
+
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
+
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.getButton.setOnClickListener {
             println("test click")
-            get_data("select * from items where id = 11")
+            get_data("SELECT * FROM items\n" +
+                    "WHERE id IN (11,12);\n")
+                /*
+            println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+            println("list test")
+            val recyclerView = view?.findViewById<RecyclerView>(R.id.item_list)
+            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+
+            val itemList = listOf("Item 1", "Item 2", "Item 3", "Item 4")
+            recyclerView?.adapter = MyAdapter()*/
+
         }
 
 //        val textView: TextView = binding.textHome
 //        homeViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
 //        }
+
         return root
     }
 
@@ -94,7 +88,7 @@ class HomeFragment : Fragment() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "192.168.11.252"
+                val host = "10.48.104.29"
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
@@ -147,6 +141,12 @@ class HomeFragment : Fragment() {
 
                     val listType = object : TypeToken<List<User>>() {}.type
                     val users: List<User> = Gson().fromJson(responseBody, listType)
+
+                    ///////////////////////////
+                    val itemList = listOf(users)
+                    ///////////////////////////
+
+
                     //nameTest.text = responseBody
                     // println(responseBody)
                     //var name_test:TextView? = null
@@ -168,8 +168,8 @@ class HomeFragment : Fragment() {
                         }
                     }
 
-                    val imageView: ImageView = binding.imageItem1
-                    val fname:TextView = binding.firstName
+                    //val imageView: ImageView = binding.imageItem1
+                    /*val fname:TextView = binding.firstName
                     val lname:TextView = binding.lastName
                     val item_name:TextView = binding.itemName
                     val more_datail:TextView = binding.moreDetail
@@ -187,12 +187,21 @@ class HomeFragment : Fragment() {
                     lost_place.text = users[0].lost_place
                     contact.text = users[0].contact
                     latitude.text = users[0].latitude
-                    longitude.text = users[0].longitude
+                    longitude.text = users[0].longitude*/
                     val userImageBitmap = decodeBase64ToBitmap()
                     println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                     println(userImageBitmap)
-                    imageView.setImageBitmap(userImageBitmap)
+                    //imageView.setImageBitmap(userImageBitmap)
 
+
+
+                    println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                    println("list test")
+                    val recyclerView = view?.findViewById<RecyclerView>(R.id.item_list)
+                    recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+
+
+                    recyclerView?.adapter = MyAdapter(itemList)
 
 
 
