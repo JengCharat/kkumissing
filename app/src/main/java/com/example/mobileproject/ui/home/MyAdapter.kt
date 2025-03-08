@@ -115,8 +115,17 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             // เพิ่ม LinearLayout ลงใน imageContainer
             holder.imageContainer.addView(innerLayout)
             textView.setOnClickListener {
-                innerLayout.visibility = View.GONE
-               println(textView.text)
+                // เปลี่ยนขนาดของ ImageView เมื่อคลิกที่ TextView
+                val layoutParams = imageView.layoutParams
+                layoutParams.width = 400  // กำหนดขนาดใหม่
+                layoutParams.height = 400
+                imageView.layoutParams = layoutParams
+
+                // เปลี่ยนสีของข้อความ (textView) เพื่อบ่งชี้ว่าได้คลิกแล้ว
+                textView.setTextColor(Color.RED)
+
+                // พิมพ์ชื่อผู้ใช้ใน Log
+                println(textView.text)
             }
 
         }
