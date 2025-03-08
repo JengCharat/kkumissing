@@ -11,7 +11,7 @@ import com.example.mobileproject.databinding.FragmentReportAsLost4Binding
 import com.example.mobileproject.databinding.FragmentReportAsLost5Binding
 import com.example.mobileproject.databinding.FragmentReportMissing3Binding
 import com.example.mobileproject.databinding.FragmentReportMissing5Binding
-
+var contact:String = ""
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -51,6 +51,7 @@ class ReportAsLostFragment5 : Fragment() {
 
         // ปุ่มไป ReportMissing3Fragment
         binding.butNextTo6.setOnClickListener {
+            contact = binding.inputFacebook.text.toString()
             findNavController().navigate(R.id.action_reportAsLost5Fragment_to_reportAsLost6Fragment)
         }
         return root
