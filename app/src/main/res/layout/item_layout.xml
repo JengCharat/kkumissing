@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/imageContainer"
-        android:layout_width="269dp"
-        android:layout_height="393dp"
+        android:layout_width="243dp"
+        android:layout_height="679dp"
         android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
