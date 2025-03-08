@@ -9,20 +9,23 @@
 
     <LinearLayout
         android:id="@+id/imageContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_width="269dp"
+        android:layout_height="393dp"
+        android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:scrollbars="horizontal" />
+        android:scrollbars="vertical">
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="265dp"
+        android:layout_height="143dp"
         android:text="Item Name"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
+
     <!--
     <ImageView
         android:id="@+id/imageView6"

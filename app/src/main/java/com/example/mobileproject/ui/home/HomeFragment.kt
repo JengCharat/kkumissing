@@ -57,7 +57,8 @@ class HomeFragment : Fragment() {
 
         binding.getButton.setOnClickListener {
             println("test click")
-            get_data("SELECT * FROM items")
+            get_data("SELECT * FROM items\n" +
+                    "WHERE id IN (11,12);\n")
                 /*
             println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             println("list test")

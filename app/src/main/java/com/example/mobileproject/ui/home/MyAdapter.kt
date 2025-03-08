@@ -2,6 +2,7 @@ package com.example.mobileproject.ui.home
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +26,7 @@ class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<M
             .inflate(R.layout.item_layout, parent, false)
         return ViewHolder(view)
     }
-
+/*
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val userList = itemList[position] // List<User> ของตำแหน่งนี้
         var textResult = "" // ตัวแปรสะสมข้อความ
@@ -65,17 +66,64 @@ class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<M
                     scaleType = ImageView.ScaleType.CENTER_CROP
                     setImageBitmap(it)
                 }
+
                 holder.imageContainer.addView(imageView) // เพิ่ม ImageView ลงใน LinearLayout
+
             }
+            holder.textView.text = textResult.trim()
         }
 
-        holder.textView.text = textResult.trim() // แสดงชื่อ
+     // แสดงชื่อ
+    }*/
+override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    val userList = itemList[position] // List<User> ของตำแหน่งนี้
+    holder.imageContainer.removeAllViews() // ล้างรูปเก่าก่อนเพิ่มใหม่
+
+    // วนลูปเพื่อเพิ่มชื่อและรูปภาพทุกคนใน userList
+    for (user in userList) {
+
+        // ดีโค้ด Base64 เป็น Bitmap
+        val imgString = decodeBase64Android(user.img1)
+        val userImageBitmap = decodeBase64ToBitmap(imgString)
+
+        // สร้าง ImageView สำหรับแสดงรูปภาพ
+        userImageBitmap?.let {
+            val imageView = ImageView(holder.imageContainer.context).apply {
+                layoutParams = ViewGroup.LayoutParams(200, 200) // ขนาดของรูปภาพ
+                scaleType = ImageView.ScaleType.CENTER_CROP
+                setImageBitmap(it)
+            }
+
+            // สร้าง TextView สำหรับแสดงชื่อ
+            val textView = TextView(holder.imageContainer.context).apply {
+                text = user.fname // แสดงชื่อของ User
+                textSize = 18f
+                setTextColor(Color.BLACK)
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+
+            // สร้าง LinearLayout สำหรับการจัดเรียงรูปภาพและข้อความ
+            val innerLayout = LinearLayout(holder.imageContainer.context).apply {
+                orientation = LinearLayout.HORIZONTAL // แนวนอน
+                addView(imageView) // เพิ่ม ImageView
+                addView(textView)  // เพิ่ม TextView
+            }
+
+            // เพิ่ม LinearLayout ลงใน imageContainer
+            holder.imageContainer.addView(innerLayout)
+        }
+    }
+}
+
+    fun decodeBase64Android(base64String: String): String {
+        val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+        return String(decodedBytes, Charsets.UTF_8)
     }
 
-    override fun getItemCount() = itemList.size
-
-    // ฟังก์ชันดีโค้ด Base64 เป็น Bitmap
-    private fun decodeBase64ToBitmap(base64String: String): Bitmap? {
+    fun decodeBase64ToBitmap(base64String: String): Bitmap? {
         return try {
             val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
             BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
@@ -84,6 +132,10 @@ class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<M
             null
         }
     }
+
+
+    override fun getItemCount() = itemList.size
+
 }
 
 
