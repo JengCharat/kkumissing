@@ -114,6 +114,11 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
             // เพิ่ม LinearLayout ลงใน imageContainer
             holder.imageContainer.addView(innerLayout)
+            textView.setOnClickListener {
+                innerLayout.visibility = View.GONE
+               println(textView.text)
+            }
+
         }
     }
 }
