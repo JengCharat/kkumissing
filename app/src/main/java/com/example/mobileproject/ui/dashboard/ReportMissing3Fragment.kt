@@ -104,6 +104,7 @@ println("bbbbbbbbbbbbbbbbbbbbbbbb")
 
         // ปุ่มไป
         binding.butNextTo4.setOnClickListener {
+            lost_place = binding.inputLostPlaces.text.toString()
             findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing4Fragment)
         }
         return root
