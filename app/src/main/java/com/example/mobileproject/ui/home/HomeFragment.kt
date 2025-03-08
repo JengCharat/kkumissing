@@ -39,16 +39,6 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    //test
-    //
-    //
-    //
-    //
-    //
-    //
-    //
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -67,7 +57,8 @@ class HomeFragment : Fragment() {
 
         binding.getButton.setOnClickListener {
             println("test click")
-            get_data("select * from items where id = 11")
+            get_data("SELECT * FROM items\n" +
+                    "WHERE id IN (12);\n")
                 /*
             println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             println("list test")
@@ -75,7 +66,7 @@ class HomeFragment : Fragment() {
             recyclerView?.layoutManager = LinearLayoutManager(requireContext())
 
             val itemList = listOf("Item 1", "Item 2", "Item 3", "Item 4")
-            recyclerView?.adapter = MyAdapter(itemList)*/
+            recyclerView?.adapter = MyAdapter()*/
 
         }
 
@@ -97,7 +88,7 @@ class HomeFragment : Fragment() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "192.168.11.252"
+                val host = "10.48.104.29"
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
