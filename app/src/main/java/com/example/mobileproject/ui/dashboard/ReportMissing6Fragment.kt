@@ -70,7 +70,6 @@ class ReportMissing6Fragment : Fragment() {
         // ปุ่มไป
         binding.butNextTo7.setOnClickListener {
             findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing7Fragment)
-<<<<<<< HEAD
             //socket work here
             println("fname")
             println(fname)
@@ -339,33 +338,6 @@ class ReportMissing6Fragment : Fragment() {
             post()
             findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing7Fragment)
 
-||||||| parent of 8893370 (feat/post_reportmissing_to_database)
-=======
-            //socket work here
-            println("fname")
-            println(fname)
-            println("lname")
-            println(lname)
-            println("item name")
-            println(item_name)
-            println("type")
-            println(item_type)
-            println("more detail")
-            println(more_detail)
-            println("lost place")
-            println(lost_place)
-            println("contact")
-            println(contact)
-            println("latitude")
-            println(latitude2)
-            println("longitude")
-            println(longitude2)
-            println("img")
-            println(img1)
-            post()
-            findNavController().navigate(R.id.action_reportMissing6Fragment_to_reportMissing7Fragment)
-
->>>>>>> 8893370 (feat/post_reportmissing_to_database)
         }
 
         return root

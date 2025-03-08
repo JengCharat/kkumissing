@@ -88,7 +88,6 @@ println("bbbbbbbbbbbbbbbbbbbbbbbb")
                 ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
                 return@setOnClickListener
             }
-            println("456")
             fusedLocationClient.lastLocation
                 .addOnSuccessListener { location : Location? ->
                     // Got last known location. In some rare situations this can be null.
@@ -100,9 +99,6 @@ println("bbbbbbbbbbbbbbbbbbbbbbbb")
                     latitude2 = location?.latitude.toString()
                     longitude2 = location?.longitude.toString()
                 }
-            println("xxxxxxx")
-            println(latitude2)
-            println(longitude2)
             lost_place = binding.inputLostPlaces.text.toString()
         }
 
