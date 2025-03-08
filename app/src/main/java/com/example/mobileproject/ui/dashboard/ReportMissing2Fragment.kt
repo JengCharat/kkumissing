@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing2Binding
-
+var item_name:String = ""
+var item_type:String = ""
+var more_detail:String = ""
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -50,6 +52,8 @@ class ReportMissing2Fragment : Fragment() {
         // ปุ่มไป ReportMissing3Fragment
         binding.butNextTo3.setOnClickListener {
             findNavController().navigate(R.id.action_reportMissing2Fragment_to_reportMissing3Fragment)
+            item_name = binding.inputReportMissing.text.toString()
+            more_detail = binding.inputMissingMore.text.toString()
         }
 
         // โค้ดของ Spinner

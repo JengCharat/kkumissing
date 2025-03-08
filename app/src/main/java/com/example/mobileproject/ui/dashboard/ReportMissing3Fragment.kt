@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing3Binding
-
+var lost_place:String = ""
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -49,6 +49,7 @@ class ReportMissing3Fragment : Fragment() {
 
         // ปุ่มไป
         binding.butNextTo4.setOnClickListener {
+            lost_place = binding.inputLostPlaces.text.toString()
             findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing4Fragment)
         }
 
