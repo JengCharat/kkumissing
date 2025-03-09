@@ -1,8 +1,7 @@
-//this is api file you have to put it on xampp or something
  <?php
  $servername = "localhost";
  $username = "root";
- $password = "";
+ $password = "abc123";
  $database = "web-app-test";
 
  $conn = new mysqli($servername, $username, $password, $database);
@@ -17,6 +16,7 @@
      $img1 = base64_encode($row["img1"]);
      $img2 = base64_encode($row["img2"]);
      $img3 = base64_encode($row["img3"]);
+     $img4 = base64_encode($row["img4"]);
      // $img4 = base64_encode($row["img4"]);
      $result2[] = [
          "id" => $row["id"],
@@ -31,7 +31,9 @@
          "img1" =>  $img1,
          "img2" =>  $img2,
          "img3" =>  $img3,
-         
+         "img4" =>  $img4,
+	 "type" => $row["type"]
+
 
          // "image" => $imageData
      ];
@@ -39,4 +41,3 @@
  echo json_encode($result2);
  $conn->close();
  ?>
-
