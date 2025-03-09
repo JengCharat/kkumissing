@@ -2,7 +2,6 @@ package com.example.mobileproject.ui.home
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.media.Image
 import android.os.Bundle
 import android.util.Base64
 import android.view.ViewGroup
@@ -12,10 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.marginRight
-import androidx.core.view.marginTop
 import com.example.mobileproject.R
-import com.example.mobileproject.ui.dashboard.more_detail
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedInputStream
