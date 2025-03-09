@@ -11,14 +11,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
-import com.example.mobileproject.ui.dashboard.ReportMissing2Fragment
-import com.example.mobileproject.ui.notifications.ReportAsLostFragment5
-import java.nio.charset.Charset
+
 class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -134,7 +129,7 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                 // พิมพ์ชื่อผู้ใช้ใน Log
                 /*val intent = Intent(this, HomeViewModel::class.java)
                 startActivity(intent)*/
-                val intent = Intent(holder.itemView.context, HomeActivity::class.java)
+                val intent = Intent(holder.itemView.context, More_detail::class.java)
                 holder.itemView.context.startActivity(intent)
 
 
