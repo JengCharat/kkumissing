@@ -10,8 +10,8 @@
         android:id="@+id/fname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="344dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,8 +20,8 @@
         android:id="@+id/lname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fname" />
@@ -30,8 +30,8 @@
         android:id="@+id/item_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="48dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lname" />
@@ -40,7 +40,7 @@
         android:id="@+id/lost_place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="52dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
         android:id="@+id/contact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="72dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,5 +104,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_img"
         app:srcCompat="@drawable/add_image" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="600px"
+        android:layout_height="1000px"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="332dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/map_img" />
+
+    <ImageView
+        android:id="@+id/gps_pin"
+        android:layout_width="15dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:srcCompat="@drawable/map_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
