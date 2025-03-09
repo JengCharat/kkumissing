@@ -5,6 +5,44 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E26334"
     tools:context=".welcome">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="405dp"
+        android:layout_height="728dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/welcompic" />
+
+    <!-- TextView สำหรับแสดงข้อความ -->
+    <TextView
+        android:id="@+id/randomText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="กำลังโหลด..."
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView7" />
+
+    <Button
+        android:id="@+id/Butstart"
+        android:layout_width="135dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="232dp"
+        android:background="@drawable/edittext_bg"
+        android:fontFamily="@font/prompt_medium"
+        android:text="เริ่มต้น"
+        android:textColor="@color/black"
+        android:textColorLink="#2DE5EF"
+        app:cornerRadius="@dimen/activity_horizontal_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

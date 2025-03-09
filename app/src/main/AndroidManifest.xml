@@ -13,15 +13,28 @@
         android:theme="@style/Theme.MobileProject"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:name=".ui.home.activity_about_us"
+            android:exported="false" />
+        <!-- Welcome Screen (หน้าจอต้อนรับ) -->
+        <activity
+            android:name=".welcome"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- Login Screen (ไม่ใช่หน้าแรก) -->
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:label="@string/app_name"></activity> <!-- Loading Screen -->
+        <activity
+            android:name=".Loading"
+            android:exported="false" /> <!-- Main Screen (หน้าหลักหลังจาก Login) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" /> <!-- Font Preload -->
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

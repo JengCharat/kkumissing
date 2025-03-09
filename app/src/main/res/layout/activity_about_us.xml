@@ -5,6 +5,78 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/aboutus"
     tools:context=".ui.home.activity_about_us">
+
+    <Button
+        android:id="@+id/buttonStep1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="240dp"
+        android:background="@android:color/transparent"
+        android:text="WHO"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStep3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="556dp"
+        android:background="@android:color/transparent"
+        android:text="WHEN"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStep2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="396dp"
+        android:background="@android:color/transparent"
+
+        android:text="WHY"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textappear1"
+        android:layout_width="165dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="start"
+        android:lineSpacingExtra="6sp"
+        android:text="ผู้จัดทำ\n1. นายแก้วเพชรรัตน์ สีสันต์ รหัส 663380029-9\n2. นายณัฐเนศ กำเนิดกาลึม รหัส 663380011-8\n3. นางสาวณิชกานต์ จูประพัทธศรี รหัส 663380209-7"
+        android:textAlignment="viewStart"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textappear2"
+        android:layout_width="136dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="404dp"
+        android:layout_marginEnd="240dp"
+        android:text="เพื่อให้การหาของที่หายสะดวกและรวดเร็วขึ้น ภายใน มข."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textappear3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="604dp"
+        android:layout_marginEnd="128dp"
+        android:text="13/03/58"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
