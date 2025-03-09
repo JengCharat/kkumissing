@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".ui.profile.RegisterActivity">
 
     <TextView
         android:id="@+id/Next2"
@@ -47,6 +47,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputuser" />
 
+    <TextView
+        android:id="@+id/next5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="password"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputuser" />
+
+    <TextView
+        android:id="@+id/next7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/prompt_medium"
+        android:text="confirm password"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputpass" />
+
     <EditText
         android:id="@+id/inputpass"
         android:layout_width="325dp"
@@ -63,11 +87,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Next3" />
 
+    <EditText
+        android:id="@+id/inputpass2"
+        android:layout_width="325dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/edittext_bg"
+        android:ems="10"
+        android:fontFamily="@font/prompt_medium"
+        android:hint="รหัสผ่าน"
+        android:inputType="textPassword"
+        android:padding="14dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Next3" />
+
     <Button
         android:id="@+id/ButNextTo2"
         android:layout_width="135dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="68dp"
         android:background="@drawable/edittext_bg"
         android:fontFamily="@font/prompt_medium"
         android:text="log in"
@@ -76,23 +116,22 @@
         app:cornerRadius="@dimen/activity_horizontal_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/ButNextTo3"
-        android:layout_width="135dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="152dp"
+        android:layout_width="246dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="140dp"
         android:background="@drawable/edittext_bg"
         android:fontFamily="@font/prompt_medium"
-        android:text="Register"
+        android:text="create account"
         android:textColor="@color/white"
         android:textColorLink="#C2410C"
         app:cornerRadius="@dimen/activity_horizontal_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -106,7 +145,7 @@
         app:srcCompat="@drawable/kkulogo" />
 
     <ImageView
-        android:id="@+id/login_backBtn"
+        android:id="@+id/register_backBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

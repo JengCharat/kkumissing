@@ -1,49 +1,62 @@
 package com.example.mobileproject.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.mobileproject.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.example.mobileproject.ui.profile.ResultActivity
+import com.example.mobileproject.ui.profile.LoginActivity
 
-class ProfileFragment :  Fragment() {
-
+class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
-
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
+    private var mAuth: FirebaseAuth? = null
+    private val TAG: String = "ProfileFragment"
+    private var mainSignin: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         val profileViewModel =
             ViewModelProvider(this).get(ProfileViewModel::class.java)
-
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        // เป็นการดึงข้อมูลการ login จาก Firebase Authentication
+        mAuth = FirebaseAuth.getInstance()
 
-//        val textView: TextView = binding.textProfile
-//        profileViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        // กรณีที่มีการ login ค้างไว้ จะสามารถเข้าหน้า Result ได้เลย
+        if (mAuth!!.currentUser != null) {
+            Log.d(TAG, "Continue with: " + mAuth!!.currentUser!!.email)
+            // เรียก Intent ไปยัง ResultActivity
+            startActivity(Intent(requireActivity(), ResultActivity::class.java))
+            requireActivity().finish()
+        }
+
+        // ตั้งค่าปุ่ม Login
+        mainSignin = binding.mainLoginButton  // ใช้ binding แทน findViewById
+
+        mainSignin?.setOnClickListener {
+            startActivity(Intent(requireActivity(), LoginActivity::class.java))
+        }
+
         return root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
-
