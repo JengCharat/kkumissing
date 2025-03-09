@@ -13,7 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
-
+var item_id:String = ""
 class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -118,20 +118,18 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.imageContainer.addView(innerLayout)
             textView.setOnClickListener {
                 // เปลี่ยนขนาดของ ImageView เมื่อคลิกที่ TextView
-                val layoutParams = imageView.layoutParams
+                /*val layoutParams = imageView.layoutParams
                 layoutParams.width = 400  // กำหนดขนาดใหม่
                 layoutParams.height = 400
                 imageView.layoutParams = layoutParams
 
                 // เปลี่ยนสีของข้อความ (textView) เพื่อบ่งชี้ว่าได้คลิกแล้ว
                 textView.setTextColor(Color.RED)
-
+*/
                 // พิมพ์ชื่อผู้ใช้ใน Log
-                /*val intent = Intent(this, HomeViewModel::class.java)
-                startActivity(intent)*/
                 val intent = Intent(holder.itemView.context, More_detail::class.java)
                 holder.itemView.context.startActivity(intent)
-
+                item_id = user.id
 
                 println(textView.text)
             }
