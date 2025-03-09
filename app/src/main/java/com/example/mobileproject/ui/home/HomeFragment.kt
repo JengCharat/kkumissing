@@ -34,6 +34,7 @@ data class User(
     val latitude:String,
     val longitude:String,
     val img1:String,
+    val type:String,
 )
 class HomeFragment : Fragment() {
 
