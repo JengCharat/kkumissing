@@ -105,7 +105,7 @@
         android:background="@color/material_dynamic_neutral30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingTxt4" />
+        app:layout_constraintTop_toBottomOf="@+id/logOutBtn" />
 
     <View
         android:id="@+id/topDivider4"
@@ -115,7 +115,7 @@
         android:background="@color/material_dynamic_neutral30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingTxt2" />
+        app:layout_constraintTop_toBottomOf="@+id/contactUsBtn" />
 
     <View
         android:id="@+id/topDivider"
@@ -125,15 +125,17 @@
         android:background="@color/material_dynamic_neutral30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settingTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/editProfileBtn" />
 
     <TextView
-        android:id="@+id/settingTxt"
+        android:id="@+id/editProfileBtn"
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/edit_profile_btn"
         android:fontFamily="@font/prompt"
         android:gravity="center_vertical"
+        android:paddingStart="40dp"
         android:text="แก้ไขโปรไฟล์"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -143,12 +145,14 @@
         app:layout_constraintTop_toBottomOf="@+id/topDivider1" />
 
     <TextView
-        android:id="@+id/settingTxt2"
+        android:id="@+id/contactUsBtn"
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/contact_us_btn"
         android:fontFamily="@font/prompt"
         android:gravity="center_vertical"
+        android:paddingStart="40dp"
         android:text="Contact Us"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -161,8 +165,10 @@
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/about_us_btn"
         android:fontFamily="@font/prompt"
         android:gravity="center_vertical"
+        android:paddingStart="40dp"
         android:text="About Us"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -172,12 +178,14 @@
         app:layout_constraintTop_toBottomOf="@+id/topDivider4" />
 
     <TextView
-        android:id="@+id/settingTxt4"
+        android:id="@+id/logOutBtn"
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/logout_btn"
         android:fontFamily="@font/prompt"
         android:gravity="center_vertical"
+        android:paddingStart="40dp"
         android:text="ออกจากระบบ"
         android:textSize="16sp"
         android:textStyle="bold"

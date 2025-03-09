@@ -35,7 +35,16 @@ class ProfileFragment :  Fragment() {
         binding.reportAsLostBtn.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_profileAsLost)
         }
-
+        //การตั้งค่า
+        binding.editProfileBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_to_editProfile)
+        }
+        binding.contactUsBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_to_contactUs)
+        }
+        binding.aboutUsBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_to_aboutUs)
+        }
         return root
     }
 

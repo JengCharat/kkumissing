@@ -27,7 +27,7 @@ class ProfileMissingFragment : Fragment() {
         val root: View = binding.root
 
         binding.undoBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_profileMissing_to_profileFragment)
+            findNavController().navigate(R.id.action_to_profileFragment)
         }
 
         // ✅ ตั้งค่า RecyclerView

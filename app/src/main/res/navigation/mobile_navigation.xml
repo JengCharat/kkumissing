@@ -201,20 +201,40 @@
     <action
         android:id="@+id/action_profileFragment_to_profileAsLost"
         app:destination="@id/profileAsLostFragment" />
+    <action
+        android:id="@+id/action_to_profileFragment"
+        app:destination="@id/navigation_profile" />
     <!-- หน้าแจ้งหายตัวเอง -->
     <fragment
         android:id="@+id/profileMissingFragment"
         android:name="com.example.mobileproject.ui.profile.ProfileMissingFragment"
         android:label="ProfileMissingFragment"/>
-    <action
-        android:id="@+id/action_profileMissing_to_profileFragment"
-        app:destination="@id/navigation_profile" />
     <!-- หน้าพบของหายตัวเอง -->
     <fragment
         android:id="@+id/profileAsLostFragment"
         android:name="com.example.mobileproject.ui.profile.ProfileAsLostFragment"
         android:label="ProfileMissingFragment"/>
+    <!-- การตั้งค่า -->
     <action
-        android:id="@+id/action_profileAsLostFragment_to_profileFragment"
-        app:destination="@id/navigation_profile" />
+        android:id="@+id/action_to_editProfile"
+        app:destination="@id/editProfileFragment" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.mobileproject.ui.profile.editProfile"
+        android:label="Edit Profile"/>
+    <action
+        android:id="@+id/action_to_contactUs"
+        app:destination="@id/contactUsFragment" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.example.mobileproject.ui.profile.contactUs"
+        android:label="Contact Us"/>
+    <action
+        android:id="@+id/action_to_aboutUs"
+        app:destination="@id/aboutUsFragment" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.mobileproject.ui.profile.aboutUs"
+        android:label="About Us"/>
+
 </navigation>

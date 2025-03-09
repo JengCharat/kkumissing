@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentProfileAsLostBinding
-import com.example.mobileproject.databinding.FragmentProfileMissingBinding
 import com.example.mobileproject.ui.home.SearchItem
 import com.example.mobileproject.ui.home.SearchItemAdapter
 
@@ -27,7 +26,7 @@ class ProfileAsLostFragment : Fragment() {
         val root: View = binding.root
 
         binding.undoBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_profileAsLostFragment_to_profileFragment)
+            findNavController().navigate(R.id.action_to_profileFragment)
         }
 
         // ✅ ตั้งค่า RecyclerView
