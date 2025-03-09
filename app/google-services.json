@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "588852782170",
+    "project_id": "kkumissing",
+    "storage_bucket": "kkumissing.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588852782170:android:94d21ec89a9cb8cb30a463",
+        "android_client_info": {
+          "package_name": "com.example.mobileproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1C6IS3M3R3-TSo2Uo7DzjJWR_UceMk-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
