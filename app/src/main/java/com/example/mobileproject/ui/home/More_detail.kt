@@ -29,6 +29,7 @@ class More_detail : AppCompatActivity() {
     var item_type:TextView? = null
     var lost_place:TextView? = null
     var contact:TextView?= null
+    var main_img:ImageView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -53,6 +54,7 @@ class More_detail : AppCompatActivity() {
         item_type = findViewById(R.id.item_type)
         lost_place = findViewById(R.id.lost_place)
         contact = findViewById(R.id.contact)
+        main_img = findViewById(R.id.main_img)
     }
     fun get_data(sqlCommand:String) {
 
@@ -159,13 +161,14 @@ class More_detail : AppCompatActivity() {
                     contact.text = users[0].contact
                     latitude.text = users[0].latitude
                     longitude.text = users[0].longitude*/
-                    /*val userImageBitmap = decodeBase64ToBitmap()
-                    println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                    val userImageBitmap = decodeBase64ToBitmap()
+                    main_img!!.setImageBitmap(userImageBitmap)
+                    /*println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                     println(userImageBitmap)
                     //imageView.setImageBitmap(userImageBitmap)
                     println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-                    println("list test")*/
-                    println("fffffffffnmaaaaaaaae")
+                    println("list test")
+                    println("fffffffffnmaaaaaaaae")*/
                     fname!!.setText("first name:" + users[0].fname)
                     lname!!.setText("last name:" + users[0].lname)
                     item_type!!.setText("item type:" + users[0].type)
