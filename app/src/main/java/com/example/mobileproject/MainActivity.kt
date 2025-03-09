@@ -1,5 +1,6 @@
 package com.example.mobileproject
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val navView: BottomNavigationView = binding.navView
+        navView.itemIconTintList = ColorStateList.valueOf(ResourcesCompat.getColor(resources, R.color.white, null))
+        navView.itemTextColor = ColorStateList.valueOf(ResourcesCompat.getColor(resources, R.color.white, null))
+
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
         val appBarConfiguration = AppBarConfiguration(

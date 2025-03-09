@@ -10,18 +10,12 @@
         android:name="com.example.mobileproject.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
-    <!-- หน้าแรก (Dashboard)
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.mobileproject.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
--->
-    <!-- หน้าแรก (Dashboard) -->
+
+    <!-- หน้าแรก (แจ้งหาย) -->
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.mobileproject.ui.ReportMissing.ReportMissing1Fragment"
-        android:label="Dashboard">
+        android:label="แจ้งหาย">
         <action
             android:id="@+id/action_dashboardFragment_to_reportMissing2Fragment"
             app:destination="@id/reportMissing2Fragment"/>
@@ -105,7 +99,7 @@
 
 
     <!-- แจ้งพบของหาย -->
-    <!-- หน้าแรก (Notifications) -->
+    <!-- หน้าแรก () -->
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment1"
@@ -194,9 +188,18 @@
         android:id="@+id/action_reportAsLost7Fragment_to_search"
         app:destination="@id/navigation_home" />
 
+    <!-- โปรไฟล์ -->
+    <!-- หน้าแรก () -->
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.mobileproject.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+    <action
+        android:id="@+id/action_profileFragment_to_profileMissing"
+        app:destination="@id/profileMissingFragment" />
+    <fragment
+        android:id="@+id/profileMissingFragment"
+        android:name="com.example.mobileproject.ui.profile.ProfileMissingFragment"
+        android:label="ProfileMissingFragment"/>
 </navigation>
