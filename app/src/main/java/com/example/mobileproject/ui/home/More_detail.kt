@@ -2,7 +2,6 @@ package com.example.mobileproject.ui.home
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.media.Image
 import android.os.Bundle
 import android.util.Base64
 import android.view.ViewGroup
@@ -12,10 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.marginRight
-import androidx.core.view.marginTop
 import com.example.mobileproject.R
-import com.example.mobileproject.ui.dashboard.more_detail
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedInputStream
@@ -46,6 +42,7 @@ class More_detail : AppCompatActivity() {
     var img3:ImageView?= null
     var img4:ImageView?= null
     var gps_pin:ImageView?= null
+    var item_name2:TextView?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +74,7 @@ class More_detail : AppCompatActivity() {
         img3 = findViewById(R.id.img3)
         img4 = findViewById(R.id.img4)
         gps_pin = findViewById(R.id.gps_pin)
+        item_name2 = findViewById(R.id.item_name)
     }
     fun get_data(sqlCommand:String) {
 
@@ -241,6 +239,7 @@ class More_detail : AppCompatActivity() {
                     item_type!!.setText("item type:" + users[0].type)
                     lost_place!!.setText("lost place"+users[0].lost_place)
                    contact!!.setText("contact" + users[0].contact)
+                    item_name2!!.setText("itemName" + users[0].item_name)
                     gps_pin?.let { view ->
                         val params = view.layoutParams as ViewGroup.MarginLayoutParams
 
