@@ -89,7 +89,7 @@ class HomeFragment : Fragment() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "10.48.104.29"
+                val host = "10.48.104.57"
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
