@@ -27,7 +27,7 @@
             android:name=".ui.home.More_detail"
             android:exported="false" />
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.home.More_detail"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
