@@ -11,6 +11,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -43,8 +45,6 @@ class More_detail : AppCompatActivity() {
     var img4:ImageView?= null
     var gps_pin:ImageView?= null
     var item_name2:TextView?= null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
