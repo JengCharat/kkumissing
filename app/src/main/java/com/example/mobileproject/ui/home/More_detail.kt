@@ -245,7 +245,7 @@ class More_detail : AppCompatActivity() {
                         val params = view.layoutParams as ViewGroup.MarginLayoutParams
 
 
-                        
+
                         val longitude = if (users[0].longitude.isNullOrBlank()) 1000.0 else users[0].longitude.toDouble()
                         val latitude = if (users[0].latitude.isNullOrBlank()) 1000.0 else users[0].latitude.toDouble()
 
