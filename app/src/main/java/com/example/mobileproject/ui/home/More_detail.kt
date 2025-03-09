@@ -4,17 +4,13 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
-import com.example.mobileproject.ui.home.MyAdapter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedInputStream
@@ -30,6 +26,9 @@ class More_detail : AppCompatActivity() {
     var lost_place:TextView? = null
     var contact:TextView?= null
     var main_img:ImageView? = null
+    var img2:ImageView?= null
+    var img3:ImageView?= null
+    var img4:ImageView?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -55,6 +54,9 @@ class More_detail : AppCompatActivity() {
         lost_place = findViewById(R.id.lost_place)
         contact = findViewById(R.id.contact)
         main_img = findViewById(R.id.main_img)
+        img2 = findViewById(R.id.img2)
+        img3 = findViewById(R.id.img3)
+        img4 = findViewById(R.id.img4)
     }
     fun get_data(sqlCommand:String) {
 
@@ -140,6 +142,45 @@ class More_detail : AppCompatActivity() {
                             null
                         }
                     }
+                    val y = Base64.decode(users[0].img2, Base64.DEFAULT)
+                    //println(users[0].image)
+                    // fun decodeBase64ToBitmap(base64String: String): Bitmap? {
+                    fun decodeBase64ToBitmap_img2(): Bitmap? {
+                        return try {
+                            // val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                            val decodedBytes = Base64.decode(y, Base64.DEFAULT)
+                            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            null
+                        }
+                    }
+                    val z = Base64.decode(users[0].img3, Base64.DEFAULT)
+                    //println(users[0].image)
+                    // fun decodeBase64ToBitmap(base64String: String): Bitmap? {
+                    fun decodeBase64ToBitmap_img3(): Bitmap? {
+                        return try {
+                            // val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                            val decodedBytes = Base64.decode(z, Base64.DEFAULT)
+                            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            null
+                        }
+                    }
+                    val w = Base64.decode(users[0].img4, Base64.DEFAULT)
+                    //println(users[0].image)
+                    // fun decodeBase64ToBitmap(base64String: String): Bitmap? {
+                    fun decodeBase64ToBitmap_img4(): Bitmap? {
+                        return try {
+                            // val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                            val decodedBytes = Base64.decode(w, Base64.DEFAULT)
+                            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            null
+                        }
+                    }
 
                     //val imageView: ImageView = binding.imageItem1
                     /*val fname:TextView = binding.firstName
@@ -162,7 +203,13 @@ class More_detail : AppCompatActivity() {
                     latitude.text = users[0].latitude
                     longitude.text = users[0].longitude*/
                     val userImageBitmap = decodeBase64ToBitmap()
+                    val img2_decode = decodeBase64ToBitmap_img2()
+                    val img3_decode = decodeBase64ToBitmap_img3()
+                    val img4_decode = decodeBase64ToBitmap_img4()
                     main_img!!.setImageBitmap(userImageBitmap)
+                    img2!!.setImageBitmap(img2_decode)
+                    img3!!.setImageBitmap(img3_decode)
+                    img4!!.setImageBitmap(img4_decode)
                     /*println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                     println(userImageBitmap)
                     //imageView.setImageBitmap(userImageBitmap)
