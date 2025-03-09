@@ -1,5 +1,6 @@
 package com.example.mobileproject.ui.home
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -10,9 +11,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
+import com.example.mobileproject.ui.dashboard.ReportMissing2Fragment
+import com.example.mobileproject.ui.notifications.ReportAsLostFragment5
 import java.nio.charset.Charset
 class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
@@ -112,6 +117,8 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                 addView(textView)  // เพิ่ม TextView
             }
 
+
+
             // เพิ่ม LinearLayout ลงใน imageContainer
             holder.imageContainer.addView(innerLayout)
             textView.setOnClickListener {
@@ -125,6 +132,12 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                 textView.setTextColor(Color.RED)
 
                 // พิมพ์ชื่อผู้ใช้ใน Log
+                /*val intent = Intent(this, HomeViewModel::class.java)
+                startActivity(intent)*/
+                val intent = Intent(holder.itemView.context, HomeActivity::class.java)
+                holder.itemView.context.startActivity(intent)
+
+
                 println(textView.text)
             }
 
