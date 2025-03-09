@@ -2,15 +2,20 @@ package com.example.mobileproject.ui.home
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.media.Image
 import android.os.Bundle
 import android.util.Base64
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.marginRight
+import androidx.core.view.marginTop
 import com.example.mobileproject.R
+import com.example.mobileproject.ui.dashboard.more_detail
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedInputStream
@@ -18,6 +23,17 @@ import java.io.IOException
 import java.net.Socket
 import java.net.URLEncoder
 
+
+val top_left_latitude = 16.479029
+val top_left_longitude = 102.806544
+val top_right_latitude = 16.477245
+val top_right_longitude = 102.832047
+val buttom_left_latitude = 16.443679
+val buttom_left_longitude = 102.804883
+val buttom_right_latitude = 16.442214
+val buttom_right_longitude = 102.827464
+val max_hight_px = 1000
+val max_width_px = 600
 class More_detail : AppCompatActivity() {
     var back_img:ImageView?= null
     var fname:TextView?= null
@@ -29,6 +45,9 @@ class More_detail : AppCompatActivity() {
     var img2:ImageView?= null
     var img3:ImageView?= null
     var img4:ImageView?= null
+    var gps_pin:ImageView?= null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -57,6 +76,7 @@ class More_detail : AppCompatActivity() {
         img2 = findViewById(R.id.img2)
         img3 = findViewById(R.id.img3)
         img4 = findViewById(R.id.img4)
+        gps_pin = findViewById(R.id.gps_pin)
     }
     fun get_data(sqlCommand:String) {
 
@@ -221,6 +241,34 @@ class More_detail : AppCompatActivity() {
                     item_type!!.setText("item type:" + users[0].type)
                     lost_place!!.setText("lost place"+users[0].lost_place)
                    contact!!.setText("contact" + users[0].contact)
+                    gps_pin?.let { view ->
+                        val params = view.layoutParams as ViewGroup.MarginLayoutParams
+
+
+                        
+                        val longitude = if (users[0].longitude.isNullOrBlank()) 1000.0 else users[0].longitude.toDouble()
+                        val latitude = if (users[0].latitude.isNullOrBlank()) 1000.0 else users[0].latitude.toDouble()
+
+                        //val position_x = ((users[0].longitude.toDouble() - top_left_longitude)/(top_left_longitude - buttom_left_longitude)) * max_width_px
+                        val position_x = ((longitude - top_left_longitude) / (top_right_longitude - top_left_longitude)) * max_width_px
+
+                        val roundedPositionX = Math.abs(Math.ceil(position_x).toInt())
+                        //val position_y = ((top_left_latitude - users[0].latitude.toDouble())/ top_left_latitude - buttom_left_latitude) * max_hight_px
+                        val position_y = ((top_left_latitude - latitude) / (top_left_latitude - buttom_left_latitude)) * max_hight_px
+
+                        val roundedPositionY = Math.abs(Math.ceil(position_y).toInt())
+                        println("xxxxxxxxxxxxxxx")
+                        println(roundedPositionX)
+                        println("yyyyyyyyyyyyyyy")
+                        println(roundedPositionY)
+
+                        params.topMargin = roundedPositionY-100// กำหนด marginRight = 10pxparam
+                        params.marginStart = roundedPositionX
+                        view.layoutParams = params
+                    }
+                    gps_pin
+
+
 
 
                 }
