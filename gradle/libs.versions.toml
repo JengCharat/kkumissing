@@ -13,8 +13,13 @@ lifecycleViewmodelKtx = "2.8.7"
 navigationFragmentKtx = "2.8.6"
 navigationUiKtx = "2.8.6"
 playServicesMaps = "19.0.0"
+<<<<<<< HEAD
 activity = "1.10.1"
 firebaseAuthKtx = "23.2.0"
+||||||| parent of 7be7a91 (feat/can_open_other_page)
+=======
+activity = "1.10.1"
+>>>>>>> 7be7a91 (feat/can_open_other_page)
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,8 +34,13 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version.ref = "playServicesMaps" }
+<<<<<<< HEAD
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+||||||| parent of 7be7a91 (feat/can_open_other_page)
+=======
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+>>>>>>> 7be7a91 (feat/can_open_other_page)
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
