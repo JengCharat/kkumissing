@@ -198,8 +198,23 @@
     <action
         android:id="@+id/action_profileFragment_to_profileMissing"
         app:destination="@id/profileMissingFragment" />
+    <action
+        android:id="@+id/action_profileFragment_to_profileAsLost"
+        app:destination="@id/profileAsLostFragment" />
+    <!-- หน้าแจ้งหายตัวเอง -->
     <fragment
         android:id="@+id/profileMissingFragment"
         android:name="com.example.mobileproject.ui.profile.ProfileMissingFragment"
         android:label="ProfileMissingFragment"/>
+    <action
+        android:id="@+id/action_profileMissing_to_profileFragment"
+        app:destination="@id/navigation_profile" />
+    <!-- หน้าพบของหายตัวเอง -->
+    <fragment
+        android:id="@+id/profileAsLostFragment"
+        android:name="com.example.mobileproject.ui.profile.ProfileAsLostFragment"
+        android:label="ProfileMissingFragment"/>
+    <action
+        android:id="@+id/action_profileAsLostFragment_to_profileFragment"
+        app:destination="@id/navigation_profile" />
 </navigation>

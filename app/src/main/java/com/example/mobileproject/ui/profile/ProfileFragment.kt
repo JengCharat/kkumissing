@@ -32,10 +32,12 @@ class ProfileFragment :  Fragment() {
         binding.missingBtn.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_profileMissing)
         }
+        binding.reportAsLostBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_profileAsLost)
+        }
 
         return root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

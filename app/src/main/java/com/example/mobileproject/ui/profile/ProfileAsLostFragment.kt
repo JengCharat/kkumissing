@@ -9,13 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileproject.R
-import com.example.mobileproject.databinding.FragmentProfileBinding
+import com.example.mobileproject.databinding.FragmentProfileAsLostBinding
 import com.example.mobileproject.databinding.FragmentProfileMissingBinding
 import com.example.mobileproject.ui.home.SearchItem
 import com.example.mobileproject.ui.home.SearchItemAdapter
 
-class ProfileMissingFragment : Fragment() {
-    private var _binding: FragmentProfileMissingBinding? = null  // เปลี่ยนให้ถูกต้อง
+class ProfileAsLostFragment : Fragment() {
+    private var _binding: FragmentProfileAsLostBinding? = null  // เปลี่ยนให้ถูกต้อง
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,15 +23,15 @@ class ProfileMissingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
-        _binding = FragmentProfileMissingBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileAsLostBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.undoBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_profileMissing_to_profileFragment)
+            findNavController().navigate(R.id.action_profileAsLostFragment_to_profileFragment)
         }
 
         // ✅ ตั้งค่า RecyclerView
-        binding.missingItem.layoutManager = LinearLayoutManager(requireContext())
+        binding.asLostItem.layoutManager = LinearLayoutManager(requireContext())
         // ✅ สร้างรายการตัวอย่าง
         val itemList = listOf(
             SearchItem("กระเป๋าสตางค์หาย", "สมชาย", "ห้างสรรพสินค้า", "081-234-5678", R.drawable.rounded_button),
@@ -40,7 +40,7 @@ class ProfileMissingFragment : Fragment() {
         )
         // ✅ กำหนด Adapter
         val adapter = SearchItemAdapter(itemList)
-        binding.missingItem.adapter = adapter
+        binding.asLostItem.adapter = adapter
 
         return root
     }
