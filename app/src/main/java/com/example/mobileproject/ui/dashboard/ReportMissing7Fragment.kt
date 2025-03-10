@@ -44,7 +44,7 @@ class ReportMissing7Fragment : Fragment() {
         val root: View = binding.root
         // ปุ่มไป
         binding.butEnd.setOnClickListener {
-            findNavController().navigate(R.id.action_reportMissing7Fragment_to_search)
+            findNavController().navigate(R.id.navigation_home)
         }
         return root
     }
