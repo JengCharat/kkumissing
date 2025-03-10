@@ -7,6 +7,8 @@ import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -15,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentHomeBinding
+import com.example.mobileproject.ui.dashboard.item_name
+import com.example.mobileproject.ui.dashboard.item_type
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.net.Socket
@@ -40,6 +44,7 @@ data class User(
     val img4:String,
     val type:String,
 )
+var selectedItem:String = ""
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -59,13 +64,36 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-
+        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items)
+        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.misingType.adapter = adapter
+        binding.misingType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                selectedItem = parent.getItemAtPosition(position) as String
+                // นำค่าที่เลือกไปใช้งาน
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // กรณีที่ไม่มีการเลือก
+            }
+        }
         binding.getButton.setOnClickListener {
             /*get_data("SELECT * FROM items\n" +
                     "WHERE id IN (11,12,13,18,19,20,21);\n")*/
             var search_text = binding.searchText.text ?: ""
-            get_data("SELECT * FROM items where item_name like '%$search_text%' ORDER BY id DESC;")
+            if (selectedItem == "ระบุตัวเลือก") {
+                selectedItem = ""
+            }
+
+
+            // นำค่าที่เลือกไปใช้งาน
+
+            get_data("SELECT * FROM items WHERE item_name LIKE '%$search_text%' AND type LIKE '%$selectedItem%' ORDER BY id DESC;")
                 /*
             println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             println("list test")
