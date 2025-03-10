@@ -1,5 +1,6 @@
 package com.example.mobileproject.ui.home
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -10,10 +11,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
-import java.nio.charset.Charset
+var item_id:String = ""
 class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -76,27 +76,23 @@ class MyAdapter(private val itemList: List<List<User>>) : RecyclerView.Adapter<M
      // แสดงชื่อ
     }*/
 override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    val userList = itemList[position] // List<User> ของตำแหน่งนี้
-    holder.imageContainer.removeAllViews() // ล้างรูปเก่าก่อนเพิ่มใหม่
+    val userList = itemList[position]
+    holder.imageContainer.removeAllViews()
 
     // วนลูปเพื่อเพิ่มชื่อและรูปภาพทุกคนใน userList
     for (user in userList) {
-
-        // ดีโค้ด Base64 เป็น Bitmap
         val imgString = decodeBase64Android(user.img1)
         val userImageBitmap = decodeBase64ToBitmap(imgString)
 
-        // สร้าง ImageView สำหรับแสดงรูปภาพ
         userImageBitmap?.let {
             val imageView = ImageView(holder.imageContainer.context).apply {
-                layoutParams = ViewGroup.LayoutParams(200, 200) // ขนาดของรูปภาพ
+                layoutParams = ViewGroup.LayoutParams(200, 200)
                 scaleType = ImageView.ScaleType.CENTER_CROP
                 setImageBitmap(it)
             }
 
-            // สร้าง TextView สำหรับแสดงชื่อ
             val textView = TextView(holder.imageContainer.context).apply {
-                text = user.fname // แสดงชื่อของ User
+                text = user.fname
                 textSize = 18f
                 setTextColor(Color.BLACK)
                 layoutParams = ViewGroup.LayoutParams(
@@ -105,18 +101,44 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                 )
             }
 
-            // สร้าง LinearLayout สำหรับการจัดเรียงรูปภาพและข้อความ
+            // สร้าง LayoutParams สำหรับ innerLayout
             val innerLayout = LinearLayout(holder.imageContainer.context).apply {
-                orientation = LinearLayout.HORIZONTAL // แนวนอน
-                addView(imageView) // เพิ่ม ImageView
-                addView(textView)  // เพิ่ม TextView
+                orientation = LinearLayout.HORIZONTAL
+                addView(imageView)
+                addView(textView)
+
+                // ตั้งค่า layoutParams ของ innerLayout
+                val layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).apply {
+                    // ใช้ dp แทน px สำหรับความละเอียดที่แตกต่างกัน
+                    val scale = holder.itemView.context.resources.displayMetrics.density
+                    bottomMargin = (20 * scale).toInt() // ตั้งระยะห่าง 20dp
+                    setMargins(0, 0, 0, bottomMargin)
+                }
+                this.layoutParams = layoutParams
+
+                // เปลี่ยนสีพื้นหลังเป็นสีน้ำเงิน
+                setBackgroundColor(Color.BLUE)
             }
 
-            // เพิ่ม LinearLayout ลงใน imageContainer
+            // เพิ่ม innerLayout ลงใน imageContainer
             holder.imageContainer.addView(innerLayout)
+
+            textView.setOnClickListener {
+                val intent = Intent(holder.itemView.context, More_detail::class.java)
+                holder.itemView.context.startActivity(intent)
+                item_id = user.id
+                println(textView.text)
+            }
         }
     }
 }
+
+
+
+
 
     fun decodeBase64Android(base64String: String): String {
         val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
