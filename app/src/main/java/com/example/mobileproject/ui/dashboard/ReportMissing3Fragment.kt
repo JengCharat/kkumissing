@@ -57,7 +57,7 @@ class ReportMissing3Fragment : Fragment() {
         binding.butbackTo2.setOnClickListener {
             findNavController().navigate(R.id.action_reportMissing3Fragment_to_reportMissing2Fragment)
         }
-        binding.getLocation.setOnClickListener {
+        binding.next.setOnClickListener {
             fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
             if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
