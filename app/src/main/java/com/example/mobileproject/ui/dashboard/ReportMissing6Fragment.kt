@@ -85,6 +85,7 @@ class ReportMissing6Fragment : Fragment() {
             println(lost_place)
             println("contact")
             println(contact)
+<<<<<<< HEAD
             println("telNumber")
             println(telNumber)
             println("latitude")
@@ -357,6 +358,11 @@ class ReportMissing6Fragment : Fragment() {
             println(lost_place)
             println("contact")
             println(contact)
+||||||| parent of ea7e7f0 (feat/phone_number)
+=======
+            println("telNumber")
+            println(telNumber)
+>>>>>>> ea7e7f0 (feat/phone_number)
             println("latitude")
             println(latitude2)
             println("longitude")
