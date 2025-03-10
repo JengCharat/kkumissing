@@ -84,10 +84,7 @@ class ReportAsLostFragment3 : Fragment() {
            lost_place = binding.inputLostPlaces.text.toString()
         }
 
-        // ปุ่มไป
-        binding.butNextTo4.setOnClickListener {
-            findNavController().navigate(R.id.action_reportAsLost3Fragment_to_reportAsLost4Fragment)
-        }
+
         return root
     }
 
