@@ -7,13 +7,18 @@ import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentHomeBinding
+import com.example.mobileproject.ui.dashboard.item_name
+import com.example.mobileproject.ui.dashboard.item_type
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.net.Socket
@@ -31,10 +36,16 @@ data class User(
     val more_datail: String,
     val lost_place:String,
     val contact:String,
+    val tel:String,
     val latitude:String,
     val longitude:String,
     val img1:String,
+    val img2:String,
+    val img3:String,
+    val img4:String,
+    val type:String,
 )
+var selectedItem:String = ""
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -54,12 +65,36 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items)
+        val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.misingType.adapter = adapter
+        binding.misingType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                selectedItem = parent.getItemAtPosition(position) as String
+                // นำค่าที่เลือกไปใช้งาน
+            }
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // กรณีที่ไม่มีการเลือก
+            }
+        }
         binding.getButton.setOnClickListener {
-            println("test click")
             /*get_data("SELECT * FROM items\n" +
                     "WHERE id IN (11,12,13,18,19,20,21);\n")*/
-            get_data("SELECT * FROM items ORDER BY id DESC;")
+            var search_text = binding.searchText.text ?: ""
+            if (selectedItem == "ระบุตัวเลือก") {
+                selectedItem = ""
+            }
+
+
+            // นำค่าที่เลือกไปใช้งาน
+
+            get_data("SELECT * FROM items WHERE item_name LIKE '%$search_text%' AND type LIKE '%$selectedItem%' ORDER BY id DESC;")
                 /*
             println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             println("list test")
@@ -89,7 +124,7 @@ class HomeFragment : Fragment() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "10.48.104.29"
+                val host = "10.48.104.101"
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
@@ -142,6 +177,10 @@ class HomeFragment : Fragment() {
 
                     val listType = object : TypeToken<List<User>>() {}.type
                     val users: List<User> = Gson().fromJson(responseBody, listType)
+                    if (users.isNullOrEmpty()) {
+                        Toast.makeText(context, "not found", Toast.LENGTH_SHORT).show()
+                        return@runOnUiThread
+                    }
 
                     ///////////////////////////
                     val itemList = listOf(users)

@@ -85,6 +85,8 @@ class ReportMissing6Fragment : Fragment() {
             println(lost_place)
             println("contact")
             println(contact)
+            println("telNumber")
+            println(telNumber)
             println("latitude")
             println(latitude2)
             println("longitude")
@@ -373,10 +375,10 @@ class ReportMissing6Fragment : Fragment() {
         Thread {
             try {
                 val postData = "sql_command=" + URLEncoder.encode(
-                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,latitude,longitude,img1,img2,img3,img4,type) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$latitude2','$longitude2','$img1','$img2','$img3','$img4','$item_type')",
+                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,tel,latitude,longitude,img1,img2,img3,img4,type,report_or_missing) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$telNumber','$latitude2','$longitude2','$img1','$img2','$img3','$img4','$item_type',1)",
                     "UTF-8"
                 ).trim()
-                val host = "10.48.104.29"
+                val host = "10.48.104.101"
                 val path = "/myapi/test5.php"
                 // สร้าง HTTP Request แบบ Manual
                 val request = StringBuilder()
