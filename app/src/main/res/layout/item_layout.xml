@@ -30,6 +30,8 @@
         android:background="@android:color/holo_red_light"> <!-- เพิ่มสีแดงที่ครอบไว้ -->
     </LinearLayout>
 
+
+
     <!--
     <ImageView
         android:id="@+id/imageView6"
