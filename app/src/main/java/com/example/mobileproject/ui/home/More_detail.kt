@@ -245,8 +245,8 @@ class More_detail : AppCompatActivity() {
 
 
 
-                        val longitude = if (users[0].longitude.isNullOrBlank()) 1000.0 else users[0].longitude.toDouble()
-                        val latitude = if (users[0].latitude.isNullOrBlank()) 1000.0 else users[0].latitude.toDouble()
+                        val longitude = if (users[0].longitude.isNullOrBlank() || users[0].longitude == "null") 1000.0 else users[0].longitude.toDouble()
+                        val latitude = if (users[0].latitude.isNullOrBlank() || users[0].latitude == "null") 1000.0 else users[0].latitude.toDouble()
 
                         //val position_x = ((users[0].longitude.toDouble() - top_left_longitude)/(top_left_longitude - buttom_left_longitude)) * max_width_px
                         val position_x = ((longitude - top_left_longitude) / (top_right_longitude - top_left_longitude)) * max_width_px
