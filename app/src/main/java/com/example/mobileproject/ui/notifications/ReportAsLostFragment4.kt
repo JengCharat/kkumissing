@@ -1,4 +1,4 @@
-package com.example.mobileproject.ui.reportAsLost
+package com.example.mobileproject.ui.notifications
 
 import android.app.Activity
 import android.content.Intent
@@ -101,7 +101,7 @@ class ReportAsLostFragment4 : Fragment() {
         val root: View = binding.root
 
         // ปิดปุ่มเริ่มต้น
-        binding.butNextTo5.isEnabled = false
+        //binding.butNextTo5.isEnabled = false
 
         // ปุ่มย้อนกลับไป ReportAsLost3Fragment
         binding.butbackTo3.setOnClickListener {
