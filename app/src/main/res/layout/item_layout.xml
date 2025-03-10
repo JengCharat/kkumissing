@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- item_layout.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:padding="16dp"
+    android:background="#D3D3D3"> <!-- สีพื้นหลังของแต่ละ item -->
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/imageContainer"
-        android:layout_width="243dp"
-        android:layout_height="679dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:scrollbars="vertical">
 
+    </LinearLayout>-->
+    <LinearLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
+        android:scrollbars="vertical"
+        android:background="@android:color/holo_red_light"> <!-- เพิ่มสีแดงที่ครอบไว้ -->
     </LinearLayout>
+
+
 
     <!--
     <ImageView
