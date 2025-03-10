@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -59,11 +60,12 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
         binding.getButton.setOnClickListener {
-            println("test click")
             /*get_data("SELECT * FROM items\n" +
                     "WHERE id IN (11,12,13,18,19,20,21);\n")*/
-            get_data("SELECT * FROM items ORDER BY id DESC;")
+            var search_text = binding.searchText.text ?: ""
+            get_data("SELECT * FROM items where item_name like '%$search_text%' ORDER BY id DESC;")
                 /*
             println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
             println("list test")
@@ -93,7 +95,7 @@ class HomeFragment : Fragment() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "10.48.104.57"
+                val host = "10.48.104.101"
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
@@ -146,6 +148,10 @@ class HomeFragment : Fragment() {
 
                     val listType = object : TypeToken<List<User>>() {}.type
                     val users: List<User> = Gson().fromJson(responseBody, listType)
+                    if (users.isNullOrEmpty()) {
+                        Toast.makeText(context, "not found", Toast.LENGTH_SHORT).show()
+                        return@runOnUiThread
+                    }
 
                     ///////////////////////////
                     val itemList = listOf(users)
