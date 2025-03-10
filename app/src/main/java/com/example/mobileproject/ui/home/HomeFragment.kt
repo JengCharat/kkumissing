@@ -36,6 +36,7 @@ data class User(
     val more_datail: String,
     val lost_place:String,
     val contact:String,
+    val tel:String,
     val latitude:String,
     val longitude:String,
     val img1:String,

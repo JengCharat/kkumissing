@@ -10,6 +10,7 @@ import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing5Binding
 
 var contact:String = ""
+var telNumber:String = ""
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -51,6 +52,7 @@ class ReportMissing5Fragment : Fragment() {
         // ปุ่มไป
         binding.butNextTo6.setOnClickListener {
             contact = binding.inputFacebook.text.toString()
+            telNumber = binding.inputTel.text.toString()
             findNavController().navigate(R.id.action_reportMissing5Fragment_to_reportMissing6Fragment)
         }
 
