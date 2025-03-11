@@ -56,6 +56,11 @@ class ProfileFragment : Fragment() {
                 mAuth!!.signOut()
                 Toast.makeText(requireContext(), "Signed out!", Toast.LENGTH_LONG).show()
                 binding.mainLoginButton?.setText("logout")
+                parentFragmentManager.beginTransaction().apply {
+                    detach(this@ProfileFragment)  // ลบ fragment ออกจากการแสดงผล
+                    attach(this@ProfileFragment)  // ใส่ fragment นี้กลับเข้าไปใหม่
+                }.commit()
+
             }
             else{
                 binding.mainLoginButton?.setText("login")
