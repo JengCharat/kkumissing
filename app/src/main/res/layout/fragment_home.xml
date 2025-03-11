@@ -13,16 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="272dp"
         android:layout_marginTop="80dp"
-        android:text="Button"
+        android:text="SEARCH"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_list"
-        android:layout_width="339dp"
-        android:layout_height="537dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="326dp"
+        android:layout_height="483dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="104dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/get_button" />
 
@@ -47,6 +47,36 @@
         app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/next2" />
+
+    <Button
+        android:id="@+id/report_missing_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:text="ของที่หายบ่อย"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_text" />
+
+    <Button
+        android:id="@+id/founding_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="ของที่ถูกพบ"
+        app:layout_constraintStart_toEndOf="@+id/report_missing_button"
+        app:layout_constraintTop_toBottomOf="@+id/search_text" />
+
+    <Button
+        android:id="@+id/reporting_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        android:text="ของที่แจ้งหาย"
+        app:layout_constraintStart_toEndOf="@+id/founding_button"
+        app:layout_constraintTop_toBottomOf="@+id/get_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
