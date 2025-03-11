@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="YourTextAppearanceStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="fontFamily">@font/prompt_medium</item> <!-- Font ที่คุณเลือก -->
+        <item name="android:textSize">14sp</item> <!-- ขนาดของข้อความ -->
+        <item name="android:textColor">#FF000000</item> <!-- สีของข้อความ -->
+    </style>
+    <style name="YourTextTopStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="fontFamily">@font/prompt_medium</item> <!-- Font ที่คุณเลือก -->
+        <item name="android:textSize">24sp</item> <!-- ขนาดของข้อความ -->
+        <item name="android:textColor">#FF000000</item> <!-- สีของข้อความ -->
+    </style>
+</resources>
