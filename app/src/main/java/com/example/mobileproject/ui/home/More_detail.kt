@@ -79,7 +79,7 @@ class More_detail : AppCompatActivity() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "10.48.104.101"
+                val host = "10.53.60.226"
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
