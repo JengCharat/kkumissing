@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".ui.dashboard.ReportMissing1Fragment">
+    tools:context=".ui.ReportMissing.ReportMissing1Fragment">
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/noImage"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
@@ -47,7 +47,7 @@
         android:id="@+id/imageView2"
         android:layout_width="360dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/update_report_mising_4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -59,7 +59,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/prompt_medium"
         android:gravity="center"
         android:text="ใส่ภาพถ่ายสิ่งของที่หาย"
@@ -67,14 +67,14 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/next3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/prompt_medium"
         android:text="ภาพหลัก"
         android:textColor="@color/black"
@@ -106,7 +106,7 @@
         android:clickable="true"
         android:focusable="true"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         android:contentDescription="Upload Image"/>
 
     <LinearLayout
@@ -130,7 +130,7 @@
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +147,7 @@
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +164,7 @@
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:src="@drawable/add_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

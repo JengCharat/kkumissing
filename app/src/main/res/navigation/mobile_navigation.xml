@@ -20,7 +20,7 @@
     <!-- หน้าแรก (Dashboard) -->
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.mobileproject.ui.dashboard.ReportMissing1Fragment"
+        android:name="com.example.mobileproject.ui.reportMissing.ReportMissing1Fragment"
         android:label="Dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_reportMissing2Fragment"
@@ -29,7 +29,7 @@
     <!-- หน้าที่ 2 (ReportMissing2) -->
     <fragment
         android:id="@+id/reportMissing2Fragment"
-        android:name="com.example.mobileproject.ui.dashboard.ReportMissing2Fragment"
+        android:name="com.example.mobileproject.ui.reportMissing.ReportMissing2Fragment"
         android:label="Report Missing 2"/>
         <action
             android:id="@+id/action_reportMissing2Fragment_to_dashboardFragment"
@@ -43,7 +43,7 @@
     <!-- หน้าที่ 3 -->
     <fragment
         android:id="@+id/reportMissing3Fragment"
-        android:name="com.example.mobileproject.ui.dashboard.ReportMissing3Fragment"
+        android:name="com.example.mobileproject.ui.reportMissing.ReportMissing3Fragment"
         android:label="Report Missing 3" />
     <action
         android:id="@+id/action_reportMissing3Fragment_to_reportMissing2Fragment"
@@ -57,7 +57,7 @@
     <!-- หน้าที่ 4 -->
     <fragment
         android:id="@+id/reportMissing4Fragment"
-        android:name="com.example.mobileproject.ui.dashboard.ReportMissing4Fragment"
+        android:name="com.example.mobileproject.ui.reportMissing.ReportMissing4Fragment"
         android:label="Report Missing 4" />
     <action
         android:id="@+id/action_reportMissing4Fragment_to_reportMissing3Fragment"
@@ -71,7 +71,7 @@
     <!-- หน้าที่ 5 -->
     <fragment
         android:id="@+id/reportMissing5Fragment"
-        android:name="com.example.mobileproject.ui.dashboard.ReportMissing5Fragment"
+        android:name="com.example.mobileproject.ui.reportMissing.ReportMissing5Fragment"
         android:label="Report Missing 5" />
     <action
         android:id="@+id/action_reportMissing5Fragment_to_reportMissing4Fragment"
@@ -84,7 +84,7 @@
     <!-- หน้าที่ 6 -->
     <fragment
         android:id="@+id/reportMissing6Fragment"
-        android:name="com.example.mobileproject.ui.dashboard.ReportMissing6Fragment"
+        android:name="com.example.mobileproject.ui.reportMissing.ReportMissing6Fragment"
         android:label="Report Missing 6" />
     <action
         android:id="@+id/action_reportMissing6Fragment_to_reportMissing5Fragment"
@@ -97,18 +97,18 @@
     <!-- หน้าที่ 7 -->
     <fragment
         android:id="@+id/reportMissing7Fragment"
-        android:name="com.example.mobileproject.ui.dashboard.ReportMissing7Fragment"
+        android:name="com.example.mobileproject.ui.reportMissing.ReportMissing7Fragment"
         android:label="Report Missing 7" />
     <action
         android:id="@+id/action_reportMissing7Fragment_to_search"
-        app:destination="@layout/fragment_home" />
+        app:destination="@id/navigation_home" />
 
 
     <!-- แจ้งพบของหาย -->
     <!-- หน้าแรก (Notifications) -->
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment1"
+        android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment1"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_report_as_lost1" />
     <action
@@ -118,7 +118,7 @@
     <!-- หน้าที่ 2 -->
     <fragment
         android:id="@+id/reportAsLost2Fragment"
-        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment2"
+        android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment2"
         android:label="Report As Lost 2"/>
     <action
         android:id="@+id/action_reportAsLost2Fragment_to_NotificationsFragment"
@@ -132,7 +132,7 @@
     <!-- หน้าที่ 3 -->
     <fragment
         android:id="@+id/reportAsLost3Fragment"
-        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment3"
+        android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment3"
         android:label="Report As Lost 3"/>
     <action
         android:id="@+id/action_reportAsLost3Fragment_to_reportAsLost2Fragment"
@@ -146,7 +146,7 @@
     <!-- หน้าที่ 4 -->
     <fragment
         android:id="@+id/reportAsLost4Fragment"
-        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment4"
+        android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment4"
         android:label="Report As Lost 4"/>
     <action
         android:id="@+id/action_reportAsLos4Fragment_to_reportAsLost3Fragment"
@@ -160,7 +160,7 @@
     <!-- หน้าที่ 5 -->
     <fragment
         android:id="@+id/reportAsLost5Fragment"
-        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment5"
+        android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment5"
         android:label="Report As Lost 5"/>
     <action
         android:id="@+id/action_reportAsLos5Fragment_to_reportAsLost4Fragment"
@@ -174,7 +174,7 @@
     <!-- หน้าที่ 6 -->
     <fragment
         android:id="@+id/reportAsLost6Fragment"
-        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment6"
+        android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment6"
         android:label="Report As Lost 6"/>
     <action
         android:id="@+id/action_reportAsLos6Fragment_to_reportAsLost5Fragment"
@@ -188,15 +188,58 @@
     <!-- หน้าที่ 7 -->
     <fragment
         android:id="@+id/reportAsLost7Fragment"
-        android:name="com.example.mobileproject.ui.notifications.ReportAsLostFragment7"
+        android:name="com.example.mobileproject.ui.reportAsLost.ReportAsLostFragment7"
         android:label="Report As Lost 7"/>
     <action
         android:id="@+id/action_reportAsLost7Fragment_to_search"
-        app:destination="@layout/fragment_home" />
+        app:destination="@id/navigation_home" />
 
+    <!-- โปรไฟล์ -->
+    <!-- หน้าแรก () -->
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.mobileproject.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+    <action
+        android:id="@+id/action_profileFragment_to_profileMissing"
+        app:destination="@id/profileMissingFragment" />
+    <action
+        android:id="@+id/action_profileFragment_to_profileAsLost"
+        app:destination="@id/profileAsLostFragment" />
+    <action
+        android:id="@+id/action_to_profileFragment"
+        app:destination="@id/navigation_profile" />
+    <!-- หน้าแจ้งหายตัวเอง -->
+    <fragment
+        android:id="@+id/profileMissingFragment"
+        android:name="com.example.mobileproject.ui.profile.ProfileMissingFragment"
+        android:label="ProfileMissingFragment"/>
+    <!-- หน้าพบของหายตัวเอง -->
+    <fragment
+        android:id="@+id/profileAsLostFragment"
+        android:name="com.example.mobileproject.ui.profile.ProfileAsLostFragment"
+        android:label="ProfileMissingFragment"/>
+    <!-- การตั้งค่า -->
+    <action
+        android:id="@+id/action_to_editProfile"
+        app:destination="@id/editProfileFragment" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.mobileproject.ui.profile.editProfile"
+        android:label="Edit Profile"/>
+    <action
+        android:id="@+id/action_to_contactUs"
+        app:destination="@id/contactUsFragment" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.example.mobileproject.ui.profile.contactUs"
+        android:label="Contact Us"/>
+    <action
+        android:id="@+id/action_to_aboutUs"
+        app:destination="@id/aboutUsFragment" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.mobileproject.ui.profile.aboutUs"
+        android:label="About Us"/>
 </navigation>

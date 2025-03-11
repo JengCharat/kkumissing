@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.ReportMissing1Fragment">
+    tools:context=".ui.reportMissing.ReportMissing1Fragment">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="275dp"
         android:layout_height="100dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/prompt_medium"
         android:gravity="center"
         android:text="กรอกชื่อและนามสกุล ที่จะแจ้งหาย"
@@ -19,19 +19,19 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/Next2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/prompt_medium"
         android:text="ชื่อ - นามสกุล"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/inputFname"
@@ -86,7 +86,7 @@
         android:id="@+id/imageView"
         android:layout_width="360dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/update_report_mising_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"

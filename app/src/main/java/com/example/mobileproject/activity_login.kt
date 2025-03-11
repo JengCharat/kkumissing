@@ -9,9 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.mobileproject.ui.dashboard.ReportMissing1Fragment
-import com.example.mobileproject.ui.home.HomeFragment
-import com.example.mobileproject.ui.home.HomeViewModel
 
 class Login : AppCompatActivity() {
 

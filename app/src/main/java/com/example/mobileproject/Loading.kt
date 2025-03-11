@@ -4,10 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
-import com.example.mobileproject.ui.dashboard.DashboardViewModel
 
 class Loading : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
