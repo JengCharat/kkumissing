@@ -1,5 +1,6 @@
 package com.example.mobileproject.ui.home
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentHomeBinding
+import com.example.mobileproject.ui.dashboard.home_more_detail
 import com.example.mobileproject.ui.dashboard.item_name
 import com.example.mobileproject.ui.dashboard.item_type
 import java.io.BufferedInputStream
@@ -83,6 +85,26 @@ class HomeFragment : Fragment() {
                 // กรณีที่ไม่มีการเลือก
             }
         }
+        binding.reportMissingButton.setOnClickListener {
+            val intent = Intent(requireContext(), home_more_detail::class.java)
+            startActivity(intent)
+        }
+        binding.foundingButton.setOnClickListener {
+            var search_text = binding.searchText.text ?: ""
+            if (selectedItem == "ระบุตัวเลือก") {
+                selectedItem = ""
+            }
+            get_data("SELECT * FROM items WHERE item_name LIKE '%$search_text%' AND type LIKE '%$selectedItem%' AND report_or_missing = 1 ORDER BY id DESC;")
+
+        }
+        binding.reportingButton.setOnClickListener {
+            var search_text = binding.searchText.text ?: ""
+            if (selectedItem == "ระบุตัวเลือก") {
+                selectedItem = ""
+            }
+            get_data("SELECT * FROM items WHERE item_name LIKE '%$search_text%' AND type LIKE '%$selectedItem%' AND report_or_missing = 2 ORDER BY id DESC;")
+
+        }
         binding.getButton.setOnClickListener {
             /*get_data("SELECT * FROM items\n" +
                     "WHERE id IN (11,12,13,18,19,20,21);\n")*/
@@ -92,17 +114,7 @@ class HomeFragment : Fragment() {
             }
 
 
-            // นำค่าที่เลือกไปใช้งาน
-
             get_data("SELECT * FROM items WHERE item_name LIKE '%$search_text%' AND type LIKE '%$selectedItem%' ORDER BY id DESC;")
-                /*
-            println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
-            println("list test")
-            val recyclerView = view?.findViewById<RecyclerView>(R.id.item_list)
-            recyclerView?.layoutManager = LinearLayoutManager(requireContext())
-
-            val itemList = listOf("Item 1", "Item 2", "Item 3", "Item 4")
-            recyclerView?.adapter = MyAdapter()*/
 
         }
 
