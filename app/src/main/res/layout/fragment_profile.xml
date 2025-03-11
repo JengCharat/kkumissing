@@ -19,22 +19,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="343dp"
-        android:layout_height="202dp"
-        app:srcCompat="@drawable/edittextbig_bg"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="79dp" />
-
     <Button
         android:id="@+id/mainLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginBottom="60dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/gmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

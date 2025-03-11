@@ -42,11 +42,11 @@ class ProfileFragment : Fragment() {
         // กรณีที่มีการ login ค้างไว้ จะสามารถเข้าหน้า Result ได้เลย
         if (mAuth!!.currentUser != null) {
             binding.mainLoginButton?.setText("logout")
-            println("have user")
+            binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
         }
         else{
             binding.mainLoginButton?.setText("login")
-            println("no user")
+
         }
 
 
@@ -56,10 +56,6 @@ class ProfileFragment : Fragment() {
                 mAuth!!.signOut()
                 Toast.makeText(requireContext(), "Signed out!", Toast.LENGTH_LONG).show()
                 binding.mainLoginButton?.setText("logout")
-                parentFragmentManager.beginTransaction().apply {
-                    detach(this@ProfileFragment)  // ลบ fragment ออกจากการแสดงผล
-                    attach(this@ProfileFragment)  // ใส่ fragment นี้กลับเข้าไปใหม่
-                }.commit()
 
             }
             else{
