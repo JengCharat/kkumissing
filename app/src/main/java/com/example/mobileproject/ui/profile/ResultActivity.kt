@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mobileproject.R
+import com.example.mobileproject.ui.dashboard.ReportMissing1Fragment
+import com.example.mobileproject.ui.home.HomeFragment
+import com.example.mobileproject.ui.notifications.ReportAsLostFragment6
 import com.google.firebase.auth.FirebaseAuth
 
 class ResultActivity : AppCompatActivity() {
@@ -42,14 +45,15 @@ class ResultActivity : AppCompatActivity() {
         mAuthListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
             val users = firebaseAuth.currentUser
             if (users == null) {
-                startActivity(Intent(this@ResultActivity,
-                    LoginActivity::class.java))
+                startActivity(
+                    Intent(
+                        this@ResultActivity,
+                        LoginActivity::class.java
+                    )
+                )
                 finish()
             }
         }
-
-
-// กํารท ํางํานของปุ่ ม Sign out
         singout?.setOnClickListener {
             mAuth!!.signOut()
             Toast.makeText(this, "Signed out!", Toast.LENGTH_LONG).show()
@@ -57,13 +61,19 @@ class ResultActivity : AppCompatActivity() {
             startActivity(Intent(this@ResultActivity, LoginActivity::class.java))
             finish()
         }
+        finish()
+
+
+
 //กรณีกดปุ่ ม Back
         backRe?.setOnClickListener { onBackPressed() }
     }
+
     override fun onStart() {
         super.onStart()
         mAuth!!.addAuthStateListener { mAuthListener }
     }
+
     override fun onStop() {
         super.onStop()
         if (mAuthListener != null) {
