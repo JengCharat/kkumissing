@@ -7,6 +7,7 @@ import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -80,6 +81,26 @@ class HomeFragment : Fragment() {
 //            textView.text = it
 //        }
 
+        // โค้ดของ Spinner (listตัวเลือก)
+        val items = arrayOf("ระบุตัวเลือก") + resources.getStringArray(R.array.spinner_items) // ใส่ "ระบุตัวเลือก" เป็นตัวแรก
+        val type_search = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        type_search.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.TypeSearch.adapter = type_search
+
+        // ✅ ตั้งค่า RecyclerView
+        binding.itemList.layoutManager = LinearLayoutManager(requireContext())
+        // ✅ สร้างรายการตัวอย่าง
+        val itemMissingList = listOf(
+            SearchItem("กระเป๋าสตางค์หาย", "สมชาย", "ห้างสรรพสินค้า", "081-234-5678", R.drawable.rounded_button),
+            SearchItem("โทรศัพท์มือถือหาย", "สมหญิง", "รถไฟฟ้า BTS", "099-876-5432", R.drawable.rounded_button),
+            SearchItem("กุญแจรถหาย", "มานพ", "หน้ามหาวิทยาลัย", "085-123-4567", R.drawable.rounded_button),
+            SearchItem("iphone 16 pro max", "david backham", "old traford", "081-234-5678", R.drawable.rounded_button),
+            SearchItem("รถยนต์ BMW X4", "นางกอหญ้า", "รถไฟฟ้า BTS", "099-876-5432", R.drawable.rounded_button),
+            SearchItem("กุญแจรถหาย", "มานพ", "หน้ามหาวิทยาลัย", "085-123-4567", R.drawable.rounded_button)
+        )
+        // ✅ กำหนด Adapter
+        val adapter = SearchItemAdapter(itemMissingList)
+        binding.itemList.adapter = adapter
         return root
     }
 

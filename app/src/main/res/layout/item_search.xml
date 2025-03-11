@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/textMain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:fontFamily="@font/prompt"
             android:paddingBottom="4dp"
             android:textColor="@color/white"
@@ -34,26 +34,26 @@
         <TextView
             android:id="@+id/textName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="23dp"
             android:fontFamily="@font/prompt"
-            android:textColor="@color/white"
-            android:paddingBottom="4dp" />
+            android:paddingBottom="4dp"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textLocation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="23dp"
             android:fontFamily="@font/prompt"
-            android:textColor="@color/white"
-            android:paddingBottom="4dp" />
+            android:paddingBottom="4dp"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/textContact"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="23dp"
             android:fontFamily="@font/prompt"
-            android:textColor="@color/white"
-            android:paddingBottom="4dp"/>
+            android:paddingBottom="4dp"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </LinearLayout>
