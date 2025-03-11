@@ -99,7 +99,7 @@
         android:layout_height="180dp"
         android:layout_marginTop="4dp"
         android:src="@drawable/add_image"
-
+        android:background="@drawable/rounded_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/next3"
@@ -126,7 +126,7 @@
             android:layout_height="84dp"
             android:layout_marginTop="4dp"
             android:adjustViewBounds="true"
-
+            android:background="@drawable/rounded_button"
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
@@ -143,7 +143,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:adjustViewBounds="true"
-
+            android:background="@drawable/rounded_button"
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
@@ -160,7 +160,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:adjustViewBounds="true"
-
+            android:background="@drawable/rounded_button"
             android:clickable="true"
             android:contentDescription="Upload Image"
             android:focusable="true"
