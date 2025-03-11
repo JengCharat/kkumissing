@@ -12,6 +12,7 @@ import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportMissing1Binding
 import com.example.mobileproject.ui.profile.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.example.mobileproject.ui.profile.ProfileFragment
 
 
 var fname:String = ""
@@ -46,10 +47,11 @@ class ReportMissing1Fragment : Fragment() {
     val user2 = mAuth!!.currentUser
     //น ําค่ํามําใส่ลงใน TextView ที่สร้ํางขึ้น
     if(user2?.email == null || user2?.email == ""){
-
+        binding.inputFname.setText("")
     }
     else{
-        binding.inputFname.setText(user2.email)
+        println("have yser")
+        binding.inputFname.setText(user2?.email)
     }
 
 
