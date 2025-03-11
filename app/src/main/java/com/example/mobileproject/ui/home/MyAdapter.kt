@@ -92,9 +92,14 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             }
 
             val textView = TextView(holder.imageContainer.context).apply {
-                text = user.fname
+                text =// user.fname
+                """
+                                    ผู้แจ้ง:${user.fname}
+                                    สถานที่หาย:${user.lost_place}
+                                    ติดต่อ: ${user.tel}
+                """.trimIndent()
                 textSize = 18f
-                setTextColor(Color.BLACK)
+                setTextColor(Color.WHITE)
                 layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
@@ -115,12 +120,14 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                     // ใช้ dp แทน px สำหรับความละเอียดที่แตกต่างกัน
                     val scale = holder.itemView.context.resources.displayMetrics.density
                     bottomMargin = (20 * scale).toInt() // ตั้งระยะห่าง 20dp
-                    setMargins(0, 0, 0, bottomMargin)
+                    setMargins(10, 10, 10, 10)
+                    setPadding(30, 30, 30,30)
                 }
                 this.layoutParams = layoutParams
 
                 // เปลี่ยนสีพื้นหลังเป็นสีน้ำเงิน
-                setBackgroundColor(Color.BLUE)
+
+                setBackgroundColor(Color.rgb(50,43,43))
             }
 
             // เพิ่ม innerLayout ลงใน imageContainer
