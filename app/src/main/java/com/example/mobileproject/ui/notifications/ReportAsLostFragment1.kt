@@ -9,10 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentReportAsLost1Binding
+import com.google.firebase.auth.FirebaseAuth
+
 var fname_2:String = ""
 var lname_2:String = ""
 class ReportAsLostFragment1 : Fragment() {
-
+    var mAuth: FirebaseAuth? = null
+    var mAuthListener: FirebaseAuth.AuthStateListener? = null
     private var _binding: FragmentReportAsLost1Binding? = null
 
     // This property is only valid between onCreateView and
@@ -29,6 +32,15 @@ class ReportAsLostFragment1 : Fragment() {
 
         _binding = FragmentReportAsLost1Binding.inflate(inflater, container, false)
         val root: View = binding.root
+        mAuth = FirebaseAuth.getInstance()
+        val user3 = mAuth!!.currentUser
+        if(user3?.email == null || user3?.email == ""){
+            binding.inputFname.setText("")
+        }
+        else{
+            binding.inputFname.setText(user3?.email)
+            println("have yser")
+        }
 
 //        val textView: TextView = binding.textNotifications
 //        notificationsViewModel.text.observe(viewLifecycleOwner) {

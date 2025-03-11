@@ -42,11 +42,12 @@ class ProfileFragment : Fragment() {
         // กรณีที่มีการ login ค้างไว้ จะสามารถเข้าหน้า Result ได้เลย
         if (mAuth!!.currentUser != null) {
             binding.mainLoginButton?.setText("logout")
+            println("have user")
         }
         else{
             binding.mainLoginButton?.setText("login")
+            println("no user")
         }
-
 
 
 
