@@ -10,4 +10,12 @@
         <item name="android:textSize">24sp</item> <!-- ขนาดของข้อความ -->
         <item name="android:textColor">#FF000000</item> <!-- สีของข้อความ -->
     </style>
+    <style name="CircleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="CircleImageView2" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>
