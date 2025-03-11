@@ -2,15 +2,9 @@ package com.example.mobileproject.ui.notifications
 
 import android.app.Activity
 import android.content.Intent
-<<<<<<< HEAD
-||||||| parent of dac869f (bud/xxx)
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.location.Location
-=======
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
->>>>>>> dac869f (bud/xxx)
+
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -107,19 +101,6 @@ class ReportAsLostFragment4 : Fragment() {
         _binding = FragmentReportAsLost4Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-<<<<<<< HEAD
-        // ปิดปุ่มเริ่มต้น
-        //binding.butNextTo5.isEnabled = false
-
-        // ปุ่มย้อนกลับไป ReportAsLost3Fragment
-||||||| parent of dac869f (bud/xxx)
-        // ปุ่มย้อนกลับไป
-=======
-        // ปิดปุ่มเริ่มต้น
-        //binding.butNextTo5.isEnabled = false
-
-        // ปุ่มย้อนกลับไป ReportAsLost3Fragment
->>>>>>> dac869f (bud/xxx)
         binding.butbackTo3.setOnClickListener {
             findNavController().navigate(R.id.action_reportAsLos4Fragment_to_reportAsLost3Fragment)
         }

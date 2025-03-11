@@ -356,7 +356,7 @@ class ReportAsLostFragment6 : Fragment() {
                     "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,tel,latitude,longitude,img1,img2,img3,img4,type,report_or_missing) VALUES('$fname_2', '$lname_2','$item_name','$more_detail','$lost_place','$contact','$telNumber','$latitude2','$longitude2','$img1','$img2','$img3','$img4','$item_type',2)",
                     "UTF-8"
                 ).trim()
-                val host = "10.53.60.226"
+                val host = "10.48.104.93"
                 val path = "/myapi/test5.php"
                 // สร้าง HTTP Request แบบ Manual
                 val request = StringBuilder()
