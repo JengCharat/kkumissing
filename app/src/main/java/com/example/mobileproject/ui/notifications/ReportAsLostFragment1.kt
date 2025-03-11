@@ -39,7 +39,6 @@ class ReportAsLostFragment1 : Fragment() {
         }
         else{
             binding.inputFname.setText(user3?.email)
-            println("have yser")
         }
 
 //        val textView: TextView = binding.textNotifications
