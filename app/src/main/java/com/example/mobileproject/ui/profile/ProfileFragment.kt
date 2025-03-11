@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.mobileproject.databinding.FragmentProfileBinding
@@ -27,6 +28,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         val profileViewModel =
             ViewModelProvider(this).get(ProfileViewModel::class.java)
@@ -39,17 +41,29 @@ class ProfileFragment : Fragment() {
 
         // กรณีที่มีการ login ค้างไว้ จะสามารถเข้าหน้า Result ได้เลย
         if (mAuth!!.currentUser != null) {
-            Log.d(TAG, "Continue with: " + mAuth!!.currentUser!!.email)
-            // เรียก Intent ไปยัง ResultActivity
-            startActivity(Intent(requireActivity(), ResultActivity::class.java))
-            requireActivity().finish()
+            binding.mainLoginButton?.setText("logout")
+            binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
+        }
+        else{
+            binding.mainLoginButton?.setText("login")
+
         }
 
-        // ตั้งค่าปุ่ม Login
-        mainSignin = binding.mainLoginButton  // ใช้ binding แทน findViewById
 
-        mainSignin?.setOnClickListener {
-            startActivity(Intent(requireActivity(), LoginActivity::class.java))
+
+        binding.mainLoginButton ?.setOnClickListener {
+            if (mAuth!!.currentUser != null) {
+                mAuth!!.signOut()
+                Toast.makeText(requireContext(), "Signed out!", Toast.LENGTH_LONG).show()
+                binding.mainLoginButton?.setText("logout")
+
+            }
+            else{
+                binding.mainLoginButton?.setText("login")
+                startActivity(Intent(requireActivity(), LoginActivity::class.java))
+
+            }
+
         }
 
         return root

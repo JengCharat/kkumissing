@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -100,10 +101,6 @@ class ReportAsLostFragment4 : Fragment() {
         _binding = FragmentReportAsLost4Binding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        // ปิดปุ่มเริ่มต้น
-        //binding.butNextTo5.isEnabled = false
-
-        // ปุ่มย้อนกลับไป ReportAsLost3Fragment
         binding.butbackTo3.setOnClickListener {
             findNavController().navigate(R.id.action_reportAsLos4Fragment_to_reportAsLost3Fragment)
         }
@@ -126,7 +123,7 @@ class ReportAsLostFragment4 : Fragment() {
 
         binding.imageUpload2.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            getImage3.launch(intent)
+            getImage4.launch(intent)
         }
 
         binding.imageUpload3.setOnClickListener {
