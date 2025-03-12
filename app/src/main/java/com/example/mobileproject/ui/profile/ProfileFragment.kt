@@ -154,6 +154,8 @@ class ProfileFragment : Fragment() {
 
         Thread {
             try {
+                get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
+
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
                 val host = db_server_ip
                 val path = "/myapi/test5.php"
@@ -267,8 +269,7 @@ class ProfileFragment : Fragment() {
                     binding.profileImg.setImageBitmap(profile_image_decode)
 
 
-                    get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
-                }
+                        }
             } catch (e: IOException) {
                 e.printStackTrace()
             }
