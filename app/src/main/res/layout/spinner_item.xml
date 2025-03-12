@@ -5,4 +5,4 @@
     android:fontFamily="@font/prompt_medium"
     android:padding="10dp"
     android:textColor="#000000"
-    android:textSize="0.5dp" /> <!-- เปลี่ยนฟอนต์ -->
+    android:textSize="15dp" /> <!-- เปลี่ยนฟอนต์ -->
