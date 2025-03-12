@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:shapeAppearanceOverlay="@style/CircleImageView"
-        app:srcCompat="@drawable/d5"
+        app:srcCompat="@drawable/person"
          />
 
     <View
@@ -57,13 +57,12 @@
         android:id="@+id/gmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:fontFamily="@font/prompt_medium"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_img" />
+        app:layout_constraintTop_toBottomOf="@+id/update_profile" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/user_item"
@@ -149,11 +148,15 @@
 
     <Button
         android:id="@+id/update_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:shadowColor="@android:color/system_accent1_500"
         android:text="update_profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
