@@ -95,10 +95,10 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val textView = TextView(holder.imageContainer.context).apply {
                 text =// user.fname
                 """
-                                       ${user.item_name}
-                                       ผู้แจ้ง:${user.fname}
-                                       สถานที่หาย:${user.lost_place}
-                                       ติดต่อ: ${user.tel}
+                ${user.item_name}
+                ผู้แจ้ง:${user.fname}
+                สถานที่หาย:${user.lost_place}
+                ติดต่อ: ${user.tel}
                 """.trimIndent()
                 textSize = 18f
                 setTextColor(Color.WHITE)
