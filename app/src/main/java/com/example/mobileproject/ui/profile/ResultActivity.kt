@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -24,7 +25,7 @@ class ResultActivity : AppCompatActivity() {
     private val TAG: String = "Result Activity"
     var userEmail: TextView? = null
     var uidUser: TextView? = null
-    var singout: Button? = null
+    var singout: ImageButton? = null
     var backRe: ImageView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +56,7 @@ class ResultActivity : AppCompatActivity() {
             }
         }
         singout?.setOnClickListener {
-            mAuth!!.signOut()
+            mAuth?.signOut()
             Toast.makeText(this, "Signed out!", Toast.LENGTH_LONG).show()
             Log.d(TAG, "Signed out!")
             startActivity(Intent(this@ResultActivity, LoginActivity::class.java))
@@ -89,7 +90,7 @@ class ResultActivity : AppCompatActivity() {
     private fun init() {
         userEmail = findViewById(R.id.result_emailData)
         uidUser = findViewById(R.id.result_uidData)
-        singout = findViewById(R.id.result_signOutBtn)
+        singout = findViewById<ImageButton>(R.id.mainLoginButton)
         backRe = findViewById(R.id.result_backBtn)
     }
 }
