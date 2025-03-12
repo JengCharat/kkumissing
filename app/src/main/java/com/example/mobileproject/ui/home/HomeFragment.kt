@@ -58,7 +58,6 @@ var selectedItem:String = ""
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -126,10 +125,6 @@ class HomeFragment : Fragment() {
 
         }
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
 
 
         return root

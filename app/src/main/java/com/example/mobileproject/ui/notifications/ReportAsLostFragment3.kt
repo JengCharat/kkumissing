@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import com.example.mobileproject.R
@@ -80,6 +81,7 @@ class ReportAsLostFragment3 : Fragment() {
                     println(location?.longitude).toString()
                     latitude2 = location?.latitude.toString()
                     longitude2 = location?.longitude.toString()
+                    Toast.makeText(context, "ได้รับพิกัดแล้ว", Toast.LENGTH_SHORT).show()
                 }
            lost_place = binding.inputLostPlaces.text.toString()
         }
