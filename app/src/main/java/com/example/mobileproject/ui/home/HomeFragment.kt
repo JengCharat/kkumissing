@@ -47,6 +47,7 @@ data class User(
     val img4:String,
     val type:String,
 )
+var db_server_ip = "10.48.104.49"
 var selectedItem:String = ""
 class HomeFragment : Fragment() {
 
@@ -136,7 +137,7 @@ class HomeFragment : Fragment() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "10.48.104.93"
+                val host = db_server_ip
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"

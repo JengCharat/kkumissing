@@ -19,6 +19,7 @@ import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentProfileBinding
 import com.example.mobileproject.ui.home.MyAdapter
 import com.example.mobileproject.ui.home.User
+import com.example.mobileproject.ui.home.db_server_ip
 import com.example.mobileproject.ui.home.selectedItem
 import com.google.firebase.auth.FirebaseAuth
 import com.example.mobileproject.ui.profile.ResultActivity
@@ -102,7 +103,7 @@ class ProfileFragment : Fragment() {
         Thread {
             try {
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
-                val host = "10.48.104.49"
+                val host = db_server_ip
                 val path = "/myapi/test5.php"
 
                 //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
