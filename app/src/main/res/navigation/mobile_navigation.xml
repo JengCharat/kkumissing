@@ -199,4 +199,18 @@
         android:name="com.example.mobileproject.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+    <action
+        android:id="@+id/action_to_contactUs"
+        app:destination="@id/contactUsFragment" />
+    <fragment
+        android:id="@+id/contactUsFragment"
+        android:name="com.example.mobileproject.ui.profile.contactUs"
+        android:label="Contact Us"/>
+    <action
+        android:id="@+id/action_to_aboutUs"
+        app:destination="@id/aboutUsFragment" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.mobileproject.ui.profile.aboutUs"
+        android:label="About Us"/>
 </navigation>
