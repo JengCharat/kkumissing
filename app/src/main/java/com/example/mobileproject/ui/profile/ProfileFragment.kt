@@ -99,7 +99,7 @@ class ProfileFragment : Fragment() {
         // กรณีที่มีการ login ค้างไว้ จะสามารถเข้าหน้า Result ได้เลย
         if (mAuth!!.currentUser != null) {
             email2 = mAuth!!.currentUser?.email.toString()
-            binding.mainLoginButton?.setText("logout")
+            binding.mainLoginButton?.setImageResource(R.drawable.log_out_btn) // เปลี่ยนรูปแทนข้อความ
             binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
             get("SELECT * from items  WHERE items.email = '${mAuth!!.currentUser?.email}'")
 
@@ -107,6 +107,7 @@ class ProfileFragment : Fragment() {
         else{
             binding.updateProfile.visibility = View.GONE
             binding.mainLoginButton?.setText("login")
+            binding.mainLoginButton?.setImageResource(R.drawable.log_in_btn) // เปลี่ยนรูปแทนข้อความ
 
         }
 
@@ -136,10 +137,11 @@ class ProfileFragment : Fragment() {
             else{
                 // ซ่อนปุ่ม
                 binding.mainLoginButton?.setText("login")
+                binding.mainLoginButton?.setImageResource(R.drawable.log_in_btn) // เปลี่ยนเป็นปุ่ม Login
+            } else {
+                binding.mainLoginButton?.setImageResource(R.drawable.log_out_btn) // เปลี่ยนเป็นปุ่ม Logout
                 startActivity(Intent(requireActivity(), LoginActivity::class.java))
-
             }
-
         }
 
         return root
