@@ -104,7 +104,9 @@ class ProfileFragment : Fragment() {
             email2 = mAuth!!.currentUser?.email.toString()
             binding.mainLoginButton?.setImageResource(R.drawable.log_out_btn) // เปลี่ยนรูปแทนข้อความ
             binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
+
             get("select * from items where email = '${mAuth!!.currentUser?.email}'")
+            //get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
         }
         else {
             binding.updateProfile.visibility = View.GONE
@@ -155,7 +157,6 @@ class ProfileFragment : Fragment() {
         Thread {
             try {
                 get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
-
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
                 val host = db_server_ip
                 val path = "/myapi/test5.php"
@@ -275,8 +276,7 @@ class ProfileFragment : Fragment() {
             }
 
         }.start()
-
-    }
+            }
     fun get_profile_image(sqlCommand:String) {
 
         Thread {

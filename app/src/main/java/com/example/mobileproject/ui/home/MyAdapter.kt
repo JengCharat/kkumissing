@@ -96,11 +96,11 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                 text =// user.fname
                 """
                 ${user.item_name}
-                ผู้แจ้ง:${user.fname}
-                สถานที่หาย:${user.lost_place}
-                ติดต่อ: ${user.tel}
+                ผู้แจ้ง : ${user.fname}
+                สถานที่หาย : ${user.lost_place}
+                ติดต่อ : ${user.tel}
                 """.trimIndent()
-                textSize = 18f
+                textSize = 16f
                 setTextColor(Color.WHITE)
                 layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
