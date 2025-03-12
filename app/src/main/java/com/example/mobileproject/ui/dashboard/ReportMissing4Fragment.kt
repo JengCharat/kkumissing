@@ -61,8 +61,7 @@ class ReportMissing4Fragment : Fragment() {
                 //ImageData.base64Image = encodeImageToBase64(it)
                 //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
                 img1 = encodeImageToBase64(it).toString()
-                println("img1111111111111111111111")
-                println(img1)
+
             }
         }
     }
