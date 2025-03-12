@@ -27,6 +27,7 @@ import com.example.mobileproject.ui.dashboard.longitude2
 import com.example.mobileproject.ui.dashboard.lost_place
 import com.example.mobileproject.ui.dashboard.more_detail
 import com.example.mobileproject.ui.dashboard.telNumber
+import com.example.mobileproject.ui.home.db_server_ip
 import com.google.firebase.auth.FirebaseAuth
 import java.io.IOException
 import java.net.Socket
@@ -120,7 +121,7 @@ class RegisterActivity : AppCompatActivity() {
                     "INSERT INTO users(email) VALUES('$email')",
                     "UTF-8"
                 ).trim()
-                val host = "10.48.104.49"
+                val host = db_server_ip
                 val path = "/myapi/test5.php"
                 // สร้าง HTTP Request แบบ Manual
                 val request = StringBuilder()

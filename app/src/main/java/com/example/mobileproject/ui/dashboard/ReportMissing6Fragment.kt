@@ -15,6 +15,7 @@ import com.example.mobileproject.ui.dashboard.ReportMissing2Fragment
 import com.example.mobileproject.ui.dashboard.ReportMissing3Fragment
 import com.example.mobileproject.ui.dashboard.ReportMissing4Fragment
 import com.example.mobileproject.ui.dashboard.ReportMissing5Fragment
+import com.example.mobileproject.ui.home.db_server_ip
 import java.io.IOException
 import java.net.Socket
 import java.net.URLEncoder
@@ -382,7 +383,7 @@ class ReportMissing6Fragment : Fragment() {
                     "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,tel,latitude,longitude,img1,img2,img3,img4,type,report_or_missing,email) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$telNumber','$latitude2','$longitude2','$img1','$img2','$img3','$img4','$item_type',1,'$email2')",
                     "UTF-8"
                 ).trim()
-                val host = "10.48.104.49"
+                val host = db_server_ip
                 val path = "/myapi/test5.php"
                 // สร้าง HTTP Request แบบ Manual
                 val request = StringBuilder()
