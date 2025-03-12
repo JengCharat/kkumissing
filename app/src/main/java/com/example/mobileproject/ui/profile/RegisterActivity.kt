@@ -13,8 +13,26 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mobileproject.R
+import com.example.mobileproject.ui.dashboard.contact
+import com.example.mobileproject.ui.dashboard.fname
+import com.example.mobileproject.ui.dashboard.img1
+import com.example.mobileproject.ui.dashboard.img2
+import com.example.mobileproject.ui.dashboard.img3
+import com.example.mobileproject.ui.dashboard.img4
+import com.example.mobileproject.ui.dashboard.item_name
+import com.example.mobileproject.ui.dashboard.item_type
+import com.example.mobileproject.ui.dashboard.latitude2
+import com.example.mobileproject.ui.dashboard.lname
+import com.example.mobileproject.ui.dashboard.longitude2
+import com.example.mobileproject.ui.dashboard.lost_place
+import com.example.mobileproject.ui.dashboard.more_detail
+import com.example.mobileproject.ui.dashboard.telNumber
 import com.google.firebase.auth.FirebaseAuth
-
+import java.io.IOException
+import java.net.Socket
+import java.net.URLEncoder
+import com.example.mobileproject.ui.profile.RegisterActivity
+var email:String = ""
 class RegisterActivity : AppCompatActivity() {
     var mAuth: FirebaseAuth? = null
     private val TAG: String = "Register Activity"
@@ -41,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
         createAcc?.setOnClickListener {
-            val email = regisEmail?.text.toString().trim { it <= ' ' }
+            email = regisEmail?.text.toString().trim { it <= ' ' }
             val password = regisPass?.text.toString().trim { it <= ' ' }
 //ท ํากํารตรวจสอบก่อนว่ํามีข้อมูลหรือไม่
             if (email.isEmpty()) {
@@ -69,6 +87,7 @@ class RegisterActivity : AppCompatActivity() {
                                 task.exception!!.message)
                     }
                 } else {
+                    post()
                     Toast.makeText(this,"Create account successfully!", Toast.LENGTH_LONG).show()
                             Log.d(TAG, "Create account successfully!")
                     startActivity(Intent(this@RegisterActivity,
@@ -91,5 +110,40 @@ class RegisterActivity : AppCompatActivity() {
         createAcc = findViewById(R.id.ButNextTo3)
         rSignin = findViewById(R.id.ButNextTo2)
         backR = findViewById(R.id.register_backBtn)
+    }
+    fun post() {
+        //println("encode imageeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+        //println(ImageData.base64Image)
+        Thread {
+            try {
+                val postData = "sql_command=" + URLEncoder.encode(
+                    "INSERT INTO users(email) VALUES('$email')",
+                    "UTF-8"
+                ).trim()
+                val host = "10.48.104.49"
+                val path = "/myapi/test5.php"
+                // สร้าง HTTP Request แบบ Manual
+                val request = StringBuilder()
+                request.append("POST $path HTTP/1.1\r\n")
+                request.append("Host: $host\r\n")
+                request.append("Content-Type: application/x-www-form-urlencoded\r\n")
+                request.append("Content-Length: ${postData.toByteArray().size}\r\n")
+                request.append("Connection: close\r\n\r\n")
+                request.append(postData)
+                // แสดง HTTP Request ที่จะถูกส่งไป
+                println("Request:\n$request")
+                // สร้าง Socket ไปยังเซิร์ฟเวอร์
+                val socket = Socket(host, 80)
+                socket.soTimeout = 60000000
+                // ส่งข้อมูลไปยังเซิร์ฟเวอร์
+                val outputStream = socket.getOutputStream()
+                outputStream.write(request.toString().toByteArray())
+                outputStream.flush()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+        }.start()
+
     }
 }
