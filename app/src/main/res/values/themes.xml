@@ -9,12 +9,12 @@
 
 
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#FF4A00</item>
-        <item name="colorPrimaryVariant">#FF4A00</item>
+        <item name="colorPrimary">#E95324</item>
+        <item name="colorPrimaryVariant">#E95324</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#FF4A00</item>
-        <item name="colorSecondaryVariant">#FF4A00</item>
+        <item name="colorSecondary">#E95324</item>
+        <item name="colorSecondaryVariant">#E95324</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Customize your theme here. -->
     </style>

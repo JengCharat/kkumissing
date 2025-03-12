@@ -4,7 +4,9 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -42,7 +44,9 @@ class More_detail : AppCompatActivity() {
     var img3:ImageView?= null
     var img4:ImageView?= null
     var gps_pin:ImageView?= null
-    var item_name2:TextView?= null
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,10 +58,51 @@ class More_detail : AppCompatActivity() {
             insets
         }
         init()
+
+        val mapButton: Button = findViewById(R.id.MAP)
+        val gpsPin: ImageView = findViewById(R.id.gps_pin)
+        val imageView4: ImageView = findViewById(R.id.imageView4)
+        val textViews = listOf<TextView>(
+            findViewById(R.id.fname),
+            findViewById(R.id.lname),
+            findViewById(R.id.item_type),
+            findViewById(R.id.lost_place),
+            findViewById(R.id.contact),
+            findViewById(R.id.textView9),
+            findViewById(R.id.textView11),
+            findViewById(R.id.textView14),
+            findViewById(R.id.textView15),
+            findViewById(R.id.textView16)
+        )
+
+
+        mapButton.setOnClickListener {
+            if (gpsPin.visibility == View.GONE) {
+                // Show the map icon and hide text views
+                gpsPin.visibility = View.VISIBLE
+                imageView4.visibility = View.VISIBLE
+                textViews.forEach { it.visibility = View.GONE }
+                // Change button text to "รายละเอียด"
+                mapButton.text = "รายละเอียด"
+            } else {
+                // Hide the map icon and show text views
+                gpsPin.visibility = View.GONE
+                imageView4.visibility = View.GONE
+
+                textViews.forEach { it.visibility = View.VISIBLE }
+                // Change button text back to "MAP"
+                mapButton.text = "MAP"
+            }
+        }
+
+        println("testsedfljhlfkgjhlghjfghf")
+        println(item_id)
         get_data("select * from items where id = $item_id")
         back_img!!.setOnClickListener {
-                finish() //กดปุ่มย้อนกลับแบบในมือถือ
+            finish() //กดปุ่มย้อนกลับแบบในมือถือ
         }
+
+
     }
 
     private fun init(){
@@ -72,7 +117,7 @@ class More_detail : AppCompatActivity() {
         img3 = findViewById(R.id.img3)
         img4 = findViewById(R.id.img4)
         gps_pin = findViewById(R.id.gps_pin)
-        item_name2 = findViewById(R.id.item_name)
+
     }
     fun get_data(sqlCommand:String) {
 
@@ -232,19 +277,22 @@ class More_detail : AppCompatActivity() {
                     println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
                     println("list test")
                     println("fffffffffnmaaaaaaaae")*/
-                    fname!!.setText("first name:" + users[0].fname)
-                    lname!!.setText("last name:" + users[0].lname)
-                    item_type!!.setText("item type:" + users[0].type)
-                    lost_place!!.setText("lost place"+users[0].lost_place)
-                   contact!!.setText("contact" + users[0].contact)
-                    item_name2!!.setText("itemName" + users[0].item_name)
+
+                    fname!!.setText(users[0].fname)
+                    lname!!.setText(users[0].lname)
+                    item_type!!.setText(users[0].type)
+                    lost_place!!.setText(users[0].lost_place)
+                    contact!!.setText(users[0].contact)
+
+
+
                     gps_pin?.let { view ->
                         val params = view.layoutParams as ViewGroup.MarginLayoutParams
 
 
 
-                        val longitude = if (users[0].longitude.isNullOrBlank() || users[0].longitude == "null") 1000.0 else users[0].longitude.toDouble()
-                        val latitude = if (users[0].latitude.isNullOrBlank() || users[0].latitude == "null") 1000.0 else users[0].latitude.toDouble()
+                        val longitude = if (users[0].longitude.isNullOrBlank() || users[0].latitude == "null") 1000.0 else users[0].longitude.toDouble()
+                        val latitude = if (users[0].latitude.isNullOrBlank() || users[0].longitude == "null") 1000.0 else users[0].latitude.toDouble()
 
                         //val position_x = ((users[0].longitude.toDouble() - top_left_longitude)/(top_left_longitude - buttom_left_longitude)) * max_width_px
                         val position_x = ((longitude - top_left_longitude) / (top_right_longitude - top_left_longitude)) * max_width_px

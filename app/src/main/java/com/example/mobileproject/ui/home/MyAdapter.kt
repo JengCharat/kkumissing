@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
 var item_id:String = ""
@@ -94,9 +95,10 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val textView = TextView(holder.imageContainer.context).apply {
                 text =// user.fname
                 """
-                                    ผู้แจ้ง:${user.fname}
-                                    สถานที่หาย:${user.lost_place}
-                                    ติดต่อ: ${user.tel}
+                                       ${user.item_name}
+                                       ผู้แจ้ง:${user.fname}
+                                       สถานที่หาย:${user.lost_place}
+                                       ติดต่อ: ${user.tel}
                 """.trimIndent()
                 textSize = 18f
                 setTextColor(Color.WHITE)
@@ -104,6 +106,8 @@ override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
+                // ตั้งค่าฟอนต์เป็น Prompt
+                typeface = ResourcesCompat.getFont(context, R.font.prompt)
             }
 
             // สร้าง LayoutParams สำหรับ innerLayout
