@@ -105,6 +105,7 @@ class ProfileFragment : Fragment() {
 
         }
         else{
+            binding.updateProfile.visibility = View.GONE
             binding.mainLoginButton?.setText("login")
 
         }
@@ -133,6 +134,7 @@ class ProfileFragment : Fragment() {
 
             }
             else{
+                // ซ่อนปุ่ม
                 binding.mainLoginButton?.setText("login")
                 startActivity(Intent(requireActivity(), LoginActivity::class.java))
 
