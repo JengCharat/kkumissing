@@ -22,7 +22,7 @@ class editProfile : Fragment() {
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.undoBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_to_profileFragment)
+            //findNavController().navigate(R.id.action_to_profileFragment)
         }
 
     return root
