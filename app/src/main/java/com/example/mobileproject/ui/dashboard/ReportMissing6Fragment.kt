@@ -20,6 +20,9 @@ import java.net.Socket
 import java.net.URLEncoder
 
 //////////////////////////////////////
+import com.example.mobileproject.ui.profile.ProfileFragment
+import com.example.mobileproject.ui.profile.email2
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -376,10 +379,10 @@ class ReportMissing6Fragment : Fragment() {
         Thread {
             try {
                 val postData = "sql_command=" + URLEncoder.encode(
-                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,tel,latitude,longitude,img1,img2,img3,img4,type,report_or_missing) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$telNumber','$latitude2','$longitude2','$img1','$img2','$img3','$img4','$item_type',1)",
+                    "INSERT INTO items(fname,lname,item_name,more_detail,lost_place,contact,tel,latitude,longitude,img1,img2,img3,img4,type,report_or_missing,email) VALUES('$fname', '$lname','$item_name','$more_detail','$lost_place','$contact','$telNumber','$latitude2','$longitude2','$img1','$img2','$img3','$img4','$item_type',1,'$email2')",
                     "UTF-8"
                 ).trim()
-                val host = "10.48.104.93"
+                val host = "10.48.104.49"
                 val path = "/myapi/test5.php"
                 // สร้าง HTTP Request แบบ Manual
                 val request = StringBuilder()
