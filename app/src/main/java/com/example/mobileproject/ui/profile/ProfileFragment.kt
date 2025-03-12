@@ -59,12 +59,12 @@ class ProfileFragment : Fragment() {
         // กรณีที่มีการ login ค้างไว้ จะสามารถเข้าหน้า Result ได้เลย
         if (mAuth!!.currentUser != null) {
             email2 = mAuth!!.currentUser?.email.toString()
-            binding.mainLoginButton?.setText("logout")
+            binding.mainLoginButton?.setImageResource(R.drawable.log_out_btn) // เปลี่ยนรูปแทนข้อความ
             binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
             get("select * from items where email = '${mAuth!!.currentUser?.email}'")
         }
         else{
-            binding.mainLoginButton?.setText("login")
+            binding.mainLoginButton?.setImageResource(R.drawable.log_in_btn) // เปลี่ยนรูปแทนข้อความ
 
         }
         binding.profileReportButton.setOnClickListener {
@@ -74,21 +74,15 @@ class ProfileFragment : Fragment() {
             get("SELECT * FROM items WHERE email = '${mAuth!!.currentUser?.email}'  AND report_or_missing = 1 ORDER BY id DESC;")
         }
 
-
-
-        binding.mainLoginButton ?.setOnClickListener {
+        binding.mainLoginButton?.setOnClickListener {
             if (mAuth!!.currentUser != null) {
                 mAuth!!.signOut()
                 Toast.makeText(requireContext(), "Signed out!", Toast.LENGTH_LONG).show()
-                binding.mainLoginButton?.setText("logout")
-
-            }
-            else{
-                binding.mainLoginButton?.setText("login")
+                binding.mainLoginButton?.setImageResource(R.drawable.log_in_btn) // เปลี่ยนเป็นปุ่ม Login
+            } else {
+                binding.mainLoginButton?.setImageResource(R.drawable.log_out_btn) // เปลี่ยนเป็นปุ่ม Logout
                 startActivity(Intent(requireActivity(), LoginActivity::class.java))
-
             }
-
         }
 
         return root
