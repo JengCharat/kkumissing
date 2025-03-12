@@ -1,7 +1,10 @@
 package com.example.mobileproject.ui.profile
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +13,22 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentProfileBinding
+import com.example.mobileproject.ui.home.MyAdapter
+import com.example.mobileproject.ui.home.User
 import com.google.firebase.auth.FirebaseAuth
 import com.example.mobileproject.ui.profile.ResultActivity
 import com.example.mobileproject.ui.profile.LoginActivity
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.BufferedInputStream
+import java.io.IOException
+import java.net.Socket
+import java.net.URLEncoder
+
 
 class ProfileFragment : Fragment() {
 
@@ -43,7 +58,7 @@ class ProfileFragment : Fragment() {
         if (mAuth!!.currentUser != null) {
             binding.mainLoginButton?.setText("logout")
             binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
-            
+            get("select * from items where email = '${mAuth!!.currentUser?.email}'")
         }
         else{
             binding.mainLoginButton?.setText("login")
@@ -74,4 +89,119 @@ class ProfileFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+    fun get(sqlCommand:String) {
+
+        Thread {
+            try {
+                // ตั้งค่าข้อมูลที่ต้องการส่ง
+                val host = "10.48.104.49"
+                val path = "/myapi/test5.php"
+
+                //val sqlCommand = "INSERT INTO name (name, image) VALUES ('admin3', '12')"
+                //val sqlCommand = "select * from name where name = 'fan'"
+                val postData = "sql_command=" + URLEncoder.encode(sqlCommand, "UTF-8") // URL Encode แค่ค่า ไม่รวม key
+
+                // สร้าง HTTP Request แบบ Manual
+                val request = StringBuilder()
+                request.append("POST $path HTTP/1.1\r\n")
+                request.append("Host: $host\r\n")
+                request.append("Content-Type: application/x-www-form-urlencoded\r\n")
+                request.append("Content-Length: ${postData.toByteArray().size}\r\n")
+                request.append("Connection: close\r\n\r\n")
+                request.append(postData)
+
+                // แสดง HTTP Request ที่จะถูกส่งไป
+                println("Request:\n$request")
+
+                // สร้าง Socket ไปยังเซิร์ฟเวอร์
+                val socket = Socket(host, 80)
+                socket.soTimeout = 60000000
+                // ส่งข้อมูลไปยังเซิร์ฟเวอร์
+                val outputStream = socket.getOutputStream()
+                outputStream.write(request.toString().toByteArray())
+                outputStream.flush()
+// ใช้ BufferedInputStream เพื่อรองรับข้อมูลขนาดใหญ่
+                val inputStream = BufferedInputStream(socket.getInputStream())
+                val byteArray = ByteArray(32)
+                val responseBuilder = StringBuilder()
+
+                var bytesRead: Int
+                while (inputStream.read(byteArray).also { bytesRead = it } != -1) {
+                    responseBuilder.append(String(byteArray, 0, bytesRead))
+                }
+                /*
+                                // อ่าน Response จากเซิร์ฟเวอร์
+                                val inputStream = socket.getInputStream()
+                                val response = inputStream.bufferedReader().use { it.readText() }
+                                println("Server Response:\n$response")*/
+                // ปิดการเชื่อมต่อ
+                socket.close()
+                // อัปเดต UI บน Main Thread
+                activity?.runOnUiThread {
+                    //val responseBody = responseBuilder.toString().substringAfter("\r\n\r\n")
+                    val responseBody = responseBuilder.toString()
+                        .substringAfter("\r\n\r\n") // ตัด Header HTTP ออกก่อน
+                        .substringAfter("[")        // เริ่มนับที่ `[`
+                        .substringBeforeLast("]")   // จบที่ `]`
+                        .let { "[$it]" }            // ใส่ `[` และ `]` กลับไป
+
+                    val listType = object : TypeToken<List<User>>() {}.type
+                    val users: List<User> = Gson().fromJson(responseBody, listType)
+                    if (users.isNullOrEmpty()) {
+                        Toast.makeText(context, "not found", Toast.LENGTH_SHORT).show()
+                        return@runOnUiThread
+                    }
+
+                    ///////////////////////////
+                    val itemList = listOf(users)
+                    ///////////////////////////
+
+
+                    //nameTest.text = responseBody
+                    // println(responseBody)
+                    //var name_test:TextView? = null
+                    //name_test = findViewById(R.id.name_test)
+
+                    //name_test!!.text = users[0].name
+                    println("get IMGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG123")
+                    val x = Base64.decode(users[0].img1, Base64.DEFAULT)
+                    //println(users[0].image)
+                    // fun decodeBase64ToBitmap(base64String: String): Bitmap? {
+                    fun decodeBase64ToBitmap(): Bitmap? {
+                        return try {
+                            // val decodedBytes = Base64.decode(base64String, Base64.DEFAULT)
+                            val decodedBytes = Base64.decode(x, Base64.DEFAULT)
+                            BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.size)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            null
+                        }
+                    }
+
+                    val userImageBitmap = decodeBase64ToBitmap()
+                    println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                    println(userImageBitmap)
+
+
+
+                    println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+                    println("list test")
+                    val recyclerView = view?.findViewById<RecyclerView>(R.id.user_item)
+                    recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+
+
+                    recyclerView?.adapter = MyAdapter(itemList)
+
+
+
+
+                }
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+        }.start()
+
+    }
+
 }
