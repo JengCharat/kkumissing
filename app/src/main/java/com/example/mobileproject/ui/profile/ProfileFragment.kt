@@ -19,6 +19,7 @@ import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentProfileBinding
 import com.example.mobileproject.ui.home.MyAdapter
 import com.example.mobileproject.ui.home.User
+import com.example.mobileproject.ui.home.selectedItem
 import com.google.firebase.auth.FirebaseAuth
 import com.example.mobileproject.ui.profile.ResultActivity
 import com.example.mobileproject.ui.profile.LoginActivity
@@ -64,6 +65,12 @@ class ProfileFragment : Fragment() {
         else{
             binding.mainLoginButton?.setText("login")
 
+        }
+        binding.profileReportButton.setOnClickListener {
+            get("SELECT * FROM items WHERE email = '${mAuth!!.currentUser?.email}'  AND report_or_missing = 2 ORDER BY id DESC;")
+        }
+        binding.profileFoundingButton.setOnClickListener {
+            get("SELECT * FROM items WHERE email = '${mAuth!!.currentUser?.email}'  AND report_or_missing = 1 ORDER BY id DESC;")
         }
 
 
