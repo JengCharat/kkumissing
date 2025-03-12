@@ -86,10 +86,11 @@ class HomeFragment : Fragment() {
                 // กรณีที่ไม่มีการเลือก
             }
         }
-        binding.reportMissingButton.setOnClickListener {
-            val intent = Intent(requireContext(), home_more_detail::class.java)
-            startActivity(intent)
-        }
+        //binding.reportMissingButton.setOnClickListener {
+        //    val intent = Intent(requireContext(), home_more_detail::class.java)
+        //    startActivity(intent)
+        //}
+
         binding.foundingButton.setOnClickListener {
             var search_text = binding.searchText.text ?: ""
             if (selectedItem == "ระบุตัวเลือก") {
