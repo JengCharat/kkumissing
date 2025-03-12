@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/profile_img"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
@@ -62,7 +62,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_img" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/user_item"

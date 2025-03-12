@@ -18,6 +18,8 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,6 +56,27 @@ import java.io.IOException
 import java.io.InputStream
 import java.net.Socket
 import java.net.URLEncoder
+
+////////////////////////
+import com.example.mobileproject.ui.dashboard.img1
+import com.example.mobileproject.ui.dashboard.img2
+import com.example.mobileproject.ui.dashboard.img3
+import com.example.mobileproject.ui.dashboard.img4
+import com.example.mobileproject.ui.notifications.contact
+import com.example.mobileproject.ui.notifications.fname_2
+import com.example.mobileproject.ui.notifications.item_name
+import com.example.mobileproject.ui.notifications.item_type
+import com.example.mobileproject.ui.notifications.latitude2
+import com.example.mobileproject.ui.notifications.lname_2
+import com.example.mobileproject.ui.notifications.longitude2
+import com.example.mobileproject.ui.notifications.lost_place
+import com.example.mobileproject.ui.notifications.more_detail
+import com.example.mobileproject.ui.notifications.telNumber
+import com.example.mobileproject.ui.home.HomeFragment
+import com.example.mobileproject.ui.home.Users
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
+////////////////////////
 var email2:String = ""
 
 class ProfileFragment : Fragment() {
@@ -108,7 +131,15 @@ class ProfileFragment : Fragment() {
             binding.updateProfile.visibility = View.GONE
             binding.mainLoginButton?.setText("login")
             binding.mainLoginButton?.setImageResource(R.drawable.log_in_btn) // เปลี่ยนรูปแทนข้อความ
+        }
+            binding.profileImg.setOnClickListener {
+                val intent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                get_profile_Image.launch(intent)
 
+            }
+            binding.updateProfile.setOnClickListener {
+                set_img()
         }
 
         binding.profileReportButton.setOnClickListener {
