@@ -43,6 +43,7 @@ class ProfileFragment : Fragment() {
         if (mAuth!!.currentUser != null) {
             binding.mainLoginButton?.setText("logout")
             binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
+            
         }
         else{
             binding.mainLoginButton?.setText("login")
