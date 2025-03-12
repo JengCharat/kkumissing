@@ -28,7 +28,7 @@ import java.io.BufferedInputStream
 import java.io.IOException
 import java.net.Socket
 import java.net.URLEncoder
-
+var email2:String = ""
 
 class ProfileFragment : Fragment() {
 
@@ -56,6 +56,7 @@ class ProfileFragment : Fragment() {
 
         // กรณีที่มีการ login ค้างไว้ จะสามารถเข้าหน้า Result ได้เลย
         if (mAuth!!.currentUser != null) {
+            email2 = mAuth!!.currentUser?.email.toString()
             binding.mainLoginButton?.setText("logout")
             binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
             get("select * from items where email = '${mAuth!!.currentUser?.email}'")
