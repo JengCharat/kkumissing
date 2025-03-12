@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
@@ -175,6 +176,12 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        binding.contactUsBtn.setOnClickListener {
+            findNavController().navigate(R.id.contactUsFragment)
+        }
+        binding.aboutUsBtn.setOnClickListener {
+            findNavController().navigate(R.id.aboutUsFragment)
+        }
         return root
     }
 
