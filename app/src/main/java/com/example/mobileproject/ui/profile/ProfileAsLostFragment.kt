@@ -33,9 +33,9 @@ class ProfileAsLostFragment : Fragment() {
         binding.asLostItem.layoutManager = LinearLayoutManager(requireContext())
         // ✅ สร้างรายการตัวอย่าง
         val itemList = listOf(
-            SearchItem("กระเป๋าสตางค์หาย", "สมชาย", "ห้างสรรพสินค้า", "081-234-5678", R.drawable.rounded_button),
-            SearchItem("โทรศัพท์มือถือหาย", "สมหญิง", "รถไฟฟ้า BTS", "099-876-5432", R.drawable.rounded_button),
-            SearchItem("กุญแจรถหาย", "มานพ", "หน้ามหาวิทยาลัย", "085-123-4567", R.drawable.rounded_button)
+            SearchItem("กระเป๋าสตางค์หาย", "สมชาย", "ห้างสรรพสินค้า", "081-234-5678", R.drawable.d5),
+            SearchItem("โทรศัพท์มือถือหาย", "สมหญิง", "รถไฟฟ้า BTS", "099-876-5432", R.drawable.d5),
+            SearchItem("กุญแจรถหาย", "มานพ", "หน้ามหาวิทยาลัย", "085-123-4567", R.drawable.d5)
         )
         // ✅ กำหนด Adapter
         val adapter = SearchItemAdapter(itemList)

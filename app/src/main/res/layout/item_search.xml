@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ITEM"
     android:layout_width="360dp"
     android:layout_height="120dp"
@@ -10,13 +11,14 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/thumbnail"
         android:layout_width="102dp"
         android:layout_height="102dp"
         android:layout_marginRight="8dp"
         android:radius="@dimen/activity_vertical_margin"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/CircleImageInput" />
 
     <LinearLayout
         android:layout_width="match_parent"

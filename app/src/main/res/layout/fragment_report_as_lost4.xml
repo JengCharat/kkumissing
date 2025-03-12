@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageUploadMain" />
 
 
-    <ImageButton
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageUploadMain"
         android:layout_width="240dp"
         android:layout_height="180dp"
@@ -96,6 +96,7 @@
         android:focusable="true"
         android:scaleType="centerCrop"
         android:src="@drawable/add_image"
+        app:shapeAppearanceOverlay="@style/CircleImageInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/next3"
