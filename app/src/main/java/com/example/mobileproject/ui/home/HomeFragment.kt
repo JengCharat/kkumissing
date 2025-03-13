@@ -57,7 +57,7 @@ data class Users(
     val email:String,
     val profile:String,
 )
-var db_server_ip = "10.48.104.41"
+var db_server_ip = "10.48.104.61"
 var selectedItem:String = ""
 class HomeFragment : Fragment() {
 
