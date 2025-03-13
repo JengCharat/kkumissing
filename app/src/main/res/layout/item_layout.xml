@@ -7,7 +7,7 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:padding="16dp"
-    android:background="#D3D3D3"> <!-- สีพื้นหลังของแต่ละ item -->
+    android:background="#00D30000"> <!-- สีพื้นหลังของแต่ละ item -->
 
     <!--<LinearLayout
         android:id="@+id/imageContainer"
@@ -19,16 +19,21 @@
         android:scrollbars="vertical">
 
     </LinearLayout>-->
+
     <LinearLayout
         android:id="@+id/imageContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#D3D3D3"
+        android:background="#00D30000"
         android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:scrollbars="vertical"> <!-- เพิ่มสีแดงที่ครอบไว้ -->
+        android:scrollbars="vertical"
+        >
     </LinearLayout>
+
+
+
 
 
 

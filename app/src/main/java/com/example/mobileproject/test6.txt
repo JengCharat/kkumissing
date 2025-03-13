@@ -1,0 +1,31 @@
+//นี่คือ api ที่เอาไว้ดึงข้อมูลจาก table users
+//วิธีการใช้
+// 1.run xampp
+// 2.เอาไฟล์นี่ไปวางที่ htdocs/myapi/test6.php
+//2.1 ถ้าไม่มี ก็ให้สร้าง folder myapi
+
+<?php
+ $servername = "localhost";
+ $username = "root";
+ $password = "abc123";
+ $database = "web-app-test";
+
+ $conn = new mysqli($servername, $username, $password, $database);
+ if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error);
+ }
+ $sql = $_POST['sql_command'];
+ $result = $conn->query($sql);
+ $result2 = [];
+ while ($row = $result->fetch_assoc()) {
+     // $imageData = base64_encode($row["image"]);
+     $profile = base64_encode($row["profile"]);
+     $result2[] = [
+         "id" => $row["id"],
+	  "email" =>$row["email"],
+          "profile" => $profile
+     ];
+ }
+ echo json_encode($result2);
+ $conn->close();
+ ?>
