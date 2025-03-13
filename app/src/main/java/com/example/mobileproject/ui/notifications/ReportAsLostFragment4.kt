@@ -41,7 +41,7 @@ class ReportAsLostFragment4 : Fragment() {
                 //ImageData.base64Image = encodeImageToBase64(it)
                 //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
                 img1 = encodeImageToBase64(it).toString()
-             
+
             }
         }
     }
@@ -72,7 +72,7 @@ class ReportAsLostFragment4 : Fragment() {
                 //val base64Image = encodeImageToBase64(it)
                 //ImageData.base64Image = encodeImageToBase64(it)
                 //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
-              img3 = encodeImageToBase64(it).toString()
+                img3 = encodeImageToBase64(it).toString()
 
             }
         }
@@ -88,7 +88,7 @@ class ReportAsLostFragment4 : Fragment() {
                 //val base64Image = encodeImageToBase64(it)
                 //ImageData.base64Image = encodeImageToBase64(it)
                 //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
-               img4 = encodeImageToBase64(it).toString()
+                img4 = encodeImageToBase64(it).toString()
 
             }
         }
@@ -123,7 +123,7 @@ class ReportAsLostFragment4 : Fragment() {
 
         binding.imageUpload2.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            getImage4.launch(intent)
+            getImage3.launch(intent)
         }
 
         binding.imageUpload3.setOnClickListener {

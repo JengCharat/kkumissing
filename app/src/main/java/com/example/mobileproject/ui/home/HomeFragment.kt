@@ -5,15 +5,18 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Base64
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
@@ -48,17 +51,17 @@ data class User(
     val type:String,
 )
 
+
 data class Users(
     val id:String,
     val email:String,
     val profile:String,
 )
-var db_server_ip = "10.48.104.41"
+var db_server_ip = "10.48.104.81"
 var selectedItem:String = ""
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -70,6 +73,9 @@ class HomeFragment : Fragment() {
     ): View {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
+
+
+
 
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -96,6 +102,32 @@ class HomeFragment : Fragment() {
         //    val intent = Intent(requireContext(), home_more_detail::class.java)
         //    startActivity(intent)
         //}
+
+        ///////////////////jeng fix select font size
+
+
+
+
+        // สร้าง ArrayAdapter
+        //val adapter = ArrayAdapter(requireContext(), R.layout.spinner_item, items)
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+// ใช้การตั้งค่าขนาดตัวอักษรเฉพาะใน HomeFragment
+        binding.misingType.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (view is TextView) {
+                    view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 0.25f) // ปรับขนาดตัวอักษรเป็น 0.5 dp
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        })
+        binding.misingType.adapter = adapter
+        ////////////////////////
+
+
+
+
 
         binding.foundingButton.setOnClickListener {
             var search_text = binding.searchText.text ?: ""
@@ -126,10 +158,7 @@ class HomeFragment : Fragment() {
 
         }
 
-//        val textView: TextView = binding.textHome
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+
 
         return root
     }

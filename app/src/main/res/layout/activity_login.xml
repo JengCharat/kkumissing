@@ -14,7 +14,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="256dp"
         android:fontFamily="@font/prompt_medium"
-        android:text="username"
+        android:text="E-Mail"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,8 +23,7 @@
         android:id="@+id/inputuser"
         android:layout_width="325dp"
         android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edittext_bg"
         android:ems="10"
         android:fontFamily="@font/prompt_medium"
@@ -32,6 +31,7 @@
         android:inputType="text"
         android:padding="14dp"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Next2" />
 
@@ -51,7 +51,6 @@
         android:id="@+id/inputpass"
         android:layout_width="325dp"
         android:layout_height="48dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/edittext_bg"
         android:ems="10"
@@ -60,6 +59,7 @@
         android:inputType="textPassword"
         android:padding="14dp"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Next3" />
 

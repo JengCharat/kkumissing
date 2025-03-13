@@ -73,8 +73,9 @@ class ReportMissing1Fragment : Fragment() {
             println(fname)
             println(lname)
             findNavController().navigate(R.id.action_dashboardFragment_to_reportMissing2Fragment)
-        
         }
+
+
 
         return root
     }

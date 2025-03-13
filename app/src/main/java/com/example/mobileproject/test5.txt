@@ -1,3 +1,8 @@
+//นี่คือ api ที่เอาไว้ดึงข้อมูลจาก table items
+//วิธีการใช้
+// 1.run xampp
+// 2.เอาไฟล์นี่ไปวางที่ htdocs/myapi/test5.php
+//2.1 ถ้าไม่มี ก็ให้สร้าง folder myapi
  <?php
  $servername = "localhost";
  $username = "root";

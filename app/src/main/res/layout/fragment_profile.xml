@@ -19,55 +19,124 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/mainLoginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginBottom="60dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_img"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:srcCompat="@drawable/person"
+         />
+
+    <View
+        android:id="@+id/topDivider1"
+        android:layout_width="360dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gmail" />
+
+
+    <View
+        android:id="@+id/topDivider"
+        android:layout_width="360dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topDivider1" />
 
     <TextView
         android:id="@+id/gmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:fontFamily="@font/prompt_medium"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/update_profile" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/user_item"
-        android:layout_width="386dp"
-        android:layout_height="399dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="164dp"
+        android:layout_width="395dp"
+        android:layout_height="535dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_founding_button" />
 
     <Button
         android:id="@+id/profile_founding_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="50dp"
+        android:background="@drawable/edittext_bg"
+        android:fontFamily="@font/prompt_medium"
         android:text="ของที่ถูกพบ"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/topDivider" />
 
     <Button
         android:id="@+id/profile_report_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/edittext_bg"
+        android:fontFamily="@font/prompt_medium"
         android:text="ของที่แจ้งหาย"
-        app:layout_constraintStart_toEndOf="@+id/profile_founding_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topDivider" />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/aboutUsBtn"
+        android:layout_width="75dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="48dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="about_us"
+        android:scaleType="fitCenter"
+        android:src="@drawable/about_us_btn"
+        android:tint="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topDivider1"
+        tools:ignore="UseAppTint" />
+
+    <ImageButton
+        android:id="@+id/contactUsBtn"
+        android:layout_width="75dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="44dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="contact_us"
+        android:scaleType="fitCenter"
+        android:src="@drawable/contact_us_btn"
+        android:tint="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@+id/mainLoginButton"
+        app:layout_constraintTop_toBottomOf="@+id/topDivider1"
+        tools:ignore="UseAppTint" />
+
+    <ImageButton
+        android:id="@+id/mainLoginButton"
+        android:layout_width="75dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="48dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="log_in"
+        android:scaleType="fitCenter"
+        android:src="@drawable/log_out_btn"
+        android:tint="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topDivider1"
+        tools:ignore="UseAppTint" />
+
+    <!--<ImageView
         android:id="@+id/profile_img"
         android:layout_width="227dp"
         android:layout_height="197dp"
@@ -75,15 +144,18 @@
         android:layout_marginEnd="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add_image" />
+        app:srcCompat="@drawable/add_image" /> -->
 
     <Button
         android:id="@+id/update_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
         android:text="update_profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
