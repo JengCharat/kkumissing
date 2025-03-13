@@ -15,8 +15,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -26,35 +24,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileproject.R
 import com.example.mobileproject.databinding.FragmentProfileBinding
-import com.example.mobileproject.ui.dashboard.img1
-import com.example.mobileproject.ui.dashboard.img2
-import com.example.mobileproject.ui.dashboard.img3
-import com.example.mobileproject.ui.dashboard.img4
 import com.example.mobileproject.ui.home.MyAdapter
 import com.example.mobileproject.ui.home.User
 import com.example.mobileproject.ui.home.db_server_ip
 import com.example.mobileproject.ui.home.selectedItem
-import com.example.mobileproject.ui.notifications.contact
-import com.example.mobileproject.ui.notifications.fname_2
-import com.example.mobileproject.ui.notifications.item_name
-import com.example.mobileproject.ui.notifications.item_type
-import com.example.mobileproject.ui.notifications.latitude2
-import com.example.mobileproject.ui.notifications.lname_2
-import com.example.mobileproject.ui.notifications.longitude2
-import com.example.mobileproject.ui.notifications.lost_place
-import com.example.mobileproject.ui.notifications.more_detail
-import com.example.mobileproject.ui.notifications.telNumber
 import com.google.firebase.auth.FirebaseAuth
 import com.example.mobileproject.ui.profile.ResultActivity
 import com.example.mobileproject.ui.profile.LoginActivity
-import com.example.mobileproject.ui.home.HomeFragment
-import com.example.mobileproject.ui.home.Users
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedInputStream
-import java.io.ByteArrayOutputStream
 import java.io.IOException
-import java.io.InputStream
 import java.net.Socket
 import java.net.URLEncoder
 
@@ -101,7 +81,6 @@ class ProfileFragment : Fragment() {
                 //ImageData.base64Image = encodeImageToBase64(it)
                 //println("Base64: $base64Image") // สามารถส่งค่า Base64 ไปยัง Server ได้
                 profile_image = encodeImageToBase64(it).toString()
-
             }
         }
     }
@@ -125,50 +104,37 @@ class ProfileFragment : Fragment() {
             email2 = mAuth!!.currentUser?.email.toString()
             binding.mainLoginButton?.setImageResource(R.drawable.log_out_btn) // เปลี่ยนรูปแทนข้อความ
             binding.gmail.setText("gmail: ${mAuth!!.currentUser?.email}")
-            get("SELECT * from items  WHERE items.email = '${mAuth!!.currentUser?.email}'")
 
+            get("select * from items where email = '${mAuth!!.currentUser?.email}'")
+            //get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
         }
-        else{
+        else {
             binding.updateProfile.visibility = View.GONE
-            binding.mainLoginButton?.setText("login")
             binding.mainLoginButton?.setImageResource(R.drawable.log_in_btn) // เปลี่ยนรูปแทนข้อความ
         }
-            binding.profileImg.setOnClickListener {
-                val intent =
-                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                get_profile_Image.launch(intent)
-
-            }
-            binding.updateProfile.setOnClickListener {
-                set_img()
-        }
-
-        binding.profileReportButton.setOnClickListener {
-            get("SELECT * FROM items WHERE email = '${mAuth!!.currentUser?.email}'  AND report_or_missing = 2 ORDER BY id DESC;")
-        }
-        binding.profileFoundingButton.setOnClickListener {
-            get("SELECT * FROM items WHERE email = '${mAuth!!.currentUser?.email}'  AND report_or_missing = 1 ORDER BY id DESC;")
-        }
-
-
         binding.profileImg.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val intent =
+                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             get_profile_Image.launch(intent)
 
         }
         binding.updateProfile.setOnClickListener {
             set_img()
         }
-        binding.mainLoginButton ?.setOnClickListener {
+        binding.profileReportButton.setOnClickListener {
+
+            get("SELECT * FROM items WHERE email = '${mAuth!!.currentUser?.email}'  AND report_or_missing = 2 ORDER BY id DESC;")
+
+        }
+        binding.profileFoundingButton.setOnClickListener {
+            get("SELECT * FROM items WHERE email = '${mAuth!!.currentUser?.email}'  AND report_or_missing = 1 ORDER BY id DESC;")
+
+        }
+
+        binding.mainLoginButton?.setOnClickListener {
             if (mAuth!!.currentUser != null) {
                 mAuth!!.signOut()
                 Toast.makeText(requireContext(), "Signed out!", Toast.LENGTH_LONG).show()
-                binding.mainLoginButton?.setText("logout")
-
-            }
-            else{
-                // ซ่อนปุ่ม
-                binding.mainLoginButton?.setText("login")
                 binding.mainLoginButton?.setImageResource(R.drawable.log_in_btn) // เปลี่ยนเป็นปุ่ม Login
             } else {
                 binding.mainLoginButton?.setImageResource(R.drawable.log_out_btn) // เปลี่ยนเป็นปุ่ม Logout
@@ -189,12 +155,12 @@ class ProfileFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
     fun get(sqlCommand:String) {
 
         Thread {
+            get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
+
             try {
-                get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
                 // ตั้งค่าข้อมูลที่ต้องการส่ง
                 val host = db_server_ip
                 val path = "/myapi/test5.php"
@@ -308,13 +274,15 @@ class ProfileFragment : Fragment() {
                     binding.profileImg.setImageBitmap(profile_image_decode)
 
 
-                        }
+                }
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+            get_profile_image("select * from users where users.email = '${mAuth!!.currentUser?.email}'")
+
 
         }.start()
-            }
+    }
     fun get_profile_image(sqlCommand:String) {
 
         Thread {
@@ -346,7 +314,7 @@ class ProfileFragment : Fragment() {
                 val outputStream = socket.getOutputStream()
                 outputStream.write(request.toString().toByteArray())
                 outputStream.flush()
-// ใช้ BufferedInputStream เพื่อรองรับข้อมูลขนาดใหญ่
+                // ใช้ BufferedInputStream เพื่อรองรับข้อมูลขนาดใหญ่
                 val inputStream = BufferedInputStream(socket.getInputStream())
                 val byteArray = ByteArray(32)
                 val responseBuilder = StringBuilder()
@@ -409,6 +377,7 @@ class ProfileFragment : Fragment() {
 
                     val profile_image_decode = decodeBase64ToBitmap()
                     binding.profileImg.setImageBitmap(profile_image_decode)
+
 
 
 
