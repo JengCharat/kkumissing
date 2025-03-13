@@ -36,7 +36,7 @@
         android:id="@+id/imageView2"
         android:layout_width="360dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="36dp"
         android:src="@drawable/update_report_as_lost_6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -47,7 +47,7 @@
         android:id="@+id/textView"
         android:layout_width="215dp"
         android:layout_height="90dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/prompt_medium"
         android:gravity="center"
         android:text="ยืนยันสิ่งของได้ถูกพบแล้ว"
@@ -56,7 +56,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TextView
         android:id="@+id/textView3"
@@ -76,7 +76,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/prompt_medium"
-        android:text="ข้าพเจ้ายอมรับว่าสิ่งของนั้นสูญหายจริง"
+        android:text="ข้าพเจ้ายอมรับว่าได้พบสิ่งของนั้นจริง"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
