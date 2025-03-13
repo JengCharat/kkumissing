@@ -10,7 +10,7 @@
 
 นางสาวณิชกานต์ จูประพัทธศรี([**Nichagan-J**](https://github.com/Nichagan-J))
 
-##เทคโนโลยีที่ใช้
+## เทคโนโลยีที่ใช้
 
 Android studio (ladybug)
 
