@@ -136,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/topDivider1"
         tools:ignore="UseAppTint" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/profile_img"
         android:layout_width="227dp"
         android:layout_height="197dp"
@@ -144,7 +144,7 @@
         android:layout_marginEnd="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add_image" />
+        app:srcCompat="@drawable/add_image" /> -->
 
     <Button
         android:id="@+id/update_profile"
@@ -152,7 +152,6 @@
         android:layout_height="48dp"
         android:layout_marginTop="4dp"
         android:gravity="center"
-        android:shadowColor="@android:color/system_accent1_500"
         android:text="update_profile"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
