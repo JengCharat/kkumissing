@@ -4,7 +4,7 @@
 
 ผู้จัดทำ
 
-นายแก้วเพ็ชรัตน์ สีสันต์[**JengCharat**](https://github.com/JengCharat)
+นายแก้วเพ็ชรัตน์ สีสันต์([**JengCharat**](https://github.com/JengCharat))
 
 นายณัฐธเนศ กำเนิดกาลึม([**natthaneto**](https://github.com/natthaneto))
 
