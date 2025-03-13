@@ -11,8 +11,11 @@
 นางสาวณิชกานต์ จูประพัทธศรี([**Nichagan-J**](https://github.com/Nichagan-J))
 
 เทคโนโลยีที่ใช้
+
 Android studio (ladybug)
+
 Xampp
+
 ดึงข้อมูลจาก gps (https://developer.android.com/develop/sensors-and-location/location/retrieve-current?hl=th)
 
 ## ขั้นตอนในการติดตั้ง
